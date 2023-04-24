@@ -18,6 +18,7 @@ const SunnySideUp = () => {
 
   return (  
     <div style={{border: "1px solid red"}}>
+      <h1>ts 🔫</h1>
       {
         geoApiData &&
         geoApiData.map((a:any)=>(
