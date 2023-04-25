@@ -20,7 +20,8 @@ console.log(position)
 console.log(latitude[0]);
 console.log(longitude[0]);
 }
-const onGeoError = () : void=> {
+
+const onGeoError = () : void => {
 alert("I can't find you. No weather for you.");
 }
 
