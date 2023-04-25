@@ -10,11 +10,11 @@ const SunnySideUp = () => {
 
   useEffect(()=>{
     dispatch(asyncFetch());
-  },[])
+  })
 
   useEffect(()=>{
+    console.log(geoApiStatus);
     console.log(geoApiData);
-    console.log(geoApiStatus)
   },[geoApiStatus])
 
   const [latitude, setLatitude] = useState<any>();
