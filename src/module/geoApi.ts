@@ -13,6 +13,7 @@ interface Coord {
   lat: number;
 }
 
+
 interface Sys {
   country: string;
   timezone: number;
