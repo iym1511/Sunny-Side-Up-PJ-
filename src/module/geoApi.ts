@@ -8,10 +8,30 @@ interface initialStateType {
   apiData: null | any
 }
 
+let latitude:number[] = [];
+let longitude:number[] = [];
+
+const onGeoOkay = (position: GeolocationPosition): void => {
+let lat = position.coords.latitude;
+let lon = position.coords.longitude;
+latitude.push(lat);
+longitude.push(lon);
+console.log(position)
+console.log(latitude[0]);
+console.log(longitude[0]);
+}
+
+const onGeoError = () : void => {
+alert("I can't find you. No weather for you.");
+}
+
+navigator.geolocation.getCurrentPosition(onGeoOkay, onGeoError);
+// http://api.openweathermap.org/geo/1.0/reverse?lat=51.5098&lon=-0.1180&limit=5&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb
+
 export const asyncFetch = createAsyncThunk(
   'GeoSlice/asyncFetch',
   async ():Promise<any> => {
-      const res = await axios.get<any>("http://api.openweathermap.org/geo/1.0/reverse?lat=35.1375583&lon=129.1003724&limit=5&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb");
+      const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude[0]}&lon=${longitude[0]}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&lang=kr`);
       return res;
   }
 )
@@ -35,6 +55,7 @@ const GeoSlice = createSlice({
       // 불러왔을 때
       builder.addCase(asyncFetch.fulfilled, (state, action:PayloadAction<any>): void => {
           state.apiData = action.payload;
+          console.log(action.payload);
           state.status = 'complete';
       });
       // 불러오기 실패
