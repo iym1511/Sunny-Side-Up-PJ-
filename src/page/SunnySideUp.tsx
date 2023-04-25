@@ -65,6 +65,7 @@ const SunnySideUp = () => {
   },[]);
 
   useEffect(()=>{
+    console.log(geoApiStatus);
     console.log(geoApiData);
     console.log(geoApiStatus);
   },[geoApiStatus]);
