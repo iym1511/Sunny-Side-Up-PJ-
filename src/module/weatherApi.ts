@@ -85,24 +85,6 @@ interface GeolocationPosition {
   timestamp : number;
 }
 
-// parmas에 넣어주기 4월 24일에
-    let latitude:number[] = [];
-    let longitude:number[] = [];
-
-const onGeoOkay = (position: GeolocationPosition): void => {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    latitude.push(lat);
-    longitude.push(lon);
-    // console.log(latitude);
-    // console.log(longitude)
-}
-const onGeoError = () : void=> {
-    alert("I can't find you. No weather for you.");
-}
-
-navigator.geolocation.getCurrentPosition(onGeoOkay, onGeoError);
-
 
 export const asyncFetch = createAsyncThunk(
     'WeatherSlice/asyncFetch',
