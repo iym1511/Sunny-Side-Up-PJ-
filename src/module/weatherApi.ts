@@ -68,6 +68,7 @@ interface Coord {
 interface initialStateType {
     default: string;
     apiData: List[] | null
+    apiData2: List[] | null;
 }
 
 interface Coords {
@@ -100,9 +101,25 @@ export const asyncFetch = createAsyncThunk(
     }
 )
 
+export const asyncFetch2 = createAsyncThunk(
+  'WeatherSlice/asyncFetch2',
+  async ():Promise<List[]> => {
+      const params: Params = {
+          id : "1835847,1841610,1843125,1845106,1845105,1845789,1845788,1841597,1902028,1846265",
+          appid :"e524509bbefc6ce7ac50ddf6a1e1b1fb",
+          lang : "kr",
+          units : "metric"
+      };
+      const res = await axios.get<WeatherData>("https://api.openweathermap.org/data/2.5/group", {params});
+      // const res = await axios.get("https://api.openweathermap.org/data/2.5/weather?lat={35.1935265}&lon={129.1109005}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb");
+      return res.data.list;
+  }
+)
+
 const initialState:initialStateType = {
     default: "default",
-    apiData: null
+    apiData: null,
+    apiData2: null,
 }
 
 const WeatherSlice = createSlice({
@@ -123,6 +140,20 @@ const WeatherSlice = createSlice({
         });
         // 불러오기 실패
         builder.addCase(asyncFetch.rejected, (state): void => {
+            state.default = 'error';
+        });
+        
+        // 불러오는 로딩
+        builder.addCase(asyncFetch2.pending, (state): void => {
+            state.default = 'loading';
+        });
+        // 불러왔을 때
+        builder.addCase(asyncFetch2.fulfilled, (state, action:PayloadAction<List[]>): void => {
+            state.apiData2 = action.payload;
+            state.default = 'complete';
+        });
+        // 불러오기 실패
+        builder.addCase(asyncFetch2.rejected, (state): void => {
             state.default = 'error';
         });
     },

@@ -1,18 +1,16 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import WeatherApi from "./module/weatherApi";
-import GeoApi from "./module/geoApi"
 import persistReducer from 'redux-persist/lib/persistReducer';
 import storageSession from "redux-persist/lib/storage/session"; // 세션 스토리지
 
 const rootReducer = combineReducers({
     weatherApi: WeatherApi,
-    geoApi: GeoApi
 })
 
 const persistConfig = {
     key: "Root", 
     storage: storageSession,
-    list: ["weatherApi","geoApi"],
+    list: ["weatherApi"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
