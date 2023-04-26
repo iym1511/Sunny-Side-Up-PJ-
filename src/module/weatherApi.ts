@@ -2,6 +2,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // axios
 import axios from "axios";
+import { PositionType } from "../types/GeoLocation";
 
 interface Coord {
     lon: number;
@@ -59,14 +60,17 @@ interface Coord {
 }
 
     interface Params {
-    id: string;
+    id?: string;
     appid: string;
-    lang: string;
-    units: string;
+    lang?: string;
+    units?: string;
+    lat?: string | null;
+    lon?: string | null;
 }
 
 interface initialStateType {
-    default: string;
+    status1: string;
+    status2: string;
     apiData: List[] | null
     apiData2: List[] | null;
 }
@@ -86,7 +90,6 @@ interface GeolocationPosition {
   timestamp : number;
 }
 
-
 export const asyncFetch = createAsyncThunk(
     'WeatherSlice/asyncFetch',
     async ():Promise<List[]> => {
@@ -104,13 +107,26 @@ export const asyncFetch = createAsyncThunk(
 export const asyncFetch2 = createAsyncThunk(
   'WeatherSlice/asyncFetch2',
   async ():Promise<List[]> => {
-      const res = await axios.get("https://api.openweathermap.org/data/2.5/weather?lat=35.1935265&lon=129.1109005&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb");
-      return res.data.list;
+    const onGeoOkay = (position: PositionType): void => {
+      const latitude : number  = position.coords.latitude;
+      const longtitude : number = position.coords.longitude;
+      sessionStorage.setItem("latitude", `${latitude}`)
+      sessionStorage.setItem("longtitude", `${longtitude}`)
+    }
+    const onGeoError = (): void =>{
+      alert("I can't find you. No weather for you.");
+    }
+    navigator.geolocation.getCurrentPosition((position: PositionType) => onGeoOkay(position), onGeoError);
+    const lat = sessionStorage.getItem("latitude");
+    const lon = sessionStorage.getItem("longtitude");
+    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb`)
+    return res.data;
   }
 )
 
 const initialState:initialStateType = {
-    default: "default",
+    status1: "default",
+    status2: "default",
     apiData: null,
     apiData2: null,
 }
@@ -118,36 +134,34 @@ const initialState:initialStateType = {
 const WeatherSlice = createSlice({
     name:"weather",
     initialState,
-    reducers:{
-
-    },
+    reducers:{},
     extraReducers: (builder) => {
         // 불러오는 로딩
         builder.addCase(asyncFetch.pending, (state): void => {
-            state.default = 'loading';
+            state.status1 = 'loading1';
         });
         // 불러왔을 때
         builder.addCase(asyncFetch.fulfilled, (state, action:PayloadAction<List[]>): void => {
             state.apiData = action.payload;
-            state.default = 'complete';
+            state.status1 = 'complete1';
         });
         // 불러오기 실패
         builder.addCase(asyncFetch.rejected, (state): void => {
-            state.default = 'error';
+            state.status1 = 'error1';
         });
         
         // 불러오는 로딩
         builder.addCase(asyncFetch2.pending, (state): void => {
-            state.default = 'loading';
+            state.status2 = 'loading2';
         });
         // 불러왔을 때
         builder.addCase(asyncFetch2.fulfilled, (state, action:PayloadAction<List[]>): void => {
             state.apiData2 = action.payload;
-            state.default = 'complete';
+            state.status2 = 'complete2';
         });
         // 불러오기 실패
         builder.addCase(asyncFetch2.rejected, (state): void => {
-            state.default = 'error';
+            state.status2 = 'error2';
         });
     },
 })

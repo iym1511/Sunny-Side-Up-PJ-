@@ -1,16 +1,20 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import WeatherApi from "./module/weatherApi";
+import { configureStore, combineReducers } from '@reduxjs/toolkit'; // toolkit
+import WeatherApi from "./module/weatherApi"; // api redux thunk
+import AirPollApi from "./module/airpollution";
+import Gps from './module/gps';
 import persistReducer from 'redux-persist/lib/persistReducer';
 import storageSession from "redux-persist/lib/storage/session"; // 세션 스토리지
 
 const rootReducer = combineReducers({
     weatherApi: WeatherApi,
+    airPollApi: AirPollApi,
+    gps: Gps,
 })
 
 const persistConfig = {
     key: "Root", 
     storage: storageSession,
-    list: ["weatherApi"],
+    list: ["weatherApi", "airPollApi", "gps"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
