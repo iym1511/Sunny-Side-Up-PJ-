@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { asyncFetch } from "../module/weatherApi";
 import { asyncFetch2 } from "../module/weatherApi";
+
 import axios from "axios";
 import { PositionType } from "../types/GeoLocation";
+import { useSelector } from "react-redux";
+import { GpsState } from "../types/Gps";
+import { setGps } from "../module/gps";
 
 interface KakaoApiType {
   meta: {
@@ -44,11 +48,17 @@ interface Documents {
 
 
 const SunnySideUp = () => {
-
+  const gps = useAppSelector((state)=> state.gps)
   const weatherApiData2 = useAppSelector((state)=> {return state.weatherApi.apiData2});
   const weatherApiData= useAppSelector((state)=> {return state.weatherApi.apiData});
-
+  const weatherApiStatus1 = useAppSelector((state)=>{return state.weatherApi.status1});
+  const weatherApiStatus2 = useAppSelector((state)=>{return state.weatherApi.status2});
   const dispatch = useAppDispatch();
+  const [latitude, setLatitude] = useState<number>();
+  const [longitude, setLongitude] = useState<number>();
+  const [si, setSi] = useState<string>();
+  const [gu, setGu] = useState<string>();
+  const [dong, setDong] = useState<string>();
 
   useEffect(()=>{
     dispatch(asyncFetch());
@@ -56,15 +66,15 @@ const SunnySideUp = () => {
   },[]);
 
   useEffect(()=>{
+    console.log("- - - - -첫 번째 api- - - - -")
+    console.log(weatherApiStatus1)
     console.log(weatherApiData)
+    console.log("- - - - -두 번쨰 api- - - - -")
+    console.log(weatherApiStatus2)
     console.log(weatherApiData2)
-  },[]);
 
-  const [latitude, setLatitude] = useState<number>();
-  const [longitude, setLongitude] = useState<number>();
-  const [si, setSi] = useState<string>();
-  const [gu, setGu] = useState<string>();
-  const [dong, setDong] = useState<string>();
+    console.log(gps.lat)
+  },[]);
 
   const onGeoOkay = (position: PositionType): void => {
     setLatitude(position.coords.latitude);
