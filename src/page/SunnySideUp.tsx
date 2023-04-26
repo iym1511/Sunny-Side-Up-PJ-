@@ -8,6 +8,8 @@ import { PositionType } from "../types/GeoLocation";
 import { useSelector } from "react-redux";
 import { GpsState } from "../types/Gps";
 import { setGps } from "../module/gps";
+import {getAirPollData} from "../module/airpollution";
+import { getPredict30Data } from "../module/predict30";
 
 interface KakaoApiType {
   meta: {
@@ -48,11 +50,15 @@ interface Documents {
 
 
 const SunnySideUp = () => {
-  const gps = useAppSelector((state)=> state.gps)
   const weatherApiData2 = useAppSelector((state)=> {return state.weatherApi.apiData2});
   const weatherApiData= useAppSelector((state)=> {return state.weatherApi.apiData});
   const weatherApiStatus1 = useAppSelector((state)=>{return state.weatherApi.status1});
   const weatherApiStatus2 = useAppSelector((state)=>{return state.weatherApi.status2});
+  const airPollData = useAppSelector((state)=>{return state.airPollApi.apiData});
+  const airPollStatus = useAppSelector((state)=>{return state.airPollApi.status});
+  const predict30Data = useAppSelector((state)=>{return state.predict30Api.apiData});
+  const predict30Status = useAppSelector((state)=>{return state.predict30Api.status});
+  const gps = useAppSelector((state)=> state.gps)
   const dispatch = useAppDispatch();
   const [latitude, setLatitude] = useState<number>();
   const [longitude, setLongitude] = useState<number>();
@@ -63,6 +69,8 @@ const SunnySideUp = () => {
   useEffect(()=>{
     dispatch(asyncFetch());
     dispatch(asyncFetch2());
+    dispatch(getAirPollData());
+    dispatch(getPredict30Data())
   },[]);
 
 
@@ -73,8 +81,13 @@ const SunnySideUp = () => {
     console.log("- - - - -두 번쨰 api- - - - -")
     console.log(weatherApiStatus2)
     console.log(weatherApiData2)
-
-    console.log(gps)
+    console.log("- - - - -세 번쨰 api- - - - -")
+    console.log(airPollStatus);
+    console.log(airPollData);
+    console.log("- - - - -네 번쨰 api- - - - -")
+    console.log(predict30Status);
+    console.log(predict30Data);
+    // console.log(gps)
   },[]);
 
   const onGeoOkay = (position: PositionType): void => {
