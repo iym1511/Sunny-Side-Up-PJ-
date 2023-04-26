@@ -1,19 +1,22 @@
 // tookit
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { PositionType } from "../types/GeoLocation";
 import { GpsState } from "../types/Gps";
 
+
 const initialState:GpsState = {
-  lat: null,
-  lon:null
+  lat : "",
+  lon : "",
 }
+
 
 export const GpsSlice = createSlice({
   name: "gps",
   initialState,
   reducers:{
-    setGps : (state, action) =>{
-
+    setGps : (state, action:PayloadAction<any>): void =>{
+      state.lat = action.payload.lat;
+      state.lon = action.payload.lon;
     }
   }
 })
