@@ -65,6 +65,7 @@ const SunnySideUp = () => {
     dispatch(asyncFetch2());
   },[]);
 
+
   useEffect(()=>{
     console.log("- - - - -첫 번째 api- - - - -")
     console.log(weatherApiStatus1)
@@ -73,7 +74,7 @@ const SunnySideUp = () => {
     console.log(weatherApiStatus2)
     console.log(weatherApiData2)
 
-    console.log(gps.lat)
+    console.log(gps)
   },[]);
 
   const onGeoOkay = (position: PositionType): void => {
@@ -90,7 +91,13 @@ function onGeoError(): void {
 
 navigator.geolocation.getCurrentPosition((position: PositionType) => onGeoOkay(position), onGeoError);
 
-
+useEffect(()=>{
+  dispatch(setGps({
+    lat : latitude,
+    lon : longitude
+  }))
+  console.log(gps)
+})
 
 const mapApi = async ():Promise<void> => {
     try {
@@ -126,6 +133,8 @@ const mapApi = async ():Promise<void> => {
     <div style={{border: "1px solid red"}}>
       <h1>ts 🔫</h1>
       <p>현재위치 : {si} {gu} {dong}</p>
+      <h3>GPS</h3>
+      <p>{gps.lat} | {gps.lon}</p>
     </div>
   );
 }

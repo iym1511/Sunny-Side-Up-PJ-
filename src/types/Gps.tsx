@@ -1,4 +1,4 @@
 export interface GpsState {
-  lat:number|null,
-  lon:number|null
+  lat:number|null|string,
+  lon:number|null|string
 }
