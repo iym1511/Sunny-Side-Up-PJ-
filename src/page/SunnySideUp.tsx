@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { asyncFetch } from "../module/weatherApi";
 import { asyncFetch2 } from "../module/weatherApi";
 import axios from "axios";
+import { PositionType } from "../types/GeoLocation";
 
 interface KakaoApiType {
   meta: {
@@ -40,20 +41,7 @@ interface Documents {
   } | null,
 }
 
-interface Coord {
-  latitude: number;
-  longitude: number;
-  altitude: number | null;
-  accuracy: number;
-  altitudeAccuracy: number | null;
-  heading: number | null;
-  speed: number | null;
-}
 
-interface PositionType {
-  coords : Coord
-  timestamp : number;
-}
 
 const SunnySideUp = () => {
 
