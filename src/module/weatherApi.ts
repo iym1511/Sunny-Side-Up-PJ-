@@ -3,92 +3,22 @@ import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // axios
 import axios from "axios";
 import { PositionType } from "../types/GeoLocation";
+import { List, Params, WeatherData, initialStateType } from "../types/WeatherApi";
 
-interface Coord {
-    lon: number;
-    lat: number;
-  }
+// interface Coords {
+//   accuracy: number;
+//   altitude: number | null;
+//   altitudeAccuracy: number | null;
+//   heading: number | null;
+//   latitude: number;
+//   longitude: number;
+//   speed: number | null;
+// }
 
-  interface Sys {
-    country: string;
-    timezone: number;
-    sunrise: number;
-    sunset: number;
-  }
-
-  interface Weather {
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-  }
-
-  interface Main {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  }
-
-  interface Wind {
-    speed: number;
-    deg: number;
-  }
-
-  interface Clouds {
-    all: number;
-  }
-
-  interface List {
-    coord: Coord;
-    sys: Sys;
-    weather: Weather[];
-    main: Main;
-    visibility: number;
-    wind: Wind;
-    clouds: Clouds;
-    dt: number;
-    id: number;
-    name: string;
-  }
-  
-  interface WeatherData {
-    cnt: number;
-    list: List[];
-}
-
-    interface Params {
-    id?: string;
-    appid: string;
-    lang?: string;
-    units?: string;
-    lat?: string | null;
-    lon?: string | null;
-}
-
-interface initialStateType {
-    status1: string;
-    status2: string;
-    apiData: List[] | null
-    apiData2: List[] | null;
-}
-
-interface Coords {
-  accuracy: number;
-  altitude: number | null;
-  altitudeAccuracy: number | null;
-  heading: number | null;
-  latitude: number;
-  longitude: number;
-  speed: number | null;
-}
-
-interface GeolocationPosition {
-  coords : Coords;
-  timestamp : number;
-}
+// interface GeolocationPosition {
+//   coords : Coords;
+//   timestamp : number;
+// }
 
 export const asyncFetch = createAsyncThunk(
     'WeatherSlice/asyncFetch',
