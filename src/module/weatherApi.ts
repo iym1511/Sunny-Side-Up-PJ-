@@ -36,7 +36,7 @@ export const asyncFetch = createAsyncThunk(
 
 export const asyncFetch2 = createAsyncThunk(
   'WeatherSlice/asyncFetch2',
-  async ():Promise<List[]> => {
+  async ():Promise<List> => {
     const onGeoOkay = (position: PositionType): void => {
       const latitude : number  = position.coords.latitude;
       const longtitude : number = position.coords.longitude;
@@ -49,7 +49,7 @@ export const asyncFetch2 = createAsyncThunk(
     navigator.geolocation.getCurrentPosition((position: PositionType) => onGeoOkay(position), onGeoError);
     const lat = sessionStorage.getItem("latitude");
     const lon = sessionStorage.getItem("longtitude");
-    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb`)
+    const res = await axios.get<List>(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&lang=kr`)
     return res.data;
   }
 )
@@ -85,7 +85,7 @@ const WeatherSlice = createSlice({
             state.status2 = 'loading';
         });
         // 불러왔을 때
-        builder.addCase(asyncFetch2.fulfilled, (state, action:PayloadAction<List[]>): void => {
+        builder.addCase(asyncFetch2.fulfilled, (state, action:PayloadAction<List>): void => {
             state.apiData2 = action.payload;
             state.status2 = 'complete';
         });

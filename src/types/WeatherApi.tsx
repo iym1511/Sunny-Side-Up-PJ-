@@ -53,6 +53,7 @@ export interface WeatherData {
     list: List[];
 }
 
+
 export interface Params {
     id?: string;
     appid: string;
@@ -66,5 +67,5 @@ export interface initialStateType {
     status1: string;
     status2: string;
     apiData: List[] | null
-    apiData2: List[] | null;
+    apiData2: List | null;
 }
