@@ -54,7 +54,6 @@ const SunnySideUp = () => {
     console.log("- - - - -네 번쨰 api- - - - -")
     console.log(predict30Status);
     console.log(predict30Data);
-    // console.log(gps)
   },[]);
 
   const onGeoOkay = (position: PositionType): void => {
@@ -65,7 +64,8 @@ const SunnySideUp = () => {
     console.log(longitude);
 }
 
-function onGeoError(): void {
+// gps에러 처리
+const onGeoError = (): void => {
     alert("I can't find you. No weather for you.");
 }
 
@@ -99,7 +99,7 @@ const mapApi = async ():Promise<void> => {
             // locationY: location.address.y,
             });
         } catch (error) {
-        console.log(error);
+        console.error(error);
         }
     };
 
@@ -115,6 +115,13 @@ const mapApi = async ():Promise<void> => {
       <p>현재위치 : {si} {gu} {dong}</p>
       <h3>GPS</h3>
       <p>{gps.lat} | {gps.lon}</p>
+      <p>{airPollStatus}</p>
+      {/* <p>{airPollData && airPollData}</p>  이곳!*/} 
+      {/* {airPollData && airPollData.map((a:any)=>(
+        <div>
+          {a}
+        </div>
+      ))} */}
     </div>
   );
 }
