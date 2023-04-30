@@ -9,8 +9,8 @@ import { useSelector } from "react-redux";
 import { GpsState } from "../types/Gps";
 import { setGps } from "../module/gps";
 import {getAirPollData} from "../module/airpollution";
-import { getPredict30Data } from "../module/predict30";
 import { Documents, KakaoApiType } from "../types/KakaoApi";
+import { getPredict5Data } from "../module/predict5";
 
 
 
@@ -23,8 +23,8 @@ const SunnySideUp = () => {
   const weatherApiStatus2 = useAppSelector((state)=>{return state.weatherApi.status2});
   const airPollData = useAppSelector((state)=>{return state.airPollApi.apiData});
   const airPollStatus = useAppSelector((state)=>{return state.airPollApi.status});
-  const predict30Data = useAppSelector((state)=>{return state.predict30Api.apiData});
-  const predict30Status = useAppSelector((state)=>{return state.predict30Api.status});
+  const predict5Data = useAppSelector((state)=>{return state.predict5Api.apiData});
+  const predict5Status = useAppSelector((state)=>{return state.predict5Api.status});
   const gps = useAppSelector((state)=> state.gps)
   const dispatch = useAppDispatch();
   const [latitude, setLatitude] = useState<number>();
@@ -37,7 +37,7 @@ const SunnySideUp = () => {
     dispatch(asyncFetch());
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
-    dispatch(getPredict30Data());
+    dispatch(getPredict5Data());
   },[]);
 
 
@@ -52,8 +52,8 @@ const SunnySideUp = () => {
     console.log(airPollStatus);
     console.log(airPollData);
     console.log("- - - - -네 번쨰 api- - - - -")
-    console.log(predict30Status);
-    console.log(predict30Data);
+    console.log(predict5Status);
+    console.log(predict5Data);
   },[]);
 
   const onGeoOkay = (position: PositionType): void => {
@@ -116,7 +116,9 @@ const mapApi = async ():Promise<void> => {
       <h3>GPS</h3>
       <p>{gps.lat} | {gps.lon}</p>
       <p>{airPollStatus}</p>
-      {/* <p>{airPollData && airPollData}</p>  이곳!*/} 
+      {/* <p>{airPollData && airPollData.list[0].components.co}</p> */}
+      <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+      <img src={`https://openweathermap.org/img/wn/${weatherApiData2 && weatherApiData2.weather[0].icon}@2x.png`} />
       {/* {airPollData && airPollData.map((a:any)=>(
         <div>
           {a}

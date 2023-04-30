@@ -18,7 +18,7 @@ export const getAirPollData = createAsyncThunk(
 );
 
 const initialState: initialStateType = {
-  status: "default",
+  status: "defauylt",
   apiData: null
 };
 
