@@ -70,10 +70,10 @@ const onGeoError = (): void => {
 }
 
 // 일출
-const date = new Date(1682800454 * 1000);
+const date: Date = new Date(1682800454 * 1000);
 console.log(date.toLocaleString());
 // 일몰
-const date2 = new Date(1682849239 * 1000);
+const date2: Date = new Date(1682849239 * 1000);
 console.log(date2.toLocaleString());
 
 navigator.geolocation.getCurrentPosition((position: PositionType) => onGeoOkay(position), onGeoError);
