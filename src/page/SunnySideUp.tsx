@@ -69,6 +69,13 @@ const onGeoError = (): void => {
     alert("I can't find you. No weather for you.");
 }
 
+// 일출
+const date = new Date(1682800454 * 1000);
+console.log(date.toLocaleString());
+// 일몰
+const date2 = new Date(1682849239 * 1000);
+console.log(date2.toLocaleString());
+
 navigator.geolocation.getCurrentPosition((position: PositionType) => onGeoOkay(position), onGeoError);
 
 useEffect(()=>{

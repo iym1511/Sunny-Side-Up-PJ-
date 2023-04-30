@@ -10,7 +10,7 @@ export const getPredict5Data = createAsyncThunk(
     const lat:string | null = sessionStorage.getItem("latitude");
     const lon:string | null = sessionStorage.getItem("longtitude");
     const res = await axios.get<Predict30Api>(
-      `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&lang=kr`
+      `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb`
     );
     return res.data;
   }
