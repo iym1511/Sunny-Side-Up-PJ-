@@ -70,9 +70,6 @@ const SunnySideUp = () => {
   const onGeoOkay = (position: PositionType): void => {
     setLatitude(position.coords.latitude);
     setLongitude(position.coords.longitude);
-    console.log(position);
-    console.log(latitude);
-    console.log(longitude);
   };
 
   // gps에러 처리
@@ -81,12 +78,14 @@ const SunnySideUp = () => {
   };
 
   // 일출
-  const date: Date = new Date(1682800454 * 1000);
-  console.log(date.toLocaleString());
+  const sunrise: number | undefined = weatherApiData2?.sys.sunrise;
+  const SunriseDate: Date | undefined = sunrise ? new Date(sunrise * 1000) : undefined ;
+  
   // 일몰
-  const date2: Date = new Date(1682849239 * 1000);
-  console.log(date2.toLocaleString());
+  const sunset: number | undefined = weatherApiData2?.sys.sunset;
+  const SunsetDate: Date | undefined = sunset ? new Date(sunset * 1000) : undefined ;
 
+  // GPS
   navigator.geolocation.getCurrentPosition(
     (position: PositionType) => onGeoOkay(position),
     onGeoError
@@ -102,6 +101,24 @@ const SunnySideUp = () => {
     console.log(gps);
   });
 
+  // 대기질 측정
+  const printAirPollStatus = (): string | undefined => {
+    const airpollstatus: number | undefined = airPollData?.list[0].main.aqi;
+    if(airpollstatus === 1){
+      return "좋음"
+    }else if(airpollstatus ===  2 || airpollstatus === 3){
+      return "보통"
+    }else if(airpollstatus === 4){
+      return "나쁨"
+    }else if(airpollstatus === 5){
+      return "매우 나쁨"
+    }
+  }
+
+  const kelvin: number | undefined = weatherApiData2?.main.temp;
+  const celsius: number | undefined = kelvin? kelvin - 273.15 : undefined;
+
+  // Kakao 위도 경도에 따른 주소 불러오기
   const mapApi = async (): Promise<void> => {
     try {
       let response = await axios
@@ -133,16 +150,11 @@ const SunnySideUp = () => {
 
   return (
     <div style={{ border: "1px solid red" }}>
-      <h1>ts 🔫</h1>
-      <p>
-        현재위치 : {si} {gu} {dong}
-      </p>
-      <h3>GPS</h3>
-      <p>
-        {gps.lat} | {gps.lon}
-      </p>
-      <p>{weatherApiStatus2}</p>
-      {/* <p>{airPollData && airPollData.list[0].components.co}</p> */}
+      <p>현재위치 : {si} {gu} {dong}</p>
+      <p>{celsius?.toFixed(1)}°C</p>
+      <p>대기질 : { printAirPollStatus()}</p>
+      <p>일출 : {SunriseDate?.toLocaleString()}</p>
+      <p>일출 : {SunsetDate?.toLocaleString()}</p>
       <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
       <img
         src={`https://openweathermap.org/img/wn/${
