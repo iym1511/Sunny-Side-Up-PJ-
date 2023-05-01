@@ -6,9 +6,9 @@ import { Predict30Api, initialStateType } from "../types/Predict5";
 
 export const getPredict5Data = createAsyncThunk(
   "Predict5Slice/getPredict30Data",
-  async ():Promise<Predict30Api> => {
-    const lat:string | null = sessionStorage.getItem("latitude");
-    const lon:string | null = sessionStorage.getItem("longtitude");
+  async (): Promise<Predict30Api> => {
+    const lat: string | null = sessionStorage.getItem("latitude");
+    const lon: string | null = sessionStorage.getItem("longtitude");
     const res = await axios.get<Predict30Api>(
       `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb`
     );
@@ -17,9 +17,9 @@ export const getPredict5Data = createAsyncThunk(
 );
 
 const initialState: initialStateType = {
-  status : "default",
-  apiData: null
-}
+  status: "default",
+  apiData: null,
+};
 
 const Predict30Slice = createSlice({
   name: "predict5",
@@ -42,8 +42,8 @@ const Predict30Slice = createSlice({
     builder.addCase(getPredict5Data.rejected, (state): void => {
       state.status = "error";
     });
-  }
-})
+  },
+});
 
 export const {} = Predict30Slice.actions;
 export default Predict30Slice.reducer;
