@@ -1,6 +1,6 @@
 export interface initialStateType {
   status: string;
-  apiData: null | Predict30Api;
+  apiData: null | Predict5Api;
 }
 
 export interface Weather {
@@ -46,8 +46,7 @@ export interface List {
   };
 }
 
-export interface Predict30Api {
-  data: {
+export interface Predict5Api {
     cod: string;
     message: number;
     cnt: number;
@@ -65,7 +64,4 @@ export interface Predict30Api {
       sunrise: number;
       sunset: number;
     };
-    status: number;
-    statusText: string;
-  };
 }

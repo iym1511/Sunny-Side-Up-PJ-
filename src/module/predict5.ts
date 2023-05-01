@@ -2,14 +2,14 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // axios
 import axios from "axios";
-import { Predict30Api, initialStateType } from "../types/Predict5";
+import { List, Predict5Api, initialStateType } from "../types/Predict5";
 
 export const getPredict5Data = createAsyncThunk(
   "Predict5Slice/getPredict30Data",
-  async (): Promise<Predict30Api> => {
+  async (): Promise<Predict5Api> => {
     const lat: string | null = sessionStorage.getItem("latitude");
     const lon: string | null = sessionStorage.getItem("longtitude");
-    const res = await axios.get<Predict30Api>(
+    const res = await axios.get<Predict5Api>(
       `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&units=metric`
     );
     return res.data;
@@ -21,7 +21,7 @@ const initialState: initialStateType = {
   apiData: null,
 };
 
-const Predict30Slice = createSlice({
+const Predict5Slice = createSlice({
   name: "predict5",
   initialState,
   reducers: {},
@@ -33,7 +33,7 @@ const Predict30Slice = createSlice({
     // 불러왔을 때
     builder.addCase(
       getPredict5Data.fulfilled,
-      (state, action: PayloadAction<Predict30Api>): void => {
+      (state, action: PayloadAction<Predict5Api>): void => {
         state.apiData = action.payload;
         state.status = "complete";
       }
@@ -45,5 +45,5 @@ const Predict30Slice = createSlice({
   },
 });
 
-export const {} = Predict30Slice.actions;
-export default Predict30Slice.reducer;
+export const {} = Predict5Slice.actions;
+export default Predict5Slice.reducer;
