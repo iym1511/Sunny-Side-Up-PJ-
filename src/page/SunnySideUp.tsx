@@ -115,8 +115,11 @@ const SunnySideUp = () => {
     }
   }
 
-  const kelvin: number | undefined = weatherApiData2?.main.temp;
-  const celsius: number | undefined = kelvin? kelvin - 273.15 : undefined;
+  // 현재 위치 기온
+  const tempGps: number | undefined = weatherApiData2?.main.temp;
+
+  // 현재 위치 체감 기온
+  const feelsLikeGps: number | undefined = weatherApiData2?.main.feels_like;
 
   // Kakao 위도 경도에 따른 주소 불러오기
   const mapApi = async (): Promise<void> => {
@@ -148,19 +151,32 @@ const SunnySideUp = () => {
     mapApi();
   }, [latitude]);
 
+
   return (
     <div style={{ border: "1px solid red" }}>
       <p>현재위치 : {si} {gu} {dong}</p>
-      <p>{celsius?.toFixed(1)}°C</p>
-      <p>대기질 : { printAirPollStatus()}</p>
-      <p>일출 : {SunriseDate?.toLocaleString()}</p>
-      <p>일출 : {SunsetDate?.toLocaleString()}</p>
-      <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
       <img
         src={`https://openweathermap.org/img/wn/${
           weatherApiData2 && weatherApiData2.weather[0].icon
         }@2x.png`}
       />
+      <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+      <p>{tempGps?.toFixed(1)}°C</p>
+      <p>체감 온도 :{feelsLikeGps?.toFixed(1)}°C</p>
+      <p>대기질 : { printAirPollStatus()}</p>
+      <p>일출 : {SunriseDate?.toLocaleString()}</p>
+      <p>일몰 : {SunsetDate?.toLocaleString()}</p>
+      <p>풍속 : {weatherApiData2?.wind.speed}m/sec </p>
+      <p>습도 : {weatherApiData2?.main.humidity}% </p>
+      <div>
+        {
+          predict5Data && predict5Data.list.map((a:any)=>(
+            <div>
+              {a.dt_txt}
+            </div>
+          ))
+        }
+      </div>
       {/* {airPollData && airPollData.map((a:any)=>(
         <div>
           {a}
