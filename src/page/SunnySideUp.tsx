@@ -8,24 +8,36 @@ import { PositionType } from "../types/GeoLocation";
 import { useSelector } from "react-redux";
 import { GpsState } from "../types/Gps";
 import { setGps } from "../module/gps";
-import {getAirPollData} from "../module/airpollution";
+import { getAirPollData } from "../module/airpollution";
 import { Documents, KakaoApiType } from "../types/KakaoApi";
 import { getPredict5Data } from "../module/predict5";
 
-
-
-
-
 const SunnySideUp = () => {
-  const weatherApiData2 = useAppSelector((state)=> {return state.weatherApi.apiData2});
-  const weatherApiData= useAppSelector((state)=> {return state.weatherApi.apiData});
-  const weatherApiStatus1 = useAppSelector((state)=>{return state.weatherApi.status1});
-  const weatherApiStatus2 = useAppSelector((state)=>{return state.weatherApi.status2});
-  const airPollData = useAppSelector((state)=>{return state.airPollApi.apiData});
-  const airPollStatus = useAppSelector((state)=>{return state.airPollApi.status});
-  const predict5Data = useAppSelector((state)=>{return state.predict5Api.apiData});
-  const predict5Status = useAppSelector((state)=>{return state.predict5Api.status});
-  const gps = useAppSelector((state)=> state.gps)
+  const weatherApiData2 = useAppSelector((state) => {
+    return state.weatherApi.apiData2;
+  });
+  const weatherApiData = useAppSelector((state) => {
+    return state.weatherApi.apiData;
+  });
+  const weatherApiStatus1 = useAppSelector((state) => {
+    return state.weatherApi.status1;
+  });
+  const weatherApiStatus2 = useAppSelector((state) => {
+    return state.weatherApi.status2;
+  });
+  const airPollData = useAppSelector((state) => {
+    return state.airPollApi.apiData;
+  });
+  const airPollStatus = useAppSelector((state) => {
+    return state.airPollApi.status;
+  });
+  const predict5Data = useAppSelector((state) => {
+    return state.predict5Api.apiData;
+  });
+  const predict5Status = useAppSelector((state) => {
+    return state.predict5Api.status;
+  });
+  const gps = useAppSelector((state) => state.gps);
   const dispatch = useAppDispatch();
   const [latitude, setLatitude] = useState<number>();
   const [longitude, setLongitude] = useState<number>();
@@ -33,28 +45,27 @@ const SunnySideUp = () => {
   const [gu, setGu] = useState<string>();
   const [dong, setDong] = useState<string>();
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(asyncFetch());
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
     dispatch(getPredict5Data());
-  },[latitude]);
+  }, [latitude]);
 
-
-  useEffect(()=>{
-    console.log("- - - - -첫 번째 api- - - - -")
-    console.log(weatherApiStatus1)
-    console.log(weatherApiData)
-    console.log("- - - - -두 번쨰 api- - - - -")
-    console.log(weatherApiStatus2)
-    console.log(weatherApiData2)
-    console.log("- - - - -세 번쨰 api- - - - -")
+  useEffect(() => {
+    console.log("- - - - -첫 번째 api- - - - -");
+    console.log(weatherApiStatus1);
+    console.log(weatherApiData);
+    console.log("- - - - -두 번쨰 api- - - - -");
+    console.log(weatherApiStatus2);
+    console.log(weatherApiData2);
+    console.log("- - - - -세 번쨰 api- - - - -");
     console.log(airPollStatus);
     console.log(airPollData);
-    console.log("- - - - -네 번쨰 api- - - - -")
+    console.log("- - - - -네 번쨰 api- - - - -");
     console.log(predict5Status);
     console.log(predict5Data);
-  },[]);
+  }, []);
 
   const onGeoOkay = (position: PositionType): void => {
     setLatitude(position.coords.latitude);
@@ -62,70 +73,82 @@ const SunnySideUp = () => {
     console.log(position);
     console.log(latitude);
     console.log(longitude);
-}
+  };
 
-// gps에러 처리
-const onGeoError = (): void => {
+  // gps에러 처리
+  const onGeoError = (): void => {
     alert("I can't find you. No weather for you.");
-}
+  };
 
-// 일출
-const date: Date = new Date(1682800454 * 1000);
-console.log(date.toLocaleString());
-// 일몰
-const date2: Date = new Date(1682849239 * 1000);
-console.log(date2.toLocaleString());
+  // 일출
+  const date: Date = new Date(1682800454 * 1000);
+  console.log(date.toLocaleString());
+  // 일몰
+  const date2: Date = new Date(1682849239 * 1000);
+  console.log(date2.toLocaleString());
 
-navigator.geolocation.getCurrentPosition((position: PositionType) => onGeoOkay(position), onGeoError);
+  navigator.geolocation.getCurrentPosition(
+    (position: PositionType) => onGeoOkay(position),
+    onGeoError
+  );
 
-useEffect(()=>{
-  dispatch(setGps({
-    lat : latitude,
-    lon : longitude
-  }))
-  console.log(gps)
-})
+  useEffect(() => {
+    dispatch(
+      setGps({
+        lat: latitude,
+        lon: longitude,
+      })
+    );
+    console.log(gps);
+  });
 
-const mapApi = async ():Promise<void> => {
+  const mapApi = async (): Promise<void> => {
     try {
-        let response = await axios.get<KakaoApiType>(
-            `https://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84&x=${longitude}&y=${latitude}`,
-            {
-                headers: {
-                Authorization: 'KakaoAK f51796a442eb354b971c2dd54d146652',  
-                },
+      let response = await axios
+        .get<KakaoApiType>(
+          `https://dapi.kakao.com/v2/local/geo/coord2address.json?input_coord=WGS84&x=${longitude}&y=${latitude}`,
+          {
+            headers: {
+              Authorization: "KakaoAK f51796a442eb354b971c2dd54d146652",
             },
-            )
-            .then(response => {
-            const location:Documents = response.data.documents[0];
-            setSi(location.address.region_1depth_name);
-            setGu(location.address.region_2depth_name);
-            setDong(location.address.region_3depth_name);
-            console.log(response)
-            // locationX: location.address.x,
-            // locationY: location.address.y,
-            });
-        } catch (error) {
-        console.error(error);
-        }
-    };
+          }
+        )
+        .then((response) => {
+          const location: Documents = response.data.documents[0];
+          setSi(location.address.region_1depth_name);
+          setGu(location.address.region_2depth_name);
+          setDong(location.address.region_3depth_name);
+          console.log(response);
+          // locationX: location.address.x,
+          // locationY: location.address.y,
+        });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    useEffect(()=>{
-        mapApi()
-    },[latitude])
+  useEffect(() => {
+    mapApi();
+  }, [latitude]);
 
-
-
-  return (  
-    <div style={{border: "1px solid red"}}>
+  return (
+    <div style={{ border: "1px solid red" }}>
       <h1>ts 🔫</h1>
-      <p>현재위치 : {si} {gu} {dong}</p>
+      <p>
+        현재위치 : {si} {gu} {dong}
+      </p>
       <h3>GPS</h3>
-      <p>{gps.lat} | {gps.lon}</p>
+      <p>
+        {gps.lat} | {gps.lon}
+      </p>
       <p>{weatherApiStatus2}</p>
       {/* <p>{airPollData && airPollData.list[0].components.co}</p> */}
       <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
-      <img src={`https://openweathermap.org/img/wn/${weatherApiData2 && weatherApiData2.weather[0].icon}@2x.png`} />
+      <img
+        src={`https://openweathermap.org/img/wn/${
+          weatherApiData2 && weatherApiData2.weather[0].icon
+        }@2x.png`}
+      />
       {/* {airPollData && airPollData.map((a:any)=>(
         <div>
           {a}
@@ -133,6 +156,6 @@ const mapApi = async ():Promise<void> => {
       ))} */}
     </div>
   );
-}
+};
 
 export default SunnySideUp;
