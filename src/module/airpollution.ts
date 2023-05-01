@@ -10,7 +10,7 @@ export const getAirPollData = createAsyncThunk(
     const lat: string | null = sessionStorage.getItem("latitude");
     const lon: string | null = sessionStorage.getItem("longtitude");
     const res = await axios.get<AirPollutionApi>(
-      `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb`
+      `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&units=metric`
     );
     return res.data;
   }
