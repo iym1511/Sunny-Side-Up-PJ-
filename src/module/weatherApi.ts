@@ -56,6 +56,7 @@ export const asyncFetch2 = createAsyncThunk(
 const initialState:initialStateType = {
     status1: "default",
     status2: "default",
+    error: null,
     apiData: null,
     apiData2: null,
 }
@@ -76,7 +77,7 @@ const WeatherSlice = createSlice({
         });
         // 불러오기 실패
         builder.addCase(asyncFetch.rejected, (state): void => {
-            state.status1 = 'error';
+            state.error = 'error';
         });
         
         // 불러오는 로딩
@@ -90,7 +91,7 @@ const WeatherSlice = createSlice({
         });
         // 불러오기 실패
         builder.addCase(asyncFetch2.rejected, (state): void => {
-            state.status2 = 'error';
+            state.error = 'error';
         });
     },
 })

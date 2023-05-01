@@ -38,7 +38,7 @@ const SunnySideUp = () => {
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
     dispatch(getPredict5Data());
-  },[]);
+  },[latitude]);
 
 
   useEffect(()=>{
@@ -122,7 +122,7 @@ const mapApi = async ():Promise<void> => {
       <p>현재위치 : {si} {gu} {dong}</p>
       <h3>GPS</h3>
       <p>{gps.lat} | {gps.lon}</p>
-      <p>{airPollStatus}</p>
+      <p>{weatherApiStatus2}</p>
       {/* <p>{airPollData && airPollData.list[0].components.co}</p> */}
       <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
       <img src={`https://openweathermap.org/img/wn/${weatherApiData2 && weatherApiData2.weather[0].icon}@2x.png`} />

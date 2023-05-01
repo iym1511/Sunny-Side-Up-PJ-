@@ -66,6 +66,7 @@ export interface Params {
 export interface initialStateType {
     status1: string;
     status2: string;
+    error: string | null;
     apiData: List[] | null
     apiData2: List | null;
 }
