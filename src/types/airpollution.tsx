@@ -1,6 +1,7 @@
 export interface initialStateType {
   status: string;
   apiData: null | AirPollutionApi;
+  error: null | string;
 }
 
 export interface Components {

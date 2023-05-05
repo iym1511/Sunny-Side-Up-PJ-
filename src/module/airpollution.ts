@@ -19,6 +19,7 @@ export const getAirPollData = createAsyncThunk(
 const initialState: initialStateType = {
   status: "defauylt",
   apiData: null,
+  error: null
 };
 
 const AirPollSlice = createSlice({
@@ -40,7 +41,7 @@ const AirPollSlice = createSlice({
     );
     // 불러오기 실패
     builder.addCase(getAirPollData.rejected, (state): void => {
-      state.status = "error";
+      state.error = "error";
     });
   },
 });
