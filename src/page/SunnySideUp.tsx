@@ -87,8 +87,7 @@ const SunnySideUp = () => {
 
   // GPS
   navigator.geolocation.getCurrentPosition(
-    (position: PositionType) => onGeoOkay(position),
-    onGeoError
+    (position: PositionType) => onGeoOkay(position),onGeoError
   );
 
   useEffect(() => {
@@ -162,17 +161,24 @@ const SunnySideUp = () => {
       />
       <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
       <p>{tempGps?.toFixed(1)}°C</p>
-      <p>체감 온도 :{feelsLikeGps?.toFixed(1)}°C</p>
-      <p>대기질 : { printAirPollStatus()}</p>
+      <p>체감 온도 :{feelsLikeGps?.toFixed(1)}</p>
+      <p>대기질 : {printAirPollStatus()}</p>
       <p>일출 : {SunriseDate?.toLocaleString()}</p>
       <p>일몰 : {SunsetDate?.toLocaleString()}</p>
-      <p>풍속 : {weatherApiData2?.wind.speed}m/sec </p>
-      <p>습도 : {weatherApiData2?.main.humidity}% </p>
-      <div>
+      <p>풍속 : {weatherApiData2?.wind.speed}m/sec</p>
+      <p>습도 : {weatherApiData2?.main.humidity}%</p>
+      <div style={{display: "flex", overflowX:"scroll"}}>
         {
           predict5Data && predict5Data.list.map((a:any)=>(
-            <div>
-              {a.dt_txt}
+            <div style={{marginRight:"20px"}}>
+              <p>{a.dt_txt.substr(5, 11)}</p>
+              <img
+                src={`https://openweathermap.org/img/wn/${
+                  a.weather[0].icon
+                }@2x.png`}
+                style={{width:"100%"}}
+              />
+              <p>{a.main.temp.toFixed(1)}°C</p>
             </div>
           ))
         }

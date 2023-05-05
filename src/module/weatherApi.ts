@@ -57,8 +57,8 @@ export const asyncFetch2 = createAsyncThunk(
       (position: PositionType) => onGeoOkay(position),
       onGeoError
     );
-    const lat = sessionStorage.getItem("latitude");
-    const lon = sessionStorage.getItem("longtitude");
+    const lat: string | null = sessionStorage.getItem("latitude");
+    const lon: string | null = sessionStorage.getItem("longtitude");
     const res = await axios.get<List>(
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&units=metric`
     );

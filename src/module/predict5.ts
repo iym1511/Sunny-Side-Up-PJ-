@@ -19,6 +19,7 @@ export const getPredict5Data = createAsyncThunk(
 const initialState: initialStateType = {
   status: "default",
   apiData: null,
+  error: null,
 };
 
 const Predict5Slice = createSlice({
@@ -40,7 +41,7 @@ const Predict5Slice = createSlice({
     );
     // 불러오기 실패
     builder.addCase(getPredict5Data.rejected, (state): void => {
-      state.status = "error";
+      state.error = "error";
     });
   },
 });

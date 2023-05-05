@@ -1,6 +1,7 @@
 export interface initialStateType {
   status: string;
   apiData: null | Predict5Api;
+  error: string | null;
 }
 
 export interface Weather {
