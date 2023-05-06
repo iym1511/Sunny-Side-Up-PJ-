@@ -81,7 +81,7 @@ const Forcast5Days = () => {
           {
             DateCheck4 && DateCheck4.map((data:List, index)=>(
               <div key={index} style={{}}>
-                <span className="allSpan">사흘</span>
+                <span className="allSpan">글피</span>
                 <p>{data.dt_txt.substr(5,14)}</p>
                 <img
                     src={`https://openweathermap.org/img/wn/${
@@ -96,7 +96,7 @@ const Forcast5Days = () => {
           {
             DateCheck4 && DateCheck4.map((data:List, index)=>(
               <div key={index} style={{}}>
-                <span className="allSpan">글피</span>
+                <span className="allSpan">그글피</span>
                 <p>{data.dt_txt.substr(5,14)}</p>
                 <img
                     src={`https://openweathermap.org/img/wn/${
