@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
-import { asyncFetch } from "../module/weatherApi";
+import { asyncFetch1 } from "../module/weatherApi";
 import { asyncFetch2 } from "../module/weatherApi";
 
 import axios from "axios";
@@ -13,18 +13,19 @@ import { Documents, KakaoApiType } from "../types/KakaoApi";
 import { getPredict5Data } from "../module/predict5";
 import { List } from "../types/Predict5";
 import Forcast5Days from "../components/Forcast5Days";
-
+import Nationwide5Days from "../components/Nationwide5Days";
+import { getNationwidePredict5Data } from "../module/nationwidePredict5";
 
 const SunnySideUp = () => {
+  // const weatherApiData1 = useAppSelector((state) => {
+  //   return state.weatherApi.apiData1;
+  // });
   const weatherApiData2 = useAppSelector((state) => {
     return state.weatherApi.apiData2;
   });
-  const weatherApiData = useAppSelector((state) => {
-    return state.weatherApi.apiData;
-  });
-  const weatherApiStatus1 = useAppSelector((state) => {
-    return state.weatherApi.status1;
-  });
+  // const weatherApiStatus1 = useAppSelector((state) => {
+  //   return state.weatherApi.status1;
+  // });
   const weatherApiStatus2 = useAppSelector((state) => {
     return state.weatherApi.status2;
   });
@@ -42,13 +43,12 @@ const SunnySideUp = () => {
   const [gu, setGu] = useState<string>();
   const [dong, setDong] = useState<string>();
 
-    
-
   useEffect(() => {
-    dispatch(asyncFetch());
+    dispatch(asyncFetch1());
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
     dispatch(getPredict5Data());
+    dispatch(getNationwidePredict5Data());
     // console.log(DateCheck)
     // console.log(DateCheck2)
     // console.log(DateCheck3);
@@ -59,8 +59,8 @@ const SunnySideUp = () => {
 
   useEffect(() => {
     console.log("- - - - -첫 번째 api- - - - -");
-    console.log(weatherApiStatus1);
-    console.log(weatherApiData);
+    // console.log(weatherApiStatus1);
+    // console.log(weatherApiData1);
     console.log("- - - - -두 번쨰 api- - - - -");
     console.log(weatherApiStatus2);
     console.log(weatherApiData2);
@@ -84,15 +84,20 @@ const SunnySideUp = () => {
 
   // 일출
   const sunrise: number | undefined = weatherApiData2?.sys.sunrise;
-  const SunriseDate: Date | undefined = sunrise ? new Date(sunrise * 1000) : undefined ;
-  
+  const SunriseDate: Date | undefined = sunrise
+    ? new Date(sunrise * 1000)
+    : undefined;
+
   // 일몰
   const sunset: number | undefined = weatherApiData2?.sys.sunset;
-  const SunsetDate: Date | undefined = sunset ? new Date(sunset * 1000) : undefined ;
+  const SunsetDate: Date | undefined = sunset
+    ? new Date(sunset * 1000)
+    : undefined;
 
   // GPS
   navigator.geolocation.getCurrentPosition(
-    (position: PositionType) => onGeoOkay(position),onGeoError
+    (position: PositionType) => onGeoOkay(position),
+    onGeoError
   );
 
   useEffect(() => {
@@ -102,22 +107,22 @@ const SunnySideUp = () => {
         lon: longitude,
       })
     );
-    console.log(gps);
+    // console.log(gps);
   });
 
   // 대기질 측정
   const printAirPollStatus = (): string | undefined => {
     const airpollstatus: number | undefined = airPollData?.list[0].main.aqi;
-    if(airpollstatus === 1){
-      return "좋음"
-    }else if(airpollstatus ===  2 || airpollstatus === 3){
-      return "보통"
-    }else if(airpollstatus === 4){
-      return "나쁨"
-    }else if(airpollstatus === 5){
-      return "매우 나쁨"
+    if (airpollstatus === 1) {
+      return "좋음";
+    } else if (airpollstatus === 2 || airpollstatus === 3) {
+      return "보통";
+    } else if (airpollstatus === 4) {
+      return "나쁨";
+    } else if (airpollstatus === 5) {
+      return "매우 나쁨";
     }
-  }
+  };
 
   // 현재 위치 기온
   const tempGps: number | undefined = weatherApiData2?.main.temp;
@@ -142,7 +147,7 @@ const SunnySideUp = () => {
           setSi(location.address.region_1depth_name);
           setGu(location.address.region_2depth_name);
           setDong(location.address.region_3depth_name);
-          console.log(response);
+          // console.log(response);
           // locationX: location.address.x,
           // locationY: location.address.y,
         });
@@ -155,10 +160,11 @@ const SunnySideUp = () => {
     mapApi();
   }, [latitude]);
 
-
   return (
     <div style={{ border: "1px solid red" }}>
-      <p>현재위치 : {si} {gu} {dong}</p>
+      <p>
+        현재위치 : {si} {gu} {dong}
+      </p>
       <img
         src={`https://openweathermap.org/img/wn/${
           weatherApiData2 && weatherApiData2.weather[0].icon
@@ -172,9 +178,10 @@ const SunnySideUp = () => {
       <p>일몰 : {SunsetDate?.toLocaleString()}</p>
       <p>풍속 : {weatherApiData2?.wind.speed}m/sec</p>
       <p>습도 : {weatherApiData2?.main.humidity}%</p>
-      
+
       {/* 5일치 일기예보 */}
       <Forcast5Days />
+      <Nationwide5Days />
     </div>
   );
 };

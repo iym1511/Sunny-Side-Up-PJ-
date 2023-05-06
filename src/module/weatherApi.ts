@@ -25,11 +25,11 @@ import {
 //   timestamp : number;
 // }
 
-export const asyncFetch = createAsyncThunk(
+export const asyncFetch1 = createAsyncThunk(
   "WeatherSlice/asyncFetch",
   async (): Promise<List[]> => {
     const params: Params = {
-      id: "1835847,1841610,1843125,1845106,1845105,1845789,1845788,1841597,1902028,1846265",
+      id: "1835847,1843561,1835224,1835327,1838519,1833742,1841808,1843137,1846265,1841597",
       appid: "e524509bbefc6ce7ac50ddf6a1e1b1fb",
       units: "metric",
     };
@@ -70,7 +70,7 @@ const initialState: initialStateType = {
   status1: "default",
   status2: "default",
   error: null,
-  apiData: null,
+  apiData1: null,
   apiData2: null,
 };
 
@@ -80,19 +80,19 @@ const WeatherSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     // 불러오는 로딩
-    builder.addCase(asyncFetch.pending, (state): void => {
+    builder.addCase(asyncFetch1.pending, (state): void => {
       state.status1 = "loading";
     });
     // 불러왔을 때
     builder.addCase(
-      asyncFetch.fulfilled,
+      asyncFetch1.fulfilled,
       (state, action: PayloadAction<List[]>): void => {
-        state.apiData = action.payload;
+        state.apiData1 = action.payload;
         state.status1 = "complete";
       }
     );
     // 불러오기 실패
-    builder.addCase(asyncFetch.rejected, (state): void => {
+    builder.addCase(asyncFetch1.rejected, (state): void => {
       state.error = "error";
     });
 

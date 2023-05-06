@@ -48,7 +48,7 @@ export interface List {
   name: string;
 }
 
-export interface WeatherData {
+export interface NationwideData {
   cnt: number;
   list: List[];
 }
@@ -60,12 +60,20 @@ export interface Params {
   units?: string;
   lat?: string | null;
   lon?: string | null;
+  q?: string;
 }
 
 export interface initialStateType {
-  status1: string;
-  status2: string;
+  status: string;
   error: string | null;
-  apiData1: List[] | null;
-  apiData2: List | null;
+  apiData: any | null;
+}
+
+
+// 220506(토)
+
+export interface Location {
+  name: string,
+  lat: number,
+  lon: number
 }
