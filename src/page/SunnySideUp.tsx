@@ -11,6 +11,9 @@ import { setGps } from "../module/gps";
 import { getAirPollData } from "../module/airpollution";
 import { Documents, KakaoApiType } from "../types/KakaoApi";
 import { getPredict5Data } from "../module/predict5";
+import { List } from "../types/Predict5";
+import Forcast5Days from "../components/Forcast5Days";
+
 
 const SunnySideUp = () => {
   const weatherApiData2 = useAppSelector((state) => {
@@ -31,12 +34,6 @@ const SunnySideUp = () => {
   const airPollStatus = useAppSelector((state) => {
     return state.airPollApi.status;
   });
-  const predict5Data = useAppSelector((state) => {
-    return state.predict5Api.apiData;
-  });
-  const predict5Status = useAppSelector((state) => {
-    return state.predict5Api.status;
-  });
   const gps = useAppSelector((state) => state.gps);
   const dispatch = useAppDispatch();
   const [latitude, setLatitude] = useState<number>();
@@ -45,11 +42,19 @@ const SunnySideUp = () => {
   const [gu, setGu] = useState<string>();
   const [dong, setDong] = useState<string>();
 
+    
+
   useEffect(() => {
     dispatch(asyncFetch());
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
     dispatch(getPredict5Data());
+    // console.log(DateCheck)
+    // console.log(DateCheck2)
+    // console.log(DateCheck3);
+    // console.log(DateCheck4);
+    // console.log(dateSelect)
+    // console.log(useDate)
   }, [latitude]);
 
   useEffect(() => {
@@ -63,8 +68,8 @@ const SunnySideUp = () => {
     console.log(airPollStatus);
     console.log(airPollData);
     console.log("- - - - -네 번쨰 api- - - - -");
-    console.log(predict5Status);
-    console.log(predict5Data);
+    // console.log(predict5Status);
+    // console.log(predict5Data);
   }, []);
 
   const onGeoOkay = (position: PositionType): void => {
@@ -167,27 +172,9 @@ const SunnySideUp = () => {
       <p>일몰 : {SunsetDate?.toLocaleString()}</p>
       <p>풍속 : {weatherApiData2?.wind.speed}m/sec</p>
       <p>습도 : {weatherApiData2?.main.humidity}%</p>
-      <div style={{display: "flex", overflowX:"scroll"}}>
-        {
-          predict5Data && predict5Data.list.map((a:any)=>(
-            <div style={{marginRight:"20px"}}>
-              <p>{a.dt_txt.substr(5, 11)}</p>
-              <img
-                src={`https://openweathermap.org/img/wn/${
-                  a.weather[0].icon
-                }@2x.png`}
-                style={{width:"100%"}}
-              />
-              <p>{a.main.temp.toFixed(1)}°C</p>
-            </div>
-          ))
-        }
-      </div>
-      {/* {airPollData && airPollData.map((a:any)=>(
-        <div>
-          {a}
-        </div>
-      ))} */}
+      
+      {/* 5일치 일기예보 */}
+      <Forcast5Days />
     </div>
   );
 };
