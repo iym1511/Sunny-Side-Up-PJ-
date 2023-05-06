@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { getNationwidePredict5Data } from "../module/nationwidePredict5";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 
+let locationArray:any = [];
+
 const Nationwide5Days = () => {
   const dispatch = useAppDispatch();
   // const weatherApiData1 = useAppSelector((state) => {
@@ -18,25 +20,23 @@ const Nationwide5Days = () => {
     return state.nationwideApi.status;
   });
 
-  // useEffect(()=>{
-  //   dispatch(getNationwidePredict5Data());
-  // })
 
   useEffect(()=>{
     console.log("진혜콘솔")
     console.log(NationwideData);
     console.log(NationwideStatus);
-  },[NationwideStatus])
+    // locationArray.push(NationwideData);
+  })
 
   return (
     <div>
-      {/* {
+      {
         NationwideData && NationwideData.map((location:any,i:number)=>(
           <div>
             <p>ㅎ</p>
           </div>
         ))
-      } */}
+      }
     </div>
   );
 }

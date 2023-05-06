@@ -39,32 +39,37 @@ export let nationwideDataArray: any = [];
 //   }
 // )
 
+let dataArray:any = [];
+let locationArray:any = [];
+
 export const getNationwidePredict5Data = createAsyncThunk(
   "NationwidePredict5Slice/getNationwidePredict5Data",
   async (): Promise<any> => {
-    // const params: Params = {
-    //   q: "Seoul",
-    //   appid: "e524509bbefc6ce7ac50ddf6a1e1b1fb",
-    //   units: "metric",
-    // };
+    const params: Params = {
+      id: "1835847,1843561,1835224,1835327,1838519,1833742,1841808,1843137,1846265,1841597",
+      appid: "e524509bbefc6ce7ac50ddf6a1e1b1fb",
+      units: "metric",
+    };
 
-    // location.forEach(async(loc,i)=>{
-    //   const res = await axios.get<NationwideData>(
-    //     `http://api.openweathermap.org/data/2.5/forecast?q=${loc.name}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&units=metric`
-    //   )
-    //   nationwideDataArray.push(res.data.list)
-    // })
-    // return nationwideDataArray
-
-      const res = await axios.get<any>(
-        `http://api.openweathermap.org/data/2.5/forcast?id=1835847&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb`
+    location.forEach(async(loc,i)=>{
+      const res = await axios.get<NationwideData>(
+        `http://api.openweathermap.org/data/2.5/forecast?q=${loc.name}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&units=metric`
       )
+      dataArray = Array.isArray(res) ? res : [res];
+    console.log(dataArray); // 배열에 넣어 사용
+    locationArray.push(dataArray);
+  })
+    return locationArray;
+
+      // const res = await axios.get<any>(
+      //   `http://api.openweathermap.org/data/2.5/forecast?q=Busan&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb`
+      // )
 
     // const res = await axios.get<any>(
-    //   `https://api.openweathermap.org/data/2.5/forcast/group`,
+    //   `https://api.openweathermap.org/data/2.5/forecast?group`,
     //   { params } 
     // );
-    return res.data.list;
+    // return res.data;
   }
 );
 
