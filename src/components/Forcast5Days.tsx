@@ -1,6 +1,7 @@
 import { useAppSelector } from "../hooks/reduxHooks";
 import { List } from "../types/Predict5";
 import "../css/Forcast5Days.css"
+import { relative } from "path";
 
 const Forcast5Days = () => {
   const predict5Data = useAppSelector((state) => {
@@ -27,17 +28,18 @@ const Forcast5Days = () => {
     const DateCheck4:List[] | undefined  = predict5Data?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate)
     const DateCheck5:List[] | undefined  = predict5Data?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate)
 
-
+  console.log(DateCheck)
 
   return (  
     <div>
-        <div style={{display:"flex",overflowX:"scroll"}}>
+        <div style={{display:"flex",overflowX:"scroll",position:"relative"}}>
 
+        <span className="forcast5-span">오늘</span>
           {
             DateCheck && DateCheck.map((data:List, index)=>(
-              <div key={index} style={{}}>
-                <span className="allSpan">오늘</span>
+              <div key={index} className="forcast5-dayWeather">
                 <p>{data.dt_txt.substr(5,14)}</p>
+                <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
                     src={`https://openweathermap.org/img/wn/${
                       data.weather[0].icon
@@ -48,11 +50,12 @@ const Forcast5Days = () => {
             ))
           }
 
+        <span className="forcast5-span">내일</span>
           {
             DateCheck2 && DateCheck2.map((data:List, index)=>(
-              <div key={index} style={{}}>
-                <span className="allSpan">내일</span>
+              <div key={index} className="forcast5-dayWeather">
                 <p>{data.dt_txt.substr(5,14)}</p>
+                <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
                     src={`https://openweathermap.org/img/wn/${
                       data.weather[0].icon
@@ -63,11 +66,12 @@ const Forcast5Days = () => {
             ))
           }
           
+        <span className="forcast5-span">모레</span>
           {
             DateCheck3 && DateCheck3.map((data:List, index)=>(
-              <div key={index} style={{}}>
-                <span className="allSpan">모레</span>
+              <div key={index} className="forcast5-dayWeather">
                 <p>{data.dt_txt.substr(5,14)}</p>
+                <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
                     src={`https://openweathermap.org/img/wn/${
                       data.weather[0].icon
@@ -78,11 +82,12 @@ const Forcast5Days = () => {
             ))
           }
 
+        <span className="forcast5-span">글피</span>
           {
             DateCheck4 && DateCheck4.map((data:List, index)=>(
-              <div key={index} style={{}}>
-                <span className="allSpan">글피</span>
+              <div key={index} className="forcast5-dayWeather">
                 <p>{data.dt_txt.substr(5,14)}</p>
+                <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
                     src={`https://openweathermap.org/img/wn/${
                       data.weather[0].icon
@@ -93,11 +98,12 @@ const Forcast5Days = () => {
             ))
           }
 
+        <span className="forcast5-span">그글피</span>
           {
-            DateCheck4 && DateCheck4.map((data:List, index)=>(
-              <div key={index} style={{}}>
-                <span className="allSpan">그글피</span>
+            DateCheck5 && DateCheck5.map((data:List, index)=>(
+              <div key={index} className="forcast5-dayWeather">
                 <p>{data.dt_txt.substr(5,14)}</p>
+                <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
                     src={`https://openweathermap.org/img/wn/${
                       data.weather[0].icon
