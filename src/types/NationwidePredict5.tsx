@@ -48,9 +48,29 @@ export interface List {
   name: string;
 }
 
-export interface NationwideData {
+export interface Nationwide {
+  cod: string;
+  message: number;
   cnt: number;
   list: List[];
+  city: {
+    coord: {
+      lat: number;
+      lon: number;
+    };
+    id: number;
+    name: string;
+    country: string;
+    population: number;
+    timezone: number;
+    sunrise: number;
+    sunset: number;
+  };
+}
+
+export interface NationwideData {
+  data: Nationwide
+
 }
 
 export interface Params {
@@ -66,14 +86,36 @@ export interface Params {
 export interface initialStateType {
   status: string;
   error: string | null;
-  apiData: any | null;
+  apiData: any | null | [];
 }
-
 
 // 220506(토)
 
 export interface Location {
-  name: string,
-  lat: number,
-  lon: number
+  name: string;
+  lat: number;
+  lon: number;
 }
+
+// 230508(월)
+// export interface Nationwide {
+//   data:{
+//     cod: string;
+//     message: number;
+//     cnt: number;
+//     list: List[];
+//     city: {
+//       coord: {
+//         lat: number;
+//         lon: number;
+//       };
+//       id: number;
+//       name: string;
+//       country: string;
+//       population: number;
+//       timezone: number;
+//       sunrise: number;
+//       sunset: number;
+//     };
+//   }
+// }

@@ -66,3 +66,25 @@ export interface Predict5Api {
       sunset: number;
     };
 }
+
+export interface Predict5Api1 {
+  data:{
+    cod: string;
+    message: number;
+    cnt: number;
+    list: List[];
+    city: {
+      coord: {
+        lat: number;
+        lon: number;
+      };
+      id: number;
+      name: string;
+      country: string;
+      population: number;
+      timezone: number;
+      sunrise: number;
+      sunset: number;
+    };
+  }
+}
