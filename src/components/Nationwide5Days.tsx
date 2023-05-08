@@ -22,10 +22,10 @@ const Nationwide5Days = () => {
 
 
   useEffect(()=>{
-    console.log("진혜콘솔")
+    console.log("🔥진혜콘솔🔥")
     console.log(NationwideData);
     console.log(NationwideStatus);
-    // locationArray.push(NationwideData);
+    console.log("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
   })
 
   return (
