@@ -12,13 +12,13 @@ const Forcast5Days = () => {
   });
 
     // 시간
-    const today = new Date(); // 오늘 날짜 객체 생성
-    const tomorrow = new Date(today); // 오늘 날짜를 복사하여 다음 날짜 객체 생성
-    const oneDate = today.getDate(); // 현재 날짜 출력
-    const twoDate = tomorrow.getDate()+1; // 다음 날짜 출력
-    const threeDate = tomorrow.getDate()+2;
-    const fourDate = tomorrow.getDate()+3;
-    const fiveDate = tomorrow.getDate()+4;
+    const today: Date = new Date(); // 오늘 날짜 객체 생성
+    const tomorrow: Date = new Date(today); // 오늘 날짜를 복사하여 다음 날짜 객체 생성
+    const oneDate: number = today.getDate(); // 현재 날짜 출력
+    const twoDate: number = tomorrow.getDate()+1; // 다음 날짜 출력
+    const threeDate: number = tomorrow.getDate()+2;
+    const fourDate: number = tomorrow.getDate()+3;
+    const fiveDate: number = tomorrow.getDate()+4;
 
   
     // 5일 일기예보 타입 가져와서 사용
@@ -28,7 +28,6 @@ const Forcast5Days = () => {
     const DateCheck4:List[] | undefined  = predict5Data?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate)
     const DateCheck5:List[] | undefined  = predict5Data?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate)
 
-  console.log(DateCheck)
 
   return (  
     <div>
@@ -124,7 +123,6 @@ const Forcast5Days = () => {
               const month: number = date.getMonth() + 1;
               const day: number = date.getDate();
               const hour: number = date.getHours();
-
               // 각 날짜별로 데이터 출력
               if (hour === 12) {
                 return (
