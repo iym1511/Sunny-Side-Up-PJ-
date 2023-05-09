@@ -119,3 +119,7 @@ export interface Location {
 //     };
 //   }
 // }
+
+export interface NationwideBox5 {
+  date: string
+}
