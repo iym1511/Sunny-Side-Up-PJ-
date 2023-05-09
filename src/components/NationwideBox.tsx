@@ -388,6 +388,670 @@ const NationwideBox = (props:any) => {
           })
         }
 
+        { // 대구 / 오늘
+          DeaguWeathers1?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>대구</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 대구 / 내일
+          DeaguWeathers2?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>대구</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 대전 / 모레
+          DeaguWeathers3?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+            
+            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>대구</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 대구 / 글피
+          DeaguWeathers4?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>대구</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 대구 / 그글피
+          DeaguWeathers5?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>대구</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 부산 / 오늘
+          BusanWeathers1?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>부산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 부산 / 내일
+          BusanWeathers2?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>부산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 부산 / 모레
+          BusanWeathers3?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>부산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 부산 / 글피
+          BusanWeathers4?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>부산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 부산 / 그글피
+          BusanWeathers5?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>부산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 울산 / 오늘
+          UlsanWeathers1?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>울산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 울산 / 내일
+          UlsanWeathers2?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>울산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 울산 / 모레
+          UlsanWeathers3?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>울산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 울산 / 글피
+          UlsanWeathers4?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>울산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 울산 / 그글피
+          UlsanWeathers5?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>울산</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 광주 / 오늘
+          GwangjuWeathers1?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>광주</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 광주 / 내일
+          GwangjuWeathers2?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>광주</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 광주 / 모레
+          GwangjuWeathers3?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>광주</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 광주 / 글피
+          GwangjuWeathers4?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>광주</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 광주 / 그글피
+          GwangjuWeathers5?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>광주</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 강릉 / 오늘
+          GangneungWeathers1?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>강릉</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 강릉 / 내일
+          GangneungWeathers2?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>강릉</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 강릉 / 모레
+          GangneungWeathers3?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>강릉</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 강릉 / 글피
+          GangneungWeathers4?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>강릉</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 강릉 / 그글피
+          GangneungWeathers5?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>강릉</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 제주도 / 오늘
+          JejudoWeathers1?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>재주도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+        
+        { // 제주도 / 내일
+          JejudoWeathers2?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>재주도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 제주도 / 모레
+          JejudoWeathers3?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>재주도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 제주도 / 글피
+          JejudoWeathers4?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>재주도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 제주도 / 그글피
+          JejudoWeathers5?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>재주도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 경상남도 / 오늘
+          GyeongsangbukWeathers1?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>경상남도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 경상남도 / 내일
+          GyeongsangbukWeathers2?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>경상남도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 경상남도 / 모레
+          GyeongsangbukWeathers3?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>경상남도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 경상남도 / 글피
+          GyeongsangbukWeathers4?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>경상남도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
+
+        { // 경상남도 / 그글피
+          GyeongsangbukWeathers5?.map((location, i) => {
+            const date:Date = new Date(location.dt_txt);
+            const days:string = String(date.getDate());
+          
+            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+              return (
+                <div>
+                  <p>경상남도</p>
+                  <p>{location.dt_txt}</p>
+                  <p>기온{location.main.temp.toFixed(1)}</p>
+                </div>
+              )
+            }else{
+              return null
+            }
+          })
+        }
     </div>
   );
 }
