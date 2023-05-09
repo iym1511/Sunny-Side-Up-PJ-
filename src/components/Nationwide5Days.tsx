@@ -19,13 +19,13 @@ const Nationwide5Days = () => {
   });
   const date = new Date();
   const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day1 = String(date.getDay()).padStart(2, "0");
-  const day2 = String(date.getDay() + 1).padStart(2, "0");
-  const day3 = String(date.getDay() + 2).padStart(2, "0");
-  const day4 = String(date.getDay() + 3).padStart(2, "0");
-  const day5 = String(date.getDay() + 4).padStart(2, "0");
+  const day1 = String(date.getDate()).padStart(2, "0");
+  const day2 = String(date.getDate() + 1).padStart(2, "0");
+  const day3 = String(date.getDate() + 2).padStart(2, "0");
+  const day4 = String(date.getDate() + 3).padStart(2, "0");
+  const day5 = String(date.getDate() + 4).padStart(2, "0");
   // const dayArray :string[]= [day1, day2, day3, day4, day5];
-
+  
   const nationwideBox5: NationwideBox5[] = [
     {
       date: `${month}.${day1}`,
