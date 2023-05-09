@@ -11,7 +11,7 @@ const Nationwide5Days = () => {
   const dispatch = useAppDispatch();
   const { day } = useParams();
   const navigate = useNavigate();
-  const NationwideData: Nationwide[] = useAppSelector((state) => {
+  const NationwideData = useAppSelector((state) => {
     return state.nationwideApi.apiData;
   });
   const NationwideStatus = useAppSelector((state) => {
@@ -25,7 +25,7 @@ const Nationwide5Days = () => {
   const day4 = String(date.getDate() + 3).padStart(2, "0");
   const day5 = String(date.getDate() + 4).padStart(2, "0");
   // const dayArray :string[]= [day1, day2, day3, day4, day5];
-  
+
   const nationwideBox5: NationwideBox5[] = [
     {
       date: `${month}.${day1}`,
