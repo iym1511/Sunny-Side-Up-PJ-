@@ -38,11 +38,11 @@ export interface Clouds {
 export interface List {
   coord: Coord;
   sys: Sys;
+  clouds: Clouds;
   weather: Weather[];
   main: Main;
   visibility: number;
   wind: Wind;
-  clouds: Clouds;
   dt: number;
   id: number;
   name: string;

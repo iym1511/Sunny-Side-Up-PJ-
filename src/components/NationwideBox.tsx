@@ -21,12 +21,13 @@ const NationwideBox = (props:any) => {
     const fourDate: number = tomorrow.getDate()+3;
     const fiveDate: number = tomorrow.getDate()+4;
  
-    // 서울
+    // 서울  
     const SeoulWeathers1:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
     const SeoulWeathers2:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
     const SeoulWeathers3:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
     const SeoulWeathers4:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
     const SeoulWeathers5:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    console.log(SeoulWeathers1)
 
     // 인천
     const IncheonWeathers1:List[] | undefined = NationwideData[1]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
@@ -93,7 +94,7 @@ const NationwideBox = (props:any) => {
 
     console.log(SeoulWeathers1)
   return (  
-    <div style={{border:"1px solid red"}}>
+    <div>
       {/* {day} */}
       {/* {NationwideData &&
         NationwideData.map((location: any, i: number) => (
@@ -108,7 +109,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
 
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>서울</p>
@@ -127,7 +128,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
 
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>서울</p>
@@ -146,7 +147,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
 
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>서울</p>
@@ -165,7 +166,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
             
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>서울</p>
@@ -184,7 +185,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
             
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>서울</p>
@@ -203,7 +204,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>인천</p>
@@ -222,7 +223,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
             
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>인천</p>
@@ -241,7 +242,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
             
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>인천</p>
@@ -260,7 +261,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
             
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>인천</p>
@@ -279,7 +280,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
             
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>인천</p>
@@ -298,7 +299,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대전</p>
@@ -317,7 +318,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대전</p>
@@ -336,7 +337,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대전</p>
@@ -355,7 +356,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대전</p>
@@ -374,7 +375,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대전</p>
@@ -393,7 +394,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대구</p>
@@ -412,7 +413,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대구</p>
@@ -431,7 +432,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
             
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대구</p>
@@ -450,7 +451,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대구</p>
@@ -469,7 +470,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>대구</p>
@@ -488,7 +489,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>부산</p>
@@ -507,7 +508,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>부산</p>
@@ -526,7 +527,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>부산</p>
@@ -545,7 +546,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>부산</p>
@@ -564,7 +565,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>부산</p>
@@ -583,7 +584,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>울산</p>
@@ -602,7 +603,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>울산</p>
@@ -621,7 +622,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>울산</p>
@@ -640,7 +641,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>울산</p>
@@ -659,7 +660,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>울산</p>
@@ -678,7 +679,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>광주</p>
@@ -697,7 +698,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>광주</p>
@@ -716,7 +717,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>광주</p>
@@ -735,7 +736,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>광주</p>
@@ -754,7 +755,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>광주</p>
@@ -773,7 +774,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>강릉</p>
@@ -792,7 +793,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>강릉</p>
@@ -811,7 +812,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>강릉</p>
@@ -830,7 +831,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>강릉</p>
@@ -849,7 +850,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>강릉</p>
@@ -868,7 +869,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>재주도</p>
@@ -887,7 +888,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>재주도</p>
@@ -906,7 +907,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>재주도</p>
@@ -925,7 +926,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>재주도</p>
@@ -944,7 +945,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>재주도</p>
@@ -963,7 +964,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "0" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "0" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>경상남도</p>
@@ -982,7 +983,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "1" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "1" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>경상남도</p>
@@ -1001,7 +1002,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "2" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "2" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>경상남도</p>
@@ -1020,7 +1021,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "3" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "3" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>경상남도</p>
@@ -1039,7 +1040,7 @@ const NationwideBox = (props:any) => {
             const date:Date = new Date(location.dt_txt);
             const days:string = String(date.getDate());
           
-            if(day == "4" && location.dt_txt.substr(11,2) === "12" && location.dt_txt.substr(8, 2) == days){
+            if(day == "4" && location.dt_txt.substr(11,2) === "15" && location.dt_txt.substr(8, 2) == days){
               return (
                 <div>
                   <p>경상남도</p>
