@@ -33,10 +33,10 @@ const Forcast5Days = () => {
   return (  
     <div>
         <Forcast5DayTimeBox>
-        <span className="forcast5-span">오늘</span>
+        <TodaySpan>오늘</TodaySpan>
           {
             DateCheck && DateCheck.map((data:List, index)=>(
-              <div key={index} className="forcast5-dayWeather">
+              <Forcast5DayTimeDiv key={index}>
                 <p>{data.dt_txt.substr(5,14)}</p>
                 <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
@@ -45,14 +45,14 @@ const Forcast5Days = () => {
                     }@2x.png`}
                     style={{width:"100%"}}
                   />
-              </div>
+              </Forcast5DayTimeDiv>
             ))
           }
 
-        <span className="forcast5-span">내일</span>
+        <TodaySpan>내일</TodaySpan>
           {
             DateCheck2 && DateCheck2.map((data:List, index)=>(
-              <div key={index} className="forcast5-dayWeather">
+              <Forcast5DayTimeDiv key={index}>
                 <p>{data.dt_txt.substr(5,14)}</p>
                 <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
@@ -61,14 +61,14 @@ const Forcast5Days = () => {
                     }@2x.png`}
                     style={{width:"100%"}}
                   />
-              </div>
+              </Forcast5DayTimeDiv>
             ))
           }
           
-        <span className="forcast5-span">모레</span>
+        <TodaySpan>모레</TodaySpan>
           {
             DateCheck3 && DateCheck3.map((data:List, index)=>(
-              <div key={index} className="forcast5-dayWeather">
+              <Forcast5DayTimeDiv key={index}>
                 <p>{data.dt_txt.substr(5,14)}</p>
                 <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
@@ -77,14 +77,14 @@ const Forcast5Days = () => {
                     }@2x.png`}
                     style={{width:"100%"}}
                   />
-              </div>
+              </Forcast5DayTimeDiv>
             ))
           }
 
-        <span className="forcast5-span">글피</span>
+        <TodaySpan>글피</TodaySpan>
           {
             DateCheck4 && DateCheck4.map((data:List, index)=>(
-              <div key={index} className="forcast5-dayWeather">
+              <Forcast5DayTimeDiv key={index}>
                 <p>{data.dt_txt.substr(5,14)}</p>
                 <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
@@ -93,14 +93,14 @@ const Forcast5Days = () => {
                     }@2x.png`}
                     style={{width:"100%"}}
                   />
-              </div>
+              </Forcast5DayTimeDiv>
             ))
           }
 
-        <span className="forcast5-span">그글피</span>
+        <TodaySpan>그글피</TodaySpan>
           {
             DateCheck5 && DateCheck5.map((data:List, index)=>(
-              <div key={index} className="forcast5-dayWeather">
+              <Forcast5DayTimeDiv key={index}>
                 <p>{data.dt_txt.substr(5,14)}</p>
                 <p>{data.main.temp.toFixed(1)}°C</p>
                 <img
@@ -109,7 +109,7 @@ const Forcast5Days = () => {
                     }@2x.png`}
                     style={{width:"100%"}}
                   />
-              </div>
+              </Forcast5DayTimeDiv>
             ))
           }
         </Forcast5DayTimeBox>
@@ -125,7 +125,7 @@ const Forcast5Days = () => {
               // 각 날짜별로 데이터 출력
               if (hour === 12) {
                 return (
-                  <div key={index} style={{margin:"auto"}}>
+                  <Forcast5DayDiv key={index}>
                     <p>{`${year}년 ${month}월 ${day}일`}</p>
                     <img
                     src={`https://openweathermap.org/img/wn/${
@@ -134,7 +134,7 @@ const Forcast5Days = () => {
                     style={{width:"100%"}}
                   />
                     <p>{`기온: ${data.main.temp.toFixed(1)}°C`}</p>
-                  </div>
+                  </Forcast5DayDiv>
                 );
               } else {
                 return null;
@@ -155,4 +155,21 @@ const Forcast5DayTimeBox = styled.div`
 
 const Forcast5DayBox = styled.div`
   display: flex;
+`
+const TodaySpan = styled.span`
+  white-space: nowrap;
+  border-right: 1px solid rgba(255, 255, 255, 0.322);
+  padding-top: 30px;
+  margin-top: 40px;
+  margin-left: 10px;
+  padding-right: 10px;
+  height: 50px;
+  text-align: center;
+  color: #ffffff;
+`
+const Forcast5DayTimeDiv = styled.div`
+  margin: 10px;
+`
+const Forcast5DayDiv = styled.div`
+  margin: auto;
 `
