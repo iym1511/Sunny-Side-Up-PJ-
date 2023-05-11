@@ -179,7 +179,6 @@ const SunnySideUp = () => {
       <p>풍속 : {weatherApiData2?.wind.speed}m/sec</p>
       <p>습도 : {weatherApiData2?.main.humidity}%</p>
 
-
       {/* 5일치 일기예보 */}
       <Forcast5Days />
       <Nationwide5Days />
