@@ -191,5 +191,4 @@ export default SunnySideUp;
 
 const ContainerDiv = styled.div`
   border: 1px solid red;
-  color: red;
 `
