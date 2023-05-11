@@ -146,5 +146,5 @@ const Forcast5Days = () => {
     </div>
   );
 }
- 
+
 export default Forcast5Days;
