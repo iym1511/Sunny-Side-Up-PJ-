@@ -2,6 +2,7 @@ import { useAppSelector } from "../hooks/reduxHooks";
 import { List } from "../types/Predict5";
 import "../css/Forcast5Days.css"
 import { relative } from "path";
+import styled from "styled-components";
 
 const Forcast5Days = () => {
   const predict5Data = useAppSelector((state) => {
@@ -31,8 +32,7 @@ const Forcast5Days = () => {
 
   return (  
     <div>
-        <div style={{display:"flex",overflowX:"scroll",position:"relative"}}>
-
+        <Forcast5DayTimeBox>
         <span className="forcast5-span">오늘</span>
           {
             DateCheck && DateCheck.map((data:List, index)=>(
@@ -112,10 +112,9 @@ const Forcast5Days = () => {
               </div>
             ))
           }
+        </Forcast5DayTimeBox>
 
-        </div>
-
-        <div style={{display: "flex", overflowX:"scroll"}}>
+        <Forcast5DayBox>
           {
             predict5Data && predict5Data?.list.map((data:List,index) => {
               const date:Date = new Date(data.dt_txt);
@@ -142,9 +141,18 @@ const Forcast5Days = () => {
               }
             })
           }
-      </div>
+      </Forcast5DayBox>
     </div>
   );
 }
 
 export default Forcast5Days;
+
+const Forcast5DayTimeBox = styled.div`
+  display: flex;
+  overflow-x: scroll;
+`
+
+const Forcast5DayBox = styled.div`
+  display: flex;
+`
