@@ -44,11 +44,11 @@ const Nationwide5Days = () => {
     },
   ];
 
-  // useEffect(() => {
-  //   console.log("진혜콘솔");
-  //   console.log(NationwideData);
-  //   console.log(NationwideStatus);
-  // }, [NationwideData]);
+  useEffect(() => {
+    console.log("진혜콘솔");
+    console.log(NationwideData);
+    console.log(NationwideStatus);
+  }, [NationwideData]);
 
   return (
     <div>
