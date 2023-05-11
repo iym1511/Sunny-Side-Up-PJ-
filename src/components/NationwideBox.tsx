@@ -22,75 +22,75 @@ const NationwideBox = (props:any) => {
     const fiveDate: number = tomorrow.getDate()+4;
  
     // 서울  
-    const SeoulWeathers1:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const SeoulWeathers2:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const SeoulWeathers3:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const SeoulWeathers4:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const SeoulWeathers5:List[] | undefined  = NationwideData[0]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const SeoulWeathers1:List[] | undefined  = NationwideData && NationwideData[0].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const SeoulWeathers2:List[] | undefined  = NationwideData && NationwideData[0].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const SeoulWeathers3:List[] | undefined  = NationwideData && NationwideData[0].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const SeoulWeathers4:List[] | undefined  = NationwideData && NationwideData[0].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const SeoulWeathers5:List[] | undefined  = NationwideData && NationwideData[0].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
     console.log(SeoulWeathers1)
 
     // 인천
-    const IncheonWeathers1:List[] | undefined = NationwideData[1]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const IncheonWeathers2:List[] | undefined = NationwideData[1]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const IncheonWeathers3:List[] | undefined = NationwideData[1]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const IncheonWeathers4:List[] | undefined = NationwideData[1]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const IncheonWeathers5:List[] | undefined = NationwideData[1]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const IncheonWeathers1:List[] | undefined = NationwideData && NationwideData[1].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const IncheonWeathers2:List[] | undefined = NationwideData && NationwideData[1].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const IncheonWeathers3:List[] | undefined = NationwideData && NationwideData[1].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const IncheonWeathers4:List[] | undefined = NationwideData && NationwideData[1].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const IncheonWeathers5:List[] | undefined = NationwideData && NationwideData[1].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
 
     // 대전
-    const DaejeonWeathers1:List[] | undefined = NationwideData[2]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const DaejeonWeathers2:List[] | undefined = NationwideData[2]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const DaejeonWeathers3:List[] | undefined = NationwideData[2]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const DaejeonWeathers4:List[] | undefined = NationwideData[2]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const DaejeonWeathers5:List[] | undefined = NationwideData[2]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const DaejeonWeathers1:List[] | undefined = NationwideData && NationwideData[2].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const DaejeonWeathers2:List[] | undefined = NationwideData && NationwideData[2].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const DaejeonWeathers3:List[] | undefined = NationwideData && NationwideData[2].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const DaejeonWeathers4:List[] | undefined = NationwideData && NationwideData[2].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const DaejeonWeathers5:List[] | undefined = NationwideData && NationwideData[2].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
 
     // 대구
-    const DeaguWeathers1:List[] | undefined = NationwideData[3]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const DeaguWeathers2:List[] | undefined = NationwideData[3]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const DeaguWeathers3:List[] | undefined = NationwideData[3]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const DeaguWeathers4:List[] | undefined = NationwideData[3]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const DeaguWeathers5:List[] | undefined = NationwideData[3]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const DeaguWeathers1:List[] | undefined = NationwideData && NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const DeaguWeathers2:List[] | undefined = NationwideData && NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const DeaguWeathers3:List[] | undefined = NationwideData && NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const DeaguWeathers4:List[] | undefined = NationwideData && NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const DeaguWeathers5:List[] | undefined = NationwideData && NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
     
     // 부산
-    const BusanWeathers1:List[] | undefined = NationwideData[4]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const BusanWeathers2:List[] | undefined = NationwideData[4]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const BusanWeathers3:List[] | undefined = NationwideData[4]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const BusanWeathers4:List[] | undefined = NationwideData[4]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const BusanWeathers5:List[] | undefined = NationwideData[4]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const BusanWeathers1:List[] | undefined = NationwideData && NationwideData[4].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const BusanWeathers2:List[] | undefined = NationwideData && NationwideData[4].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const BusanWeathers3:List[] | undefined = NationwideData && NationwideData[4].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const BusanWeathers4:List[] | undefined = NationwideData && NationwideData[4].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const BusanWeathers5:List[] | undefined = NationwideData && NationwideData[4].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
     
     // 울산
-    const UlsanWeathers1:List[] | undefined = NationwideData[5]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const UlsanWeathers2:List[] | undefined = NationwideData[5]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const UlsanWeathers3:List[] | undefined = NationwideData[5]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const UlsanWeathers4:List[] | undefined = NationwideData[5]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const UlsanWeathers5:List[] | undefined = NationwideData[5]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const UlsanWeathers1:List[] | undefined = NationwideData && NationwideData[5].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const UlsanWeathers2:List[] | undefined = NationwideData && NationwideData[5].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const UlsanWeathers3:List[] | undefined = NationwideData && NationwideData[5].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const UlsanWeathers4:List[] | undefined = NationwideData && NationwideData[5].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const UlsanWeathers5:List[] | undefined = NationwideData && NationwideData[5].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
     
     // 광주
-    const GwangjuWeathers1:List[] | undefined = NationwideData[6]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const GwangjuWeathers2:List[] | undefined = NationwideData[6]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const GwangjuWeathers3:List[] | undefined = NationwideData[6]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const GwangjuWeathers4:List[] | undefined = NationwideData[6]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const GwangjuWeathers5:List[] | undefined = NationwideData[6]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const GwangjuWeathers1:List[] | undefined = NationwideData && NationwideData[6].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const GwangjuWeathers2:List[] | undefined = NationwideData && NationwideData[6].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const GwangjuWeathers3:List[] | undefined = NationwideData && NationwideData[6].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const GwangjuWeathers4:List[] | undefined = NationwideData && NationwideData[6].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const GwangjuWeathers5:List[] | undefined = NationwideData && NationwideData[6].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
     
     // 강릉
-    const GangneungWeathers1:List[] | undefined = NationwideData[7]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const GangneungWeathers2:List[] | undefined = NationwideData[7]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const GangneungWeathers3:List[] | undefined = NationwideData[7]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const GangneungWeathers4:List[] | undefined = NationwideData[7]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const GangneungWeathers5:List[] | undefined = NationwideData[7]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const GangneungWeathers1:List[] | undefined = NationwideData && NationwideData[7].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const GangneungWeathers2:List[] | undefined = NationwideData && NationwideData[7].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const GangneungWeathers3:List[] | undefined = NationwideData && NationwideData[7].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const GangneungWeathers4:List[] | undefined = NationwideData && NationwideData[7].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const GangneungWeathers5:List[] | undefined = NationwideData && NationwideData[7].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
 
     // 제주도
-    const JejudoWeathers1:List[] | undefined = NationwideData[8]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const JejudoWeathers2:List[] | undefined = NationwideData[8]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const JejudoWeathers3:List[] | undefined = NationwideData[8]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const JejudoWeathers4:List[] | undefined = NationwideData[8]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const JejudoWeathers5:List[] | undefined = NationwideData[8]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const JejudoWeathers1:List[] | undefined = NationwideData && NationwideData[8].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const JejudoWeathers2:List[] | undefined = NationwideData && NationwideData[8].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const JejudoWeathers3:List[] | undefined = NationwideData && NationwideData[8].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const JejudoWeathers4:List[] | undefined = NationwideData && NationwideData[8].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const JejudoWeathers5:List[] | undefined = NationwideData && NationwideData[8].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
     
     // 경상북도
-    const GyeongsangbukWeathers1:List[] | undefined = NationwideData[9]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
-    const GyeongsangbukWeathers2:List[] | undefined = NationwideData[9]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
-    const GyeongsangbukWeathers3:List[] | undefined = NationwideData[9]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
-    const GyeongsangbukWeathers4:List[] | undefined = NationwideData[9]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
-    const GyeongsangbukWeathers5:List[] | undefined = NationwideData[9]?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
+    const GyeongsangbukWeathers1:List[] | undefined = NationwideData && NationwideData[9].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    const GyeongsangbukWeathers2:List[] | undefined = NationwideData && NationwideData[9].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    const GyeongsangbukWeathers3:List[] | undefined = NationwideData && NationwideData[9].list.filter((a: any) => a.dt_txt.substr(8, 2) == threeDate);
+    const GyeongsangbukWeathers4:List[] | undefined = NationwideData && NationwideData[9].list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate);
+    const GyeongsangbukWeathers5:List[] | undefined = NationwideData && NationwideData[9].list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate);
 
     console.log(SeoulWeathers1)
   return (  
