@@ -3,6 +3,10 @@ import { useAppSelector } from "../hooks/reduxHooks";
 import { Nationwide } from "../types/NationwidePredict5";
 import { List } from "../types/Predict5";
 
+import styled from 'styled-components';
+
+import southkoreaImage from '../img/southkorea01.png';
+
 const NationwideBox = (props: any) => {
   const { nationwideBox5 } = props;
   const NationwideData = useAppSelector((state) => {
@@ -320,7 +324,10 @@ const NationwideBox = (props: any) => {
   ];
 
   return (
-    <div>
+    <NationwideBoxWallpaper>
+      <SouthKoreaBox>
+        <SouthKoreaImage src={require("../img/southkorea01.png")} alt="없음" />
+      </SouthKoreaBox>
       {
         // 서울
         SeoulArray &&
@@ -580,8 +587,29 @@ const NationwideBox = (props: any) => {
             });
           })
       }
-    </div>
+    </NationwideBoxWallpaper>
   );
 };
 
 export default NationwideBox;
+
+const NationwideBoxWallpaper = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color : pink;
+`
+
+const SouthKoreaBox = styled.div`
+  width: 30%;
+  height: fit-content;
+  background-color: transparent;
+  border: 1px solid blue;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  `
+
+const SouthKoreaImage = styled.img`
+  width: 80%;
+  margin: auto;
+`
