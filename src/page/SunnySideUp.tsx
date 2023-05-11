@@ -160,9 +160,11 @@ const SunnySideUp = () => {
 
   return (
     <ContainerDiv>
-      <video width="1320" height="840" autoPlay muted loop>
+      <VideoBackground autoPlay muted loop>
         <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
-      </video>
+      </VideoBackground>
+
+      <Container>
       <p>
         현재위치 : {si} {gu} {dong}
       </p>
@@ -183,6 +185,8 @@ const SunnySideUp = () => {
       {/* 5일치 일기예보 */}
       <Forcast5Days />
       <Nationwide5Days />
+      </Container>
+
     </ContainerDiv>
   );
 };
@@ -190,5 +194,14 @@ const SunnySideUp = () => {
 export default SunnySideUp;
 
 const ContainerDiv = styled.div`
-  border: 1px solid red;
+`
+const VideoBackground =  styled.video`
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  
+`
+const Container = styled.div`
+  z-index: 440;
 `

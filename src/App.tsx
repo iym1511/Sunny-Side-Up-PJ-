@@ -10,7 +10,6 @@ import Notfound from './page/Notfound';
 function App() {
   return (
     <div className="App">
-      <h1>우리진혜 사랑해</h1>
       <Routes>
         <Route  path='/' element={<Home/>}/>
         <Route index path='/home' element={<Home/>}/>
