@@ -327,7 +327,6 @@ const NationwideBox = (props: any) => {
     <NationwideBoxWallpaper>
       <SouthKoreaBox>
         <SouthKoreaImage src={require("../img/southkorea01.png")} alt="없음" />
-      </SouthKoreaBox>
       {
         // 서울
         SeoulArray &&
@@ -341,11 +340,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
-                    <p>서울</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                  <SeoulDiv>
+                    <p>서울 </p>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </SeoulDiv>
                 );
               } else {
                 return null;
@@ -367,11 +366,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <IncheonDiv>
                     <p>인천</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </IncheonDiv>
                 );
               } else {
                 return null;
@@ -393,11 +392,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <DeajeonDiv>
                     <p>대전</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </DeajeonDiv>
                 );
               } else {
                 return null;
@@ -419,11 +418,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <DeaguDiv>
                     <p>대구</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </DeaguDiv>
                 );
               } else {
                 return null;
@@ -445,11 +444,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <BusanDiv>
                     <p>부산</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </BusanDiv>
                 );
               } else {
                 return null;
@@ -471,11 +470,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <UlsanDiv>
                     <p>울산</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </UlsanDiv>
                 );
               } else {
                 return null;
@@ -497,11 +496,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <GwangjuDiv>
                     <p>광주</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </GwangjuDiv>
                 );
               } else {
                 return null;
@@ -523,11 +522,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <GangneungDiv>
                     <p>강릉</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </GangneungDiv>
                 );
               } else {
                 return null;
@@ -549,11 +548,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <JejuDiv>
                     <p>제주</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </JejuDiv>
                 );
               } else {
                 return null;
@@ -575,11 +574,11 @@ const NationwideBox = (props: any) => {
                 location.dt_txt.substr(8, 2) == days
               ) {
                 return (
-                  <div>
+                  <DockdoDiv>
                     <p>울릉도/독도</p>
-                    <p>{location.dt_txt}</p>
-                    <p>기온{location.main.temp.toFixed(1)}</p>
-                  </div>
+                    {/* <p>{location.dt_txt}</p> */}
+                    <p>{location.main.temp.toFixed(1)}</p>
+                  </DockdoDiv>
                 );
               } else {
                 return null;
@@ -587,6 +586,7 @@ const NationwideBox = (props: any) => {
             });
           })
       }
+      </SouthKoreaBox>
     </NationwideBoxWallpaper>
   );
 };
@@ -596,20 +596,108 @@ export default NationwideBox;
 const NationwideBoxWallpaper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color : pink;
+  border: 1px solid red;
 `
 
 const SouthKoreaBox = styled.div`
   width: 30%;
-  height: fit-content;
+  height: 60%;
   background-color: transparent;
   border: 1px solid blue;
   margin: auto;
-  display: flex;
-  justify-content: center;
   `
 
 const SouthKoreaImage = styled.img`
   width: 80%;
   margin: auto;
+`
+
+const SeoulDiv = styled.div`
+  position: relative;
+  bottom: 75%;
+  right: 9%;
+  p {
+    margin: 5px;
+  }
+`
+
+const IncheonDiv = styled.div`
+  position: relative;
+  bottom: 82%;
+  right: 17%;
+  p {
+    margin: 5px;
+  }
+`
+
+const DeajeonDiv = styled.div`
+  position: relative;
+  bottom: 74%;
+  right: 9%;
+  p {
+    margin: 5px;
+  }
+`
+
+const DeaguDiv = styled.div`
+  position: relative;
+  bottom: 80%;
+  left: 9%;
+  p {
+    margin: 5px;
+  }
+`
+
+const BusanDiv = styled.div`
+  position: relative;
+  bottom: 68%;
+  left: 16%;
+  p {
+    margin: 5px;
+  }
+`
+
+const UlsanDiv = styled.div`
+  position: relative;
+  bottom: 85%;
+  left: 19%;
+  p {
+    margin: 5px;
+  }
+`
+
+const GwangjuDiv = styled.div`
+  position: relative;
+  bottom: 91%;
+  right: 11%;
+  p {
+    margin: 5px;
+  }
+`
+
+const GangneungDiv = styled.div`
+  position: relative;
+  bottom: 133%;
+  left: 13%;
+  p {
+    margin: 5px;
+  }
+`
+
+const JejuDiv = styled.div`
+  position: relative;
+  bottom: 76%;
+  right: 20%;
+  p {
+    margin: 5px;
+  }
+`
+
+const DockdoDiv = styled.div`
+  position: relative;
+  bottom: 135%;
+  left: 33%;
+  p {
+    margin: 5px;
+  }
 `
