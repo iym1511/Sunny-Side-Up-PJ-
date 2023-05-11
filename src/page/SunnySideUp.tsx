@@ -5,16 +5,14 @@ import { asyncFetch2 } from "../module/weatherApi";
 
 import axios from "axios";
 import { PositionType } from "../types/GeoLocation";
-import { useSelector } from "react-redux";
-import { GpsState } from "../types/Gps";
 import { setGps } from "../module/gps";
 import { getAirPollData } from "../module/airpollution";
 import { Documents, KakaoApiType } from "../types/KakaoApi";
 import { getPredict5Data } from "../module/predict5";
-import { List } from "../types/Predict5";
 import Forcast5Days from "../components/Forcast5Days";
 import Nationwide5Days from "../components/Nationwide5Days";
 import { getNationwidePredict5Data } from "../module/nationwidePredict5";
+import styled from 'styled-components';
 
 const SunnySideUp = () => {
   // const weatherApiData1 = useAppSelector((state) => {
@@ -161,7 +159,10 @@ const SunnySideUp = () => {
   }, [latitude]);
 
   return (
-    <div style={{ border: "1px solid red" }}>
+    <ContainerDiv>
+      <video width="1320" height="840" autoPlay muted loop>
+        <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
+      </video>
       <p>
         현재위치 : {si} {gu} {dong}
       </p>
@@ -182,8 +183,13 @@ const SunnySideUp = () => {
       {/* 5일치 일기예보 */}
       <Forcast5Days />
       <Nationwide5Days />
-    </div>
+    </ContainerDiv>
   );
 };
 
 export default SunnySideUp;
+
+const ContainerDiv = styled.div`
+  border: 1px solid red;
+  color: red;
+`
