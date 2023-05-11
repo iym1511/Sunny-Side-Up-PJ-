@@ -159,15 +159,12 @@ const SunnySideUp = () => {
   }, [latitude]);
 
   return (
-    <ContainerDiv>
+    <SunnySideUpWallpaper>
       <VideoBackground autoPlay muted loop>
         <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
       </VideoBackground>
 
-      <Container>
-      <p>
-        현재위치 : {si} {gu} {dong}
-      </p>
+      <p>현재위치 : {si} {gu} {dong}</p>
       <img
         src={`https://openweathermap.org/img/wn/${
           weatherApiData2 && weatherApiData2.weather[0].icon
@@ -185,23 +182,22 @@ const SunnySideUp = () => {
       {/* 5일치 일기예보 */}
       <Forcast5Days />
       <Nationwide5Days />
-      </Container>
 
-    </ContainerDiv>
+    </SunnySideUpWallpaper>
   );
 };
 
 export default SunnySideUp;
 
-const ContainerDiv = styled.div`
+const SunnySideUpWallpaper = styled.div`
+  position: relative;
+  color: white;
+  text-align: center;
+  font-weight: lighter;
 `
 const VideoBackground =  styled.video`
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  
-`
-const Container = styled.div`
-  z-index: 440;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 `
