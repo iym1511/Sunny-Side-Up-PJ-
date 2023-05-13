@@ -154,15 +154,29 @@ const SunnySideUp = () => {
     }
   };
 
+  const cloud = weatherApiData2 && weatherApiData2.weather[0].description.includes("cloud");
+
   useEffect(() => {
     mapApi();
   }, [latitude]);
 
   return (
     <SunnySideUpWallpaper>
-      <VideoBackground autoPlay muted loop>
-        <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
-      </VideoBackground>
+
+
+      {
+        cloud ? (
+          <>
+            <VideoBackground autoPlay muted loop>
+              <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
+            </VideoBackground>
+            <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+          </>
+        ):(
+          <>
+          </>
+        )
+      }
 
       <p>현재위치 : {si} {gu} {dong}</p>
       <img
@@ -170,7 +184,7 @@ const SunnySideUp = () => {
           weatherApiData2 && weatherApiData2.weather[0].icon
         }@2x.png`}
       />
-      <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+
       <p>{tempGps?.toFixed(1)}°C</p>
       <p>체감 온도 :{feelsLikeGps?.toFixed(1)}</p>
       <p>대기질 : {printAirPollStatus()}</p>
