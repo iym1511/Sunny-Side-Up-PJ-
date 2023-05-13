@@ -236,19 +236,6 @@ const SunnySideUp = () => {
         }@2x.png`}
       />
       {showWeatherBackground()}
-      {/* {
-        clouds ? (
-          <>
-            <VideoBackground autoPlay muted loop>
-              <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
-            </VideoBackground>
-            <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
-          </>
-        ):(
-          <>
-          </>
-        )
-      } */}
 
       <p>{tempGps?.toFixed(1)}°C</p>
       <p>체감 온도 :{feelsLikeGps?.toFixed(1)}</p>
@@ -279,4 +266,6 @@ const VideoBackground =  styled.video`
   top: 0;
   left: 0;
   z-index: -1;
+  filter: brightness(70%);
+  object-fit: cover;
 `
