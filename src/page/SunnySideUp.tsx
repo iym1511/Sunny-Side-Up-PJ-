@@ -154,7 +154,74 @@ const SunnySideUp = () => {
     }
   };
 
-  const cloud = weatherApiData2 && weatherApiData2.weather[0].description.includes("cloud");
+  const TodayWeather: number | null = weatherApiData2 && weatherApiData2.weather[0].id;
+
+  console.log(TodayWeather)
+
+  const showWeatherBackground = () => {
+    if (TodayWeather && TodayWeather <= 200) {
+      return (
+        <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/thunderstorm.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+        </>
+      );
+    } else if (TodayWeather && TodayWeather >= 300 && TodayWeather < 600) {
+      return (
+        <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/rain.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+        </>
+      );
+    } else if (TodayWeather && TodayWeather >= 600 && TodayWeather < 700) {
+      <>
+        <VideoBackground autoPlay muted loop>
+          <source src={require("../videos/snow.mp4")} type="video/mp4" />
+        </VideoBackground>
+        <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+    </>
+    } else if (TodayWeather && TodayWeather >= 700 && TodayWeather < 800) {
+      return (
+        <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/mist.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+        </>
+      );
+    } else if (TodayWeather && TodayWeather === 800) {
+      return (
+        <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/sunny.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+        </>
+      );
+    } else if (TodayWeather && TodayWeather === 801) {
+      return (
+        <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/fewClouds.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+        </>
+      );
+    } else if (TodayWeather && TodayWeather > 801 && TodayWeather < 900) {
+      return (
+        <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+        </>
+      );
+    }
+  };
 
   useEffect(() => {
     mapApi();
@@ -162,10 +229,15 @@ const SunnySideUp = () => {
 
   return (
     <SunnySideUpWallpaper>
-
-
-      {
-        cloud ? (
+      <p>현재위치 : {si} {gu} {dong}</p>
+      <img
+        src={`https://openweathermap.org/img/wn/${
+          weatherApiData2 && weatherApiData2.weather[0].icon
+        }@2x.png`}
+      />
+      {showWeatherBackground()}
+      {/* {
+        clouds ? (
           <>
             <VideoBackground autoPlay muted loop>
               <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
@@ -176,14 +248,7 @@ const SunnySideUp = () => {
           <>
           </>
         )
-      }
-
-      <p>현재위치 : {si} {gu} {dong}</p>
-      <img
-        src={`https://openweathermap.org/img/wn/${
-          weatherApiData2 && weatherApiData2.weather[0].icon
-        }@2x.png`}
-      />
+      } */}
 
       <p>{tempGps?.toFixed(1)}°C</p>
       <p>체감 온도 :{feelsLikeGps?.toFixed(1)}</p>
