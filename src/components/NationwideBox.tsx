@@ -2,10 +2,7 @@ import { useParams } from "react-router";
 import { useAppSelector } from "../hooks/reduxHooks";
 import { Nationwide } from "../types/NationwidePredict5";
 import { List } from "../types/Predict5";
-
-import styled from 'styled-components';
-
-import southkoreaImage from '../img/southkorea01.png';
+import styled from "styled-components";
 
 const NationwideBox = (props: any) => {
   const { nationwideBox5 } = props;
@@ -327,265 +324,275 @@ const NationwideBox = (props: any) => {
     <NationwideBoxWallpaper>
       <SouthKoreaBox>
         <SouthKoreaImage src={require("../img/southkorea01.png")} alt="없음" />
-      {
-        // 서울
-        SeoulArray &&
-          SeoulArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <SeoulDiv>
-                    <p>서울 </p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </SeoulDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 서울
+          SeoulArray &&
+            SeoulArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <SeoulDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>서울 {location.main.temp.toFixed(1)}°</p>
+                    </SeoulDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 인천
-        IncheonArray &&
-          IncheonArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <IncheonDiv>
-                    <p>인천</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </IncheonDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 인천
+          IncheonArray &&
+            IncheonArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <IncheonDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>인천 {location.main.temp.toFixed(1)}°</p>
+                    </IncheonDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 대전
-        DaejeonArray &&
-          DaejeonArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <DeajeonDiv>
-                    <p>대전</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </DeajeonDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 대전
+          DaejeonArray &&
+            DaejeonArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <DeajeonDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>대전 {location.main.temp.toFixed(1)}°</p>
+                    </DeajeonDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 대구
-        DeaguArray &&
-          DeaguArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <DeaguDiv>
-                    <p>대구</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </DeaguDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 대구
+          DeaguArray &&
+            DeaguArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <DeaguDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>대구 {location.main.temp.toFixed(1)}°</p>
+                    </DeaguDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 부산
-        BusanArray &&
-          BusanArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <BusanDiv>
-                    <p>부산</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </BusanDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 부산
+          BusanArray &&
+            BusanArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <BusanDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>부산 {location.main.temp.toFixed(1)}°</p>
+                    </BusanDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 울산
-        UlsanArray &&
-          UlsanArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <UlsanDiv>
-                    <p>울산</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </UlsanDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 울산
+          UlsanArray &&
+            UlsanArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <UlsanDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>울산 {location.main.temp.toFixed(1)}°</p>
+                    </UlsanDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 광주
-        GwangjuArray &&
-          GwangjuArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <GwangjuDiv>
-                    <p>광주</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </GwangjuDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 광주
+          GwangjuArray &&
+            GwangjuArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <GwangjuDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>광주 {location.main.temp.toFixed(1)}°</p>
+                    </GwangjuDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 강릉
-        GangneungArray &&
-          GangneungArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <GangneungDiv>
-                    <p>강릉</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </GangneungDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 강릉
+          GangneungArray &&
+            GangneungArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <GangneungDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>강릉 {location.main.temp.toFixed(1)}°</p>
+                    </GangneungDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 제주
-        JejuArray &&
-          JejuArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <JejuDiv>
-                    <p>제주</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </JejuDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 제주
+          JejuArray &&
+            JejuArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <JejuDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>제주 {location.main.temp.toFixed(1)}°</p>
+                    </JejuDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
 
-      {
-        // 울릉도/독도
-        GyengsangbukArray &&
-          GyengsangbukArray.map((l: any, i: any): any => {
-            return l?.map((location: any) => {
-              const date: Date = new Date(location.dt_txt);
-              const days: string = String(date.getDate());
-              if (
-                day == i &&
-                location.dt_txt.substr(11, 2) === "15" &&
-                location.dt_txt.substr(8, 2) == days
-              ) {
-                return (
-                  <DockdoDiv>
-                    <p>울릉도/독도</p>
-                    {/* <p>{location.dt_txt}</p> */}
-                    <p>{location.main.temp.toFixed(1)}</p>
-                  </DockdoDiv>
-                );
-              } else {
-                return null;
-              }
-            });
-          })
-      }
+        {
+          // 울릉도/독도
+          GyengsangbukArray &&
+            GyengsangbukArray.map((l: any, i: any): any => {
+              return l?.map((location: any) => {
+                const date: Date = new Date(location.dt_txt);
+                const days: string = String(date.getDate());
+                if (
+                  day == i &&
+                  location.dt_txt.substr(11, 2) === "15" &&
+                  location.dt_txt.substr(8, 2) == days
+                ) {
+                  return (
+                    <DockdoDiv>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
+                      />
+                      <p>울릉도/독도 {location.main.temp.toFixed(1)}°</p>
+                    </DockdoDiv>
+                  );
+                } else {
+                  return null;
+                }
+              });
+            })
+        }
       </SouthKoreaBox>
     </NationwideBoxWallpaper>
   );
@@ -595,109 +602,178 @@ export default NationwideBox;
 
 const NationwideBoxWallpaper = styled.div`
   width: 100vw;
-  height: 100vh;
   border: 1px solid red;
-`
+`;
 
 const SouthKoreaBox = styled.div`
-  width: 30%;
-  height: 60%;
+  width: 573px;
+  height: 578px;
   background-color: transparent;
   border: 1px solid blue;
   margin: auto;
-  `
+`;
 
 const SouthKoreaImage = styled.img`
   width: 80%;
   margin: auto;
-`
+`;
 
 const SeoulDiv = styled.div`
   position: relative;
-  bottom: 75%;
-  right: 9%;
-  p {
-    margin: 5px;
+  bottom: 77%;
+  right: 10%;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const IncheonDiv = styled.div`
   position: relative;
-  bottom: 82%;
-  right: 17%;
-  p {
-    margin: 5px;
+  bottom: 87%;
+  right: 20%;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const DeajeonDiv = styled.div`
   position: relative;
-  bottom: 74%;
+  bottom: 88%;
   right: 9%;
-  p {
-    margin: 5px;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const DeaguDiv = styled.div`
   position: relative;
-  bottom: 80%;
+  bottom: 95%;
   left: 9%;
-  p {
-    margin: 5px;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const BusanDiv = styled.div`
   position: relative;
-  bottom: 68%;
+  bottom: 95%;
   left: 16%;
-  p {
-    margin: 5px;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const UlsanDiv = styled.div`
   position: relative;
-  bottom: 85%;
-  left: 19%;
-  p {
-    margin: 5px;
+  bottom: 115%;
+  left: 25%;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const GwangjuDiv = styled.div`
   position: relative;
-  bottom: 91%;
-  right: 11%;
-  p {
-    margin: 5px;
+  bottom: 125%;
+  right: 14%;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const GangneungDiv = styled.div`
   position: relative;
-  bottom: 133%;
-  left: 13%;
-  p {
-    margin: 5px;
+  bottom: 176%;
+  left: 14%;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const JejuDiv = styled.div`
   position: relative;
-  bottom: 76%;
+  bottom: 126%;
   right: 20%;
-  p {
-    margin: 5px;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
 
 const DockdoDiv = styled.div`
   position: relative;
-  bottom: 135%;
-  left: 33%;
-  p {
-    margin: 5px;
+  bottom: 195%;
+  left: 30%;
+  img {
+    width: 10%;
+    margin: 0;
+    padding: 0;
   }
-`
+  p {
+    position: relative;
+    bottom: 12px;
+    margin: 0;
+  }
+`;
