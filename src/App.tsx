@@ -13,6 +13,7 @@ function App() {
       <Routes>
         <Route  path='/' element={<Home/>}/>
         <Route index path='/home' element={<Home/>}/>
+        <Route path='/sunnysideup' element={<Notfound/>}/>
         <Route path='/sunnysideup' element={<SunnySideUp/>}>
           <Route path='/sunnysideup/:day' element={<NationwideBox/>}/>
         </Route>
