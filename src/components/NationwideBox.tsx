@@ -3,6 +3,7 @@ import { useAppSelector } from "../hooks/reduxHooks";
 import { Nationwide } from "../types/NationwidePredict5";
 import { List } from "../types/Predict5";
 import styled from "styled-components";
+import '../css/WeatherIcons.css';
 
 const NationwideBox = (props: any) => {
   const { nationwideBox5 } = props;
@@ -320,6 +321,66 @@ const NationwideBox = (props: any) => {
     GyeongsangbukWeathers5,
   ];
 
+  const showWeatherIcon = (weather:number) => {
+    if (weather <= 200) {
+      return (
+        <div className="icon thunder-storm">
+          <div className="cloud"></div>
+          <div className="lightning">
+            <div className="bolt"></div>
+            <div className="bolt"></div>
+          </div>
+        </div>
+      );
+    } else if (weather >= 300 && weather < 600) {
+      return (
+        <div className="icon rainy">
+          <div className="cloud"></div>
+          <div className="rain"></div>
+        </div>
+      );
+    } else if (weather >= 600 && weather < 700) {
+      <div className="icon flurries">
+        <div className="cloud"></div>
+        <div className="snow">
+          <div className="flake"></div>
+          <div className="flake"></div>
+        </div>
+      </div>;
+    } else if (weather >= 700 && weather < 800) {
+      return (
+        <div className="icon mist">
+          <div className="cloud"></div>
+          <div className="mist-bar"></div>
+        </div>
+      );
+    } else if (weather === 800) {
+      return (
+        <div className="icon sunny">
+          <div className="sun">
+            <div className="rays"></div>
+          </div>
+        </div>
+      );
+    } else if (weather === 801) {
+      return (
+        <div className="icon sun-clouds">
+          <div className="cloud"></div>
+          <div className="sun">
+            <div className="rays"></div>
+          </div>
+        </div>
+      );
+    } else if (weather > 801 && weather < 900) {
+      return (
+        <div className="icon cloudy">
+          <div className="cloud"></div>
+          <div className="cloud"></div>
+        </div>
+      );
+    }
+  };
+
   return (
     <NationwideBoxWallpaper>
       <SouthKoreaBox>
@@ -331,6 +392,7 @@ const NationwideBox = (props: any) => {
               return l?.map((location: any) => {
                 const date: Date = new Date(location.dt_txt);
                 const days: string = String(date.getDate());
+                const weather = location.weather[0].id;
                 if (
                   day == i &&
                   location.dt_txt.substr(11, 2) === "15" &&
@@ -338,9 +400,10 @@ const NationwideBox = (props: any) => {
                 ) {
                   return (
                     <SeoulDiv>
-                      <img
+                      {/* <img
                         src={`https://openweathermap.org/img/wn/${location.weather[0].icon}@2x.png`}
-                      />
+                      /> */}
+                      {showWeatherIcon(weather)}
                       <p>서울 {location.main.temp.toFixed(1)}°</p>
                     </SeoulDiv>
                   );
@@ -601,7 +664,8 @@ const NationwideBox = (props: any) => {
 export default NationwideBox;
 
 const NationwideBoxWallpaper = styled.div`
-  width: 100vw;
+  width: 99vw;
+  margin: auto;
   border: 1px solid red;
 `;
 

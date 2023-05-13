@@ -10,7 +10,6 @@ import {
 } from "../types/NationwidePredict5";
 import styled from "styled-components";
 
-
 const Nationwide5Days = () => {
   const { day } = useParams();
   const navigate = useNavigate();
@@ -56,17 +55,17 @@ const Nationwide5Days = () => {
       <h1>전국날씨</h1>
       <NationwideNavbar>
         {nationwideBox5.map((d, i) => (
-            <NationwideNavbarBtn
-              isActive={day === `${i}`? true : false}
-              onClick={() => {
-                navigate(`/sunnysideup/${i}`);
-              }}
-            >
-              {d.date}
-            </NationwideNavbarBtn>
+          <NationwideNavbarBtn
+            isActive={day === `${i}` ? true : false}
+            onClick={() => {
+              navigate(`/sunnysideup/${i}`);
+            }}
+          >
+            {d.date}
+          </NationwideNavbarBtn>
         ))}
       </NationwideNavbar>
-        {<NationwideBox nationwideBox5={nationwideBox5} />}
+      {<NationwideBox nationwideBox5={nationwideBox5} />}
     </Nationwide5DaysWallpaper>
   );
 };
@@ -76,7 +75,7 @@ export default Nationwide5Days;
 const Nationwide5DaysWallpaper = styled.div`
   margin: 0;
   border: 1px solid yellow;
-`
+`;
 
 const NationwideNavbar = styled.div`
   display: flex;
@@ -84,15 +83,15 @@ const NationwideNavbar = styled.div`
   width: 573px;
   margin: auto;
   justify-content: center;
-`
+`;
 
-const NationwideNavbarBtn = styled.button<{isActive: boolean}>`
-    margin: 10px;
-    padding: 10px;
-    border: none;
-    background-color: transparent;
-    font-size: 1em;
-    font-weight: lighter;
-    color: ${(props) => props.isActive? "red" : "white"};
-    border-bottom: ${(props) => props.isActive? "1px solid red" : "none"};
-`
+const NationwideNavbarBtn = styled.button<{ isActive: boolean }>`
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  font-weight: lighter;
+  color: ${(props) => (props.isActive ? "red" : "white")};
+  border-bottom: ${(props) => (props.isActive ? "1px solid red" : "none")};
+`;
