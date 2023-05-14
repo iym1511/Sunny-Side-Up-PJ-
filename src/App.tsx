@@ -6,7 +6,6 @@ import { Route, Routes } from 'react-router';
 import Home from './page/Home';
 import NationwideBox from './components/NationwideBox';
 import Notfound from './page/Notfound';
-import WeatherIcons from './components/WeatherIcons';
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
         <Route path='/sunnysideup' element={<SunnySideUp/>}>
           <Route path='/sunnysideup/:day' element={<NationwideBox/>}/>
         </Route>
-        <Route path='/weathericon' element={<WeatherIcons/>}/>
         <Route path='*' element={<Notfound />}/>
       </Routes>
     </div>
