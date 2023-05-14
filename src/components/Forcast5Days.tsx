@@ -4,6 +4,10 @@ import "../css/Forcast5Days.css"
 import { relative } from "path";
 import styled from "styled-components";
 
+import Slider from "react-slick";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const Forcast5Days = () => {
   const predict5Data = useAppSelector((state) => {
     return state.predict5Api.apiData;
@@ -29,6 +33,14 @@ const Forcast5Days = () => {
     const DateCheck4:List[] | undefined  = predict5Data?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fourDate)
     const DateCheck5:List[] | undefined  = predict5Data?.list.filter((a: any) => a.dt_txt.substr(8, 2) == fiveDate)
 
+    const settings = {
+      dots: false,
+      infinite: false,
+      speed: 500,
+      arrows: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    };
 
   return (  
     <div>
@@ -59,7 +71,7 @@ const Forcast5Days = () => {
                     src={`https://openweathermap.org/img/wn/${
                       data.weather[0].icon
                     }@2x.png`}
-                    style={{width:"100%"}}
+                    style={{width:"100%", margin:"auto"}}
                   />
               </Forcast5DayTimeDiv>
             ))
@@ -113,6 +125,76 @@ const Forcast5Days = () => {
             ))
           }
         </Forcast5DayTimeBox>
+        
+        {/* 슬릭 */}
+        <Sliderslick {...settings}>
+          <SlickDiv>
+              <SlickDiv>
+            <TodaySpan>오늘</TodaySpan>
+                {
+                  DateCheck && DateCheck.map((data:List, index)=>(
+                    <Forcast5DayTimeDiv key={index}>
+                      <p>{data.dt_txt.substr(5,14)}</p>
+                      <p>{data.main.temp.toFixed(1)}°C</p>
+                      <Forcast5DayIcon
+                          src={`https://openweathermap.org/img/wn/${
+                            data.weather[0].icon
+                          }@2x.png`}
+                        />
+                    </Forcast5DayTimeDiv>
+                  ))
+                }
+                <TodaySpan>내일</TodaySpan>
+                {
+                  DateCheck2 && DateCheck2.map((data:List, index)=>(
+                    <Forcast5DayTimeDiv key={index}>
+                      <p>{data.dt_txt.substr(5,14)}</p>
+                      <p>{data.main.temp.toFixed(1)}°C</p>
+                      <Forcast5DayIcon
+                          src={`https://openweathermap.org/img/wn/${
+                            data.weather[0].icon
+                          }@2x.png`}
+                        />
+                    </Forcast5DayTimeDiv>
+                  ))
+                }
+              </SlickDiv>
+          </SlickDiv>
+          
+          <SlickDiv>
+              <SlickDiv>
+            <TodaySpan>모레</TodaySpan>
+                {
+                  DateCheck3 && DateCheck3.map((data:List, index)=>(
+                    <Forcast5DayTimeDiv key={index}>
+                      <p>{data.dt_txt.substr(5,14)}</p>
+                      <p>{data.main.temp.toFixed(1)}°C</p>
+                      <Forcast5DayIcon
+                          src={`https://openweathermap.org/img/wn/${
+                            data.weather[0].icon
+                          }@2x.png`}
+                        />
+                    </Forcast5DayTimeDiv>
+                  ))
+                }
+                <TodaySpan>글피</TodaySpan>
+                {
+                  DateCheck4 && DateCheck4.map((data:List, index)=>(
+                    <Forcast5DayTimeDiv key={index}>
+                      <p>{data.dt_txt.substr(5,14)}</p>
+                      <p>{data.main.temp.toFixed(1)}°C</p>
+                      <Forcast5DayIcon
+                          src={`https://openweathermap.org/img/wn/${
+                            data.weather[0].icon
+                          }@2x.png`}
+                        />
+                    </Forcast5DayTimeDiv>
+                  ))
+                }
+              </SlickDiv>
+          </SlickDiv>
+
+        </Sliderslick>
 
         <Forcast5DayBox>
           {
@@ -172,4 +254,17 @@ const Forcast5DayTimeDiv = styled.div`
 `
 const Forcast5DayDiv = styled.div`
   margin: auto;
+`
+const Forcast5DayIcon = styled.img`
+  width: 70%;
+  margin: auto;
+`
+const SlickDiv = styled.div`
+  display: flex;
+  width: 100%;
+  margin: auto;
+`
+
+const Sliderslick = styled(Slider)`
+  width: 100%;
 `
