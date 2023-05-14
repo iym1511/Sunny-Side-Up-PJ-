@@ -25,21 +25,30 @@ import {
 //   timestamp : number;
 // }
 
-export const asyncFetch1 = createAsyncThunk(
-  "WeatherSlice/asyncFetch",
-  async (): Promise<List[]> => {
-    const params: Params = {
-      id: "1835847,1843561,1835224,1835327,1838519,1833742,1841808,1843137,1846265,1841597",
-      appid: "e524509bbefc6ce7ac50ddf6a1e1b1fb",
-      units: "metric",
-    };
-    const res = await axios.get<WeatherData>(
-      "https://api.openweathermap.org/data/2.5/group",
-      { params }
-    );
-    return res.data.list;
-  }
-);
+// export const asyncFetch1 = createAsyncThunk(
+//   "WeatherSlice/asyncFetch2",
+//   async (): Promise<List> => {
+//     const onGeoOkay = (position: PositionType): void => {
+//       const latitude: number = position.coords.latitude;
+//       const longtitude: number = position.coords.longitude;
+//       sessionStorage.setItem("latitude", `${latitude}`);
+//       sessionStorage.setItem("longtitude", `${longtitude}`);
+//     };
+//     const onGeoError = (): void => {
+//       alert("I can't find you. No weather for you.");
+//     };
+//     navigator.geolocation.getCurrentPosition(
+//       (position: PositionType) => onGeoOkay(position),
+//       onGeoError
+//     );
+//     const lat: string | null = sessionStorage.getItem("latitude");
+//     const lon: string | null = sessionStorage.getItem("longtitude");
+//     const res = await axios.get<List>(
+//       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&units=metric&lang=kr`
+//     );
+//     return res.data;
+//   }
+// );
 
 export const asyncFetch2 = createAsyncThunk(
   "WeatherSlice/asyncFetch2",
@@ -79,22 +88,22 @@ const WeatherSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    // 불러오는 로딩
-    builder.addCase(asyncFetch1.pending, (state): void => {
-      state.status1 = "loading";
-    });
-    // 불러왔을 때
-    builder.addCase(
-      asyncFetch1.fulfilled,
-      (state, action: PayloadAction<List[]>): void => {
-        state.apiData1 = action.payload;
-        state.status1 = "complete";
-      }
-    );
-    // 불러오기 실패
-    builder.addCase(asyncFetch1.rejected, (state): void => {
-      state.error = "error";
-    });
+    // // 불러오는 로딩
+    // builder.addCase(asyncFetch1.pending, (state): void => {
+    //   state.status1 = "loading";
+    // });
+    // // 불러왔을 때
+    // builder.addCase(
+    //   asyncFetch1.fulfilled,
+    //   (state, action: PayloadAction<List>): void => {
+    //     state.apiData1 = action.payload;
+    //     state.status1 = "complete";
+    //   }
+    // );
+    // // 불러오기 실패
+    // builder.addCase(asyncFetch1.rejected, (state): void => {
+    //   state.error = "error";
+    // });
 
     // 불러오는 로딩
     builder.addCase(asyncFetch2.pending, (state): void => {

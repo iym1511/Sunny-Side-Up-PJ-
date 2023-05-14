@@ -4,6 +4,7 @@ import WeatherApi from "./module/weatherApi"; // api redux thunk
 import AirPollApi from "./module/airpollution"; // api redux thunk
 import Predict5Api from "./module/predict5";
 import Gps from "./module/gps";
+import WeatgerApiKr from "./module/weatherApiKr";
 import persistReducer from "redux-persist/lib/persistReducer";
 import storageSession from "redux-persist/lib/storage/session"; // 세션 스토리지
 
@@ -13,12 +14,13 @@ const rootReducer = combineReducers({
   airPollApi: AirPollApi,
   predict5Api: Predict5Api,
   gps: Gps,
+  weatherApiKr : WeatgerApiKr
 });
 
 const persistConfig = {
   key: "Root",
   storage: storageSession,
-  list: ["weatherApi", "airPollApi", "predict5Api", "gps", "nationwideApi"],
+  list: ["weatherApi", "airPollApi", "predict5Api", "gps", "nationwideApi", "WeatherApiKr"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
