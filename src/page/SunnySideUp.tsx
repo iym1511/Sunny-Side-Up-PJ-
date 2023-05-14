@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
-import { asyncFetch1 } from "../module/weatherApi";
 import { asyncFetch2 } from "../module/weatherApi";
 
 import axios from "axios";
@@ -13,17 +12,16 @@ import Forcast5Days from "../components/Forcast5Days";
 import Nationwide5Days from "../components/Nationwide5Days";
 import { getNationwidePredict5Data } from "../module/nationwidePredict5";
 import styled from 'styled-components';
+import weatherApiKr, { asyncFetch } from "../module/weatherApiKr";
 
 const SunnySideUp = () => {
-  // const weatherApiData1 = useAppSelector((state) => {
-  //   return state.weatherApi.apiData1;
-  // });
+  // 한글로 출력해줘야하는대 망할놈이 안해줌
+  const weatherApiDataKr = useAppSelector((state) => {
+    return state.weatherApiKr.apiData1
+  })
   const weatherApiData2 = useAppSelector((state) => {
     return state.weatherApi.apiData2;
   });
-  // const weatherApiStatus1 = useAppSelector((state) => {
-  //   return state.weatherApi.status1;
-  // });
   const weatherApiStatus2 = useAppSelector((state) => {
     return state.weatherApi.status2;
   });
@@ -33,7 +31,7 @@ const SunnySideUp = () => {
   const airPollStatus = useAppSelector((state) => {
     return state.airPollApi.status;
   });
-  const gps = useAppSelector((state) => state.gps);
+
   const dispatch = useAppDispatch();
   const [latitude, setLatitude] = useState<number>();
   const [longitude, setLongitude] = useState<number>();
@@ -42,7 +40,7 @@ const SunnySideUp = () => {
   const [dong, setDong] = useState<string>();
 
   useEffect(() => {
-    dispatch(asyncFetch1());
+    dispatch(asyncFetch());
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
     dispatch(getPredict5Data());
@@ -79,6 +77,15 @@ const SunnySideUp = () => {
   const onGeoError = (): void => {
     alert("I can't find you. No weather for you.");
   };
+
+  // 오늘 날짜
+  const date:Date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const today = `${year}년 ${month}월 ${day}일` 
+  const getday = date.getDay();
+  console.log(getday)
 
   // 일출
   const sunrise: number | undefined = weatherApiData2?.sys.sunrise;
@@ -154,11 +161,24 @@ const SunnySideUp = () => {
     }
   };
 
+  // if 문을 활용한 날씨별 배경
   const TodayWeather: number | null = weatherApiData2 && weatherApiData2.weather[0].id;
 
-  console.log(TodayWeather)
+  // 삼항연산자를 활용한 날씨별 배경(날씨값에따라 바로 랜더됨)
+  const fewClouds: boolean | null = weatherApiData2 && weatherApiData2.weather[0].description.includes("few");
+  const rain: boolean | null = weatherApiData2 && weatherApiData2.weather[0].description.includes("rain");
+  const clouds: boolean | null = weatherApiData2 && weatherApiData2.weather[0].id > 801 && weatherApiData2.weather[0].id < 805;
+  const sunny: boolean | null = weatherApiData2 && weatherApiData2.weather[0].description.includes("sky");
+  const mist: boolean | null = weatherApiData2 && weatherApiData2.weather[0].description.includes("mist");
+  const thunderstorm: boolean | null = weatherApiData2 && weatherApiData2.weather[0].description.includes("thunderstorm");
+  const snow: boolean | null = weatherApiData2 && weatherApiData2.weather[0].description.includes("snow");
 
-  const showWeatherBackground = () => {
+  // 오늘 날씨 kr(개빡치게 한글로가져와도안됨)
+  const todayWeather: string | null = weatherApiDataKr && weatherApiDataKr.weather[0].description
+
+
+  // if 문을 활용한 날씨별 배경
+  const showWeatherBackground = useCallback(() => {
     if (TodayWeather && TodayWeather <= 200) {
       return (
         <>
@@ -221,22 +241,125 @@ const SunnySideUp = () => {
         </>
       );
     }
-  };
+  }, [TodayWeather]);
 
   useEffect(() => {
     mapApi();
   }, [latitude]);
+  
 
   return (
     <SunnySideUpWallpaper>
-      <p>현재위치 : {si} {gu} {dong}</p>
+      {
+        latitude ? (
+          <GpsBox>
+            <p>{si} {gu} {dong}</p>
+            <img onClick={mapApi} src={require("../img/gps.png")}></img>
+          </GpsBox>
+        ):(
+          <>
+          <p>Loading...</p>
+          </>
+        )
+      }
+      <p>{today}</p>
       <img
         src={`https://openweathermap.org/img/wn/${
           weatherApiData2 && weatherApiData2.weather[0].icon
         }@2x.png`}
       />
-      {showWeatherBackground()}
-
+      {
+        fewClouds ? (
+          <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/fewClouds.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{todayWeather}</p>
+          </>
+        ):(
+          <>
+          </>
+        )
+      }
+      {
+        rain ? (
+          <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/rain.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+          </>
+        ):(
+          <>
+          </>
+        )
+      }
+      {
+        clouds ? (
+          <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+          </>
+        ):(
+          <>
+          </>
+        )
+      }
+      {
+        sunny ? (
+          <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/sunny.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+          </>
+        ):(
+          <>
+          </>
+        )
+      }
+      {
+        thunderstorm ? (
+          <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/thunderstorm.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+          </>
+        ):(
+          <>
+          </>
+        )
+      }
+      {
+        snow ? (
+          <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/snow.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+          </>
+        ):(
+          <>
+          </>
+        )
+      }
+      {
+        mist ? (
+          <>
+          <VideoBackground autoPlay muted loop>
+            <source src={require("../videos/mist.mp4")} type="video/mp4" />
+          </VideoBackground>
+          <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p>
+          </>
+        ):(
+          <>
+          </>
+        )
+      }
+      
       <p>{tempGps?.toFixed(1)}°C</p>
       <p>체감 온도 :{feelsLikeGps?.toFixed(1)}</p>
       <p>대기질 : {printAirPollStatus()}</p>
@@ -268,4 +391,20 @@ const VideoBackground =  styled.video`
   z-index: -1;
   filter: brightness(70%);
   object-fit: cover;
+`
+
+const GpsBox = styled.div`
+    display: flex;
+    justify-content: center;
+    & > p{
+      margin-top: 40px;
+      margin-left: 30px;
+    }
+    & > img{
+      cursor: pointer;
+      width: 26px;
+      height: 26px;
+      margin-top: 35px;
+      margin-left: 5px;
+    }
 `

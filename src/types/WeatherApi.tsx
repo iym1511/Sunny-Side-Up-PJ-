@@ -66,6 +66,6 @@ export interface initialStateType {
   status1: string;
   status2: string;
   error: string | null;
-  apiData1: List[] | null;
+  apiData1: List | null;
   apiData2: List | null;
 }
