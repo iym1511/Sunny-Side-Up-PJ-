@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router';
 import Home from './page/Home';
 import NationwideBox from './components/NationwideBox';
 import Notfound from './page/Notfound';
+import '../src/App.css';
 
 function App() {
   return (
