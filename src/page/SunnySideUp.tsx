@@ -13,6 +13,7 @@ import Nationwide5Days from "../components/Nationwide5Days";
 import { getNationwidePredict5Data } from "../module/nationwidePredict5";
 import styled from 'styled-components';
 import { asyncFetch } from "../module/weatherApiKr";
+import Slider from "react-slick";
 
 const SunnySideUp = () => {
   // 한글로 출력해줘야하는대 망할놈이 안해줌
@@ -31,7 +32,7 @@ const SunnySideUp = () => {
   const airPollStatus = useAppSelector((state) => {
     return state.airPollApi.status;
   });
-
+  
 
   const dispatch = useAppDispatch();
   const [latitude, setLatitude] = useState<number>();
