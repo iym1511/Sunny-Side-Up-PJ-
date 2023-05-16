@@ -88,22 +88,6 @@ const WeatherSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    // // 불러오는 로딩
-    // builder.addCase(asyncFetch1.pending, (state): void => {
-    //   state.status1 = "loading";
-    // });
-    // // 불러왔을 때
-    // builder.addCase(
-    //   asyncFetch1.fulfilled,
-    //   (state, action: PayloadAction<List>): void => {
-    //     state.apiData1 = action.payload;
-    //     state.status1 = "complete";
-    //   }
-    // );
-    // // 불러오기 실패
-    // builder.addCase(asyncFetch1.rejected, (state): void => {
-    //   state.error = "error";
-    // });
 
     // 불러오는 로딩
     builder.addCase(asyncFetch2.pending, (state): void => {

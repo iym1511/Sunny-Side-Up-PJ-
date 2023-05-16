@@ -27,7 +27,7 @@ export const getNationwidePredict5Data = createAsyncThunk(
   "NationwidePredict5Slice/getNationwidePredict5Data",
     async():Promise<Nationwide[]> => {
       const promises: Promise<NationwideData>[] = location.map((loc)=>{
-        return axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${loc.name}&appid=e524509bbefc6ce7ac50ddf6a1e1b1fb&units=metric`)
+        return axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${loc.name}&appid=645aba597e8991be8a8b903b0bd29be1&units=metric`)
       });
       const responses :NationwideData[] = await Promise.all(promises);
       return responses.map((res)=>res.data);
