@@ -39,7 +39,7 @@ const SunnySideUp = () => {
   const [si, setSi] = useState<string>();
   const [gu, setGu] = useState<string>();
   const [dong, setDong] = useState<string>();
-  const [morebox, setMoreBox] = useState(false);
+  const [morebox, setMoreBox] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(asyncFetch());
@@ -89,7 +89,7 @@ const SunnySideUp = () => {
   const hours = newDate.getHours();
   console.log(day);
 
-  const showDay = () => {
+  const showDay = ():string|undefined => {
     if (day == 0) {
       return "일요일";
     } else if (day == 1) {
@@ -498,7 +498,7 @@ const MoreBoxBtn = styled.button`
 
 const MoreBox = styled.div<{ moreboxwidth: boolean }>`
   width: 20%;
-  height: ${(props) => (props.moreboxwidth ? "0px" : "250px")};
+  height: ${(props) => (props.moreboxwidth ? "250px" : "0px")};
   margin: auto;
   /* border: 1px solid black; */
   overflow: hidden;
