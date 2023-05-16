@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/iym1511/Sunny-SideUp-PJ/static/css/main.114340ba.css",
+    "main.js": "/iym1511/Sunny-SideUp-PJ/static/js/main.3a2cf234.js",
+    "static/js/787.e473614c.chunk.js": "/iym1511/Sunny-SideUp-PJ/static/js/787.e473614c.chunk.js",
+    "static/media/snow.mp4": "/iym1511/Sunny-SideUp-PJ/static/media/snow.be46712bbfd3bd433e5c.mp4",
+    "static/media/rain.mp4": "/iym1511/Sunny-SideUp-PJ/static/media/rain.217c27e228803e8aa633.mp4",
+    "static/media/sunny.mp4": "/iym1511/Sunny-SideUp-PJ/static/media/sunny.c04b98d8efd46f0115e4.mp4",
+    "static/media/Clouds.mp4": "/iym1511/Sunny-SideUp-PJ/static/media/Clouds.3bd4ab0aa360ce537e12.mp4",
+    "static/media/fewClouds.mp4": "/iym1511/Sunny-SideUp-PJ/static/media/fewClouds.3c7fb4feff137b1a47f9.mp4",
+    "static/media/thunderstorm.mp4": "/iym1511/Sunny-SideUp-PJ/static/media/thunderstorm.904de063f8e4c114e0c7.mp4",
+    "static/media/mist.mp4": "/iym1511/Sunny-SideUp-PJ/static/media/mist.6bbe83e2fa99e11d1a88.mp4",
+    "static/media/southkorea01.png": "/iym1511/Sunny-SideUp-PJ/static/media/southkorea01.7bf752705efd4092e3fa.png",
+    "static/media/gps.png": "/iym1511/Sunny-SideUp-PJ/static/media/gps.23af7b8bd2bbb799c81c.png",
+    "static/media/slick.svg": "/iym1511/Sunny-SideUp-PJ/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/iym1511/Sunny-SideUp-PJ/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/iym1511/Sunny-SideUp-PJ/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/iym1511/Sunny-SideUp-PJ/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/iym1511/Sunny-SideUp-PJ/index.html",
+    "main.114340ba.css.map": "/iym1511/Sunny-SideUp-PJ/static/css/main.114340ba.css.map",
+    "main.3a2cf234.js.map": "/iym1511/Sunny-SideUp-PJ/static/js/main.3a2cf234.js.map",
+    "787.e473614c.chunk.js.map": "/iym1511/Sunny-SideUp-PJ/static/js/787.e473614c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.114340ba.css",
+    "static/js/main.3a2cf234.js"
+  ]
+}
