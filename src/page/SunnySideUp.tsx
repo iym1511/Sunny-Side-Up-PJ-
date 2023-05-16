@@ -23,14 +23,8 @@ const SunnySideUp = () => {
   const weatherApiData2 = useAppSelector((state) => {
     return state.weatherApi.apiData2;
   });
-  const weatherApiStatus2 = useAppSelector((state) => {
-    return state.weatherApi.status2;
-  });
   const airPollData = useAppSelector((state) => {
     return state.airPollApi.apiData;
-  });
-  const airPollStatus = useAppSelector((state) => {
-    return state.airPollApi.status;
   });
 
   const dispatch = useAppDispatch();
@@ -41,13 +35,13 @@ const SunnySideUp = () => {
   const [dong, setDong] = useState<string>();
   const [morebox, setMoreBox] = useState<boolean>(false);
 
-  useCallback(() => {
-    dispatch(asyncFetch());
+  useEffect(() => {
+    // dispatch(asyncFetch());
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
     dispatch(getPredict5Data());
     dispatch(getNationwidePredict5Data());
-  }, [latitude]);
+  }, []);
 
   useEffect(()=>{
     mapApi();
@@ -70,7 +64,6 @@ const SunnySideUp = () => {
   const year = newDate.getFullYear();
   const day = newDate.getDay();
   const hours = newDate.getHours();
-  console.log(day);
 
   const showDay = ():string|undefined => {
     if (day == 0) {
