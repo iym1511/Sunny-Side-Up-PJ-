@@ -41,34 +41,17 @@ const SunnySideUp = () => {
   const [dong, setDong] = useState<string>();
   const [morebox, setMoreBox] = useState<boolean>(false);
 
-  useEffect(() => {
+  useCallback(() => {
     dispatch(asyncFetch());
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
     dispatch(getPredict5Data());
     dispatch(getNationwidePredict5Data());
-    // console.log(DateCheck)
-    // console.log(DateCheck2)
-    // console.log(DateCheck3);
-    // console.log(DateCheck4);
-    // console.log(dateSelect)
-    // console.log(useDate)
   }, [latitude]);
 
-  useEffect(() => {
-    console.log("- - - - -첫 번째 api- - - - -");
-    // console.log(weatherApiStatus1);
-    // console.log(weatherApiData1);
-    console.log("- - - - -두 번쨰 api- - - - -");
-    console.log(weatherApiStatus2);
-    console.log(weatherApiData2);
-    console.log("- - - - -세 번쨰 api- - - - -");
-    console.log(airPollStatus);
-    console.log(airPollData);
-    console.log("- - - - -네 번쨰 api- - - - -");
-    // console.log(predict5Status);
-    // console.log(predict5Data);
-  }, []);
+  useEffect(()=>{
+    mapApi();
+  },[latitude])
 
   const onGeoOkay = (position: PositionType): void => {
     setLatitude(position.coords.latitude);
@@ -279,10 +262,6 @@ const SunnySideUp = () => {
     }
   }, [TodayWeather]);
 
-  useEffect(() => {
-    mapApi();
-  }, [latitude]);
-
   const todayWeatherIcon: number | null =
     weatherApiDataKr && weatherApiDataKr.weather[0].id;
   // const todayHours =
@@ -324,9 +303,11 @@ const SunnySideUp = () => {
         </GpsBox>
       ) : (
         <>
-          <p>Loading...</p>
+          <CurrentLocation>Loading...</CurrentLocation>
         </>
       )}
+
+
       {/* 오늘 날짜 */}
       <Today>{today}</Today>
 
@@ -454,14 +435,14 @@ const GpsBox = styled.div`
   display: flex;
   justify-content: center;
   & > p {
-    margin-top: 40px;
+    margin-top: 10px;
     margin-left: 30px;
   }
   & > img {
     cursor: pointer;
     width: 26px;
     height: 26px;
-    margin-top: 35px;
+    margin-top: 0px;
     margin-left: 5px;
   }
 `;
