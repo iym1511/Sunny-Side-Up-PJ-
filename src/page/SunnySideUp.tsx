@@ -14,6 +14,8 @@ import { getNationwidePredict5Data } from "../module/nationwidePredict5";
 import styled from "styled-components";
 import { asyncFetch } from "../module/weatherApiKr";
 import Slider from "react-slick";
+import ChannelService from "../components/ChannelTalk";
+import ChannelTalk from "../components/ChannelTalk";
 
 const SunnySideUp = () => {
   // 한글로 출력해줘야하는대 망할놈이 안해줌
@@ -427,6 +429,7 @@ const SunnySideUp = () => {
       {/* 5일치 일기예보 */}
       <Forcast5Days />
       <Nationwide5Days />
+      <ChannelTalk />
     </SunnySideUpWallpaper>
   );
 };
