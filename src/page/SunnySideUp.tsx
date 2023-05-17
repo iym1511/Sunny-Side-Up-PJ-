@@ -305,7 +305,9 @@ const SunnySideUp = () => {
   };
 
   return (
-    <SunnySideUpWallpaper>
+    weatherApiData2 ? (
+      <>
+          <SunnySideUpWallpaper>
       {/* GPS 현재 위치 */}
       {latitude ? (
         <GpsBox>
@@ -419,18 +421,17 @@ const SunnySideUp = () => {
       </MoreBox>
 
       {/* 5일치 일기예보 */}
-      {
-        weatherApiData2 ? (
-          <>
-          <Forcast5Days />
-          <Nationwide5Days />
-          </>
-        ):(
-          <div>loading</div>
-        )
-      }  
+
+        <Forcast5Days />
+        <Nationwide5Days />
       <ChannelTalk />
     </SunnySideUpWallpaper>
+      </>
+    ):(
+    <Loding />
+    )
+
+
   );
 };
 
