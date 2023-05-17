@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
 
@@ -7,7 +8,12 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      <button onClick={()=>{navigate("/sunnysideup/0")}}>ㄱㄱ</button>
+      <button onClick={()=>{
+        navigate("/sunnysideup/0")
+        setTimeout(()=>{
+          window.location.reload()
+        },4000)
+        }}>ㄱㄱ</button>
     </div>
   );
 };

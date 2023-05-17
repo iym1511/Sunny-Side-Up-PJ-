@@ -4,7 +4,7 @@ const ChannelTalk = () => {
   ChannelService.loadScript();
 
   ChannelService.boot({
-    "pluginKey": "646321f52b2478131110",
+    "pluginKey": "d5aab86b-b967-41f9-961c-a6c501a974fb",
   })
 
   return (  
