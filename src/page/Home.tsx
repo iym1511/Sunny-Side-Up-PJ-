@@ -12,7 +12,7 @@ const Home = () => {
         navigate("/sunnysideup/0")
         setTimeout(()=>{
           window.location.reload()
-        },4000)
+        },2000)
         }}>ㄱㄱ</button>
     </div>
   );

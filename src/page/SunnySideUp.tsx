@@ -421,9 +421,8 @@ const SunnySideUp = () => {
       </MoreBox>
 
       {/* 5일치 일기예보 */}
-
-        <Forcast5Days />
-        <Nationwide5Days />
+      <Forcast5Days />
+      <Nationwide5Days />
       <ChannelTalk />
     </SunnySideUpWallpaper>
       </>
