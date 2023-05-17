@@ -16,6 +16,7 @@ import { asyncFetch } from "../module/weatherApiKr";
 import Slider from "react-slick";
 import ChannelService from "../components/ChannelTalk";
 import ChannelTalk from "../components/ChannelTalk";
+import Loding from "./Loding";
 
 const SunnySideUp = () => {
   // 한글로 출력해줘야하는대 망할놈이 안해줌
@@ -287,7 +288,9 @@ const SunnySideUp = () => {
   };
 
   return (
-    <SunnySideUpWallpaper>
+    latitude ? (
+      <>
+         <SunnySideUpWallpaper>
       {/* GPS 현재 위치 */}
       {latitude ? (
         <GpsBox>
@@ -405,6 +408,12 @@ const SunnySideUp = () => {
       <Nationwide5Days />
       <ChannelTalk />
     </SunnySideUpWallpaper>
+      </>
+    ):(
+    <Loding />
+    )
+
+
   );
 };
 

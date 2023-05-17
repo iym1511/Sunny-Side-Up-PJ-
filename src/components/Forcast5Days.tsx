@@ -60,27 +60,27 @@ const Forcast5Days = () => {
 
   const showWeatherIcon = (weather: number | null, hours: number) => {
     if (weather != null && weather <= 200) {
-      return <img src={require("../img/bolt.png")} />;
+      return <Forcast5DayIcon src={require("../img/bolt.png")} />;
     } else if (weather != null && weather >= 300 && weather < 600) {
-      return <img src={require("../img/rain.png")} />;
+      return <Forcast5DayIcon src={require("../img/rain.png")} />;
     } else if (weather != null && weather >= 600 && weather < 700) {
-      return <img src={require("../img/snow.png")} />;
+      return <Forcast5DayIcon src={require("../img/snow.png")} />;
     } else if (weather != null && weather >= 700 && weather < 800) {
-      return <img src={require("../img/fog.png")} />;
+      return <Forcast5DayIcon src={require("../img/fog.png")} />;
     } else if (weather != null && weather === 800) {
       if (hours > 17 || hours < 6) {
-        return <img src={require("../img/moon.png")} />;
+        return <Forcast5DayIcon src={require("../img/moon.png")} />;
       } else {
-        return <img src={require("../img/sun.png")} />;
+        return <Forcast5DayIcon src={require("../img/sun.png")} />;
       }
     } else if (weather != null && weather === 801) {
       if (hours > 17 || hours < 6) {
-        return <img src={require("../img/mooncloud.png")} />;
+        return <Forcast5DayIcon src={require("../img/mooncloud.png")} />;
       } else {
-        return <img src={require("../img/suncloud.png")} />;
+        return <Forcast5DayIcon src={require("../img/suncloud.png")} />;
       }
     } else if (weather != null && weather > 801 && weather < 900) {
-      return <img src={require("../img/clouds.png")} />;
+      return <Forcast5DayIcon src={require("../img/clouds.png")} />;
     }
   };
 
@@ -183,7 +183,7 @@ const Forcast5Days = () => {
                   <Forcast5DayTimeDiv key={index}>
                     <p>{data.dt_txt.substr(5, 14)}</p>
                     <p>{data.main.temp.toFixed(1)}°C</p>
-                {showWeatherIcon(weatherId, numberHours)}
+                    {showWeatherIcon(weatherId, numberHours)}
 
                   </Forcast5DayTimeDiv>
                 );
@@ -283,6 +283,7 @@ const Forcast5Days = () => {
         </div>
       </SlickArrowsBox>
 
+      {/* 5일치 오후3시 날씨 */}
       <Forcast5DayBox>
         {predict5Data &&
           predict5Data?.list.map((data: List, index) => {
@@ -351,6 +352,8 @@ const TodaySpan = styled.span`
 const Forcast5DayTimeDiv = styled.div`
   margin-left: 5px;
   margin-right: 5px;
+  /* border: 1px solid red; */
+  width: 100px;
   margin: auto;
 `;
 const Forcast5DayTimeScrollDiv = styled.div`
