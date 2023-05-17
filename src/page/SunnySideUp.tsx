@@ -288,9 +288,9 @@ const SunnySideUp = () => {
   };
 
   return (
-    latitude ? (
+    weatherApiData2 ? (
       <>
-         <SunnySideUpWallpaper>
+          <SunnySideUpWallpaper>
       {/* GPS 현재 위치 */}
       {latitude ? (
         <GpsBox>
