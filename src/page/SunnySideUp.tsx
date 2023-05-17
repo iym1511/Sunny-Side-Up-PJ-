@@ -37,9 +37,9 @@ const SunnySideUp = () => {
   const [gu, setGu] = useState<string>();
   const [dong, setDong] = useState<string>();
   const [morebox, setMoreBox] = useState<boolean>(false);
+  const [loading, setLoding] = useState<boolean>(false);
 
   useEffect(() => {
-    // dispatch(asyncFetch());
     dispatch(asyncFetch2());
     dispatch(getAirPollData());
     dispatch(getPredict5Data());
@@ -49,6 +49,18 @@ const SunnySideUp = () => {
   useEffect(()=>{
     mapApi();
   },[latitude])
+
+  // useEffect(()=>{
+  //   setTimeout(() => {
+  //     window.location.reload();
+  //   }, 3000)
+  // },[])
+  useEffect(()=>{
+    let timer2 = setTimeout(()=>{
+      setLoding(true);
+    },2000)
+    return ()=>{ clearTimeout(timer2)}
+  },[])
 
   const onGeoOkay = (position: PositionType): void => {
     setLatitude(position.coords.latitude);
@@ -288,7 +300,7 @@ const SunnySideUp = () => {
   };
 
   return (
-    weatherApiData2 ? (
+    loading ? (
       <>
           <SunnySideUpWallpaper>
       {/* GPS 현재 위치 */}
