@@ -37,7 +37,7 @@ const SunnySideUp = () => {
   const [gu, setGu] = useState<string>();
   const [dong, setDong] = useState<string>();
   const [morebox, setMoreBox] = useState<boolean>(false);
-  const [loading, setLoding] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(asyncFetch2());
@@ -45,6 +45,9 @@ const SunnySideUp = () => {
     dispatch(getPredict5Data());
     dispatch(getNationwidePredict5Data());
   }, []);
+  useEffect(()=>{
+    console.log(weatherApiData2)
+  })
 
   useEffect(()=>{
     mapApi();
@@ -55,12 +58,14 @@ const SunnySideUp = () => {
   //     window.location.reload();
   //   }, 3000)
   // },[])
-  useEffect(()=>{
-    let timer2 = setTimeout(()=>{
-      setLoding(true);
-    },2000)
-    return ()=>{ clearTimeout(timer2)}
-  },[])
+  // useEffect(()=>{
+  //   window.addEventListener('load', function() {
+  //     this.window.location.reload();
+  //   })
+  // },[])
+
+
+
 
   const onGeoOkay = (position: PositionType): void => {
     setLatitude(position.coords.latitude);
@@ -300,9 +305,7 @@ const SunnySideUp = () => {
   };
 
   return (
-    loading ? (
-      <>
-          <SunnySideUpWallpaper>
+    <SunnySideUpWallpaper>
       {/* GPS 현재 위치 */}
       {latitude ? (
         <GpsBox>
@@ -416,16 +419,18 @@ const SunnySideUp = () => {
       </MoreBox>
 
       {/* 5일치 일기예보 */}
-      <Forcast5Days />
-      <Nationwide5Days />
+      {
+        weatherApiData2 ? (
+          <>
+          <Forcast5Days />
+          <Nationwide5Days />
+          </>
+        ):(
+          <div>loading</div>
+        )
+      }  
       <ChannelTalk />
     </SunnySideUpWallpaper>
-      </>
-    ):(
-    <Loding />
-    )
-
-
   );
 };
 
