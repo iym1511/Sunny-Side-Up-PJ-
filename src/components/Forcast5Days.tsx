@@ -9,12 +9,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useCallback, useEffect, useRef } from "react";
 
+interface slickSettings {
+  dots: boolean;
+  infinite: boolean;
+  speed: number;
+  arrows: boolean;
+  slidesToShow: number;
+  slidesToScroll: number;
+}
+
 const Forcast5Days = () => {
   const predict5Data = useAppSelector((state) => {
     return state.predict5Api.apiData;
-  });
-  const predict5Status = useAppSelector((state) => {
-    return state.predict5Api.status;
   });
 
   // 시간
@@ -28,27 +34,34 @@ const Forcast5Days = () => {
 
   // 5일 일기예보 타입 가져와서 사용
   const DateCheck: List[] | undefined = predict5Data?.list.filter(
-    (a: any) => a.dt_txt.substr(8, 2) == oneDate
+    (a: List) => a.dt_txt.substr(8, 2) == String(oneDate)
   );
   const DateCheck2: List[] | undefined = predict5Data?.list.filter(
-    (a: any) => a.dt_txt.substr(8, 2) == twoDate
+    (a: List) => a.dt_txt.substr(8, 2) == String(twoDate)
   );
   const DateCheck3: List[] | undefined = predict5Data?.list.filter(
-    (a: any) => a.dt_txt.substr(8, 2) == threeDate
+    (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
   );
   const DateCheck4: List[] | undefined = predict5Data?.list.filter(
-    (a: any) => a.dt_txt.substr(8, 2) == fourDate
+    (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
   );
   const DateCheck5: List[] | undefined = predict5Data?.list.filter(
-    (a: any) => a.dt_txt.substr(8, 2) == fiveDate
+    (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
   );
 
+  // 슬릭에 연결해주는 useRef
   const slickRef: React.RefObject<Slider> = useRef<Slider>(null);
 
-  const previous = useCallback(() => slickRef.current?.slickPrev(), []);
-  const next = useCallback(() => slickRef.current?.slickNext(), []);
+  // 슬릭 이전, 다음 클릭 감지
+  const previous = useCallback(() => {
+    slickRef.current?.slickPrev()
+  }, []);
 
-  const settings = {
+  const next = useCallback(() => {
+    slickRef.current?.slickNext()
+  }, []);
+
+  const settings: slickSettings = {
     dots: false,
     infinite: true,
     speed: 500,
@@ -89,14 +102,14 @@ const Forcast5Days = () => {
   });
 
   return (
-    <div>
+    <Forcast5DayBoxWallpaper>
       <Forcast5DayTimeBox>
         <TodaySpan>오늘</TodaySpan>
         {DateCheck &&
-          DateCheck.map((data: List, index) => {
-            const weatherId = data.weather[0].id;
-            const hours = data.dt_txt.substr(11, 2);
-            const numberHours = Number(hours);
+          DateCheck.map((data: List, index: number) => {
+            const weatherId: number = data.weather[0].id;
+            const hours: string = data.dt_txt.substr(11, 2);
+            const numberHours: number = Number(hours);
             console.log(numberHours);
             return (
               <Forcast5DayTimeScrollDiv key={index}>
@@ -109,10 +122,10 @@ const Forcast5Days = () => {
 
         <TodaySpan>내일</TodaySpan>
         {DateCheck2 &&
-          DateCheck2.map((data: List, index) => {
-            const weatherId = data.weather[0].id;
-            const hours = data.dt_txt.substr(11, 2);
-            const numberHours = Number(hours);
+          DateCheck2.map((data: List, index: number) => {
+            const weatherId: number = data.weather[0].id;
+            const hours: string = data.dt_txt.substr(11, 2);
+            const numberHours: number = Number(hours);
             return (
               <Forcast5DayTimeScrollDiv key={index}>
                 <p>{data.dt_txt.substr(5, 14)}</p>
@@ -124,10 +137,10 @@ const Forcast5Days = () => {
 
         <TodaySpan>모레</TodaySpan>
         {DateCheck3 &&
-          DateCheck3.map((data: List, index) => {
-            const weatherId = data.weather[0].id;
-            const hours = data.dt_txt.substr(11, 2);
-            const numberHours = Number(hours);
+          DateCheck3.map((data: List, index: number) => {
+            const weatherId: number = data.weather[0].id;
+            const hours: string = data.dt_txt.substr(11, 2);
+            const numberHours: number = Number(hours);
             return (
               <Forcast5DayTimeScrollDiv key={index}>
                 <p>{data.dt_txt.substr(5, 14)}</p>
@@ -139,10 +152,10 @@ const Forcast5Days = () => {
 
         <TodaySpan>글피</TodaySpan>
         {DateCheck4 &&
-          DateCheck4.map((data: List, index) => {
-            const weatherId = data.weather[0].id;
-            const hours = data.dt_txt.substr(11, 2);
-            const numberHours = Number(hours);
+          DateCheck4.map((data: List, index: number) => {
+            const weatherId: number = data.weather[0].id;
+            const hours: string = data.dt_txt.substr(11, 2);
+            const numberHours: number = Number(hours);
             return (
               <Forcast5DayTimeScrollDiv key={index}>
                 <p>{data.dt_txt.substr(5, 14)}</p>
@@ -154,10 +167,10 @@ const Forcast5Days = () => {
 
         <TodaySpan>그글피</TodaySpan>
         {DateCheck5 &&
-          DateCheck5.map((data: List, index) => {
-            const weatherId = data.weather[0].id;
-            const hours = data.dt_txt.substr(11, 2);
-            const numberHours = Number(hours);
+          DateCheck5.map((data: List, index: number) => {
+            const weatherId: number = data.weather[0].id;
+            const hours: string = data.dt_txt.substr(11, 2);
+            const numberHours: number = Number(hours);
             console.log(numberHours);
             return (
               <Forcast5DayTimeScrollDiv key={index}>
@@ -175,10 +188,10 @@ const Forcast5Days = () => {
           <SlickDiv>
             <TodaySpan>오늘</TodaySpan>
             {DateCheck &&
-              DateCheck.map((data: List, index) => {
-                const weatherId = data.weather[0].id;
-            const hours = data.dt_txt.substr(11, 2);
-            const numberHours = Number(hours);
+              DateCheck.map((data: List, index: number) => {
+                const weatherId: number = data.weather[0].id;
+                const hours: string = data.dt_txt.substr(11, 2);
+                const numberHours: number = Number(hours);
                 return (
                   <Forcast5DayTimeDiv key={index}>
                     <p>{data.dt_txt.substr(5, 14)}</p>
@@ -195,17 +208,16 @@ const Forcast5Days = () => {
           <SlickDiv>
             <TodaySpan>내일</TodaySpan>
             {DateCheck2 &&
-              DateCheck2.map((data: List, index) => {
-                const weatherId = data.weather[0].id;
-            const hours = data.dt_txt.substr(11, 2);
-            const numberHours = Number(hours);
+              DateCheck2.map((data: List, index: number) => {
+                const weatherId: number = data.weather[0].id;
+                const hours: string = data.dt_txt.substr(11, 2);
+                const numberHours: number = Number(hours);
                 return(
 
                 <Forcast5DayTimeDiv key={index}>
                   <p>{data.dt_txt.substr(5, 14)}</p>
                   <p>{data.main.temp.toFixed(1)}°C</p>
                 {showWeatherIcon(weatherId, numberHours)}
-                  
                 </Forcast5DayTimeDiv>
                 )
 })}
@@ -216,12 +228,11 @@ const Forcast5Days = () => {
           <SlickDiv>
             <TodaySpan>모레</TodaySpan>
             {DateCheck3 &&
-              DateCheck3.map((data: List, index) => {
-                const weatherId = data.weather[0].id;
-                const hours = data.dt_txt.substr(11, 2);
-                const numberHours = Number(hours);
+              DateCheck3.map((data: List, index: number) => {
+                const weatherId: number = data.weather[0].id;
+                const hours: string = data.dt_txt.substr(11, 2);
+                const numberHours: number = Number(hours);
                 return(
-
                 <Forcast5DayTimeDiv key={index}>
                   <p>{data.dt_txt.substr(5, 14)}</p>
                   <p>{data.main.temp.toFixed(1)}°C</p>
@@ -236,12 +247,11 @@ const Forcast5Days = () => {
           <SlickDiv>
             <TodaySpan>글피</TodaySpan>
             {DateCheck4 &&
-              DateCheck4.map((data: List, index) => {
-                const weatherId = data.weather[0].id;
-                const hours = data.dt_txt.substr(11, 2);
-                const numberHours = Number(hours);
+              DateCheck4.map((data: List, index: number) => {
+                const weatherId: number = data.weather[0].id;
+                const hours: string = data.dt_txt.substr(11, 2);
+                const numberHours: number = Number(hours);
                 return(
-
                 <Forcast5DayTimeDiv key={index}>
                   <p>{data.dt_txt.substr(5, 14)}</p>
                   <p>{data.main.temp.toFixed(1)}°C</p>
@@ -256,17 +266,15 @@ const Forcast5Days = () => {
           <SlickDiv>
             <TodaySpan>그글피</TodaySpan>
             {DateCheck5 &&
-              DateCheck5.map((data: List, index) => {
-                const weatherId = data.weather[0].id;
-                const hours = data.dt_txt.substr(11, 2);
-                const numberHours = Number(hours);
+              DateCheck5.map((data: List, index: number) => {
+                const weatherId: number = data.weather[0].id;
+                const hours: string = data.dt_txt.substr(11, 2);
+                const numberHours: number = Number(hours);
                 return(
-
                 <Forcast5DayTimeDiv key={index}>
                   <p>{data.dt_txt.substr(5, 14)}</p>
                   <p>{data.main.temp.toFixed(1)}°C</p>
                   {showWeatherIcon(weatherId, numberHours)}
-                  
                 </Forcast5DayTimeDiv>
                 )
 })}
@@ -286,15 +294,15 @@ const Forcast5Days = () => {
       {/* 5일치 오후3시 날씨 */}
       <Forcast5DayBox>
         {predict5Data &&
-          predict5Data?.list.map((data: List, index) => {
+          predict5Data?.list.map((data: List, index: number) => {
             const date: Date = new Date(data.dt_txt);
             const year: number = date.getFullYear();
             const month: number = date.getMonth() + 1;
             const day: number = date.getDate();
             const hour: number = date.getHours();
-            const weatherId = data.weather[0].id;
-                const hours = data.dt_txt.substr(11, 2);
-                const numberHours = Number(hours);
+            const weatherId: number = data.weather[0].id;
+            const hours: string = data.dt_txt.substr(11, 2);
+            const numberHours: number = Number(hours);
             // 각 날짜별로 데이터 출력
             if (hour === 15) {
               return (
@@ -310,11 +318,15 @@ const Forcast5Days = () => {
             }
           })}
       </Forcast5DayBox>
-    </div>
+    </Forcast5DayBoxWallpaper>
   );
 };
 
 export default Forcast5Days;
+
+const Forcast5DayBoxWallpaper = styled.div`
+  font-family: "NEXON Lv1 Gothic OTF";
+`
 
 const Forcast5DayTimeBox = styled.div`
   display: flex;

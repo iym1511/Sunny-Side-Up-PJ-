@@ -54,14 +54,14 @@ const Nationwide5Days = () => {
     <Nationwide5DaysWallpaper>
       <h1>전국날씨</h1>
       <NationwideNavbar>
-        {nationwideBox5.map((d, i) => (
+        {nationwideBox5.map((data:NationwideBox5 , i: number) => (
           <NationwideNavbarBtn
             isActive={day === `${i}` ? true : false}
             onClick={() => {
               navigate(`/sunnysideup/${i}`);
             }}
           >
-            {d.date}
+            {data.date}
           </NationwideNavbarBtn>
         ))}
       </NationwideNavbar>
@@ -75,6 +75,7 @@ export default Nationwide5Days;
 const Nationwide5DaysWallpaper = styled.div`
   margin: 0;
   border: 1px solid yellow;
+  font-family: "NEXON Lv1 Gothic OTF";
 `;
 
 const NationwideNavbar = styled.div`
@@ -92,6 +93,7 @@ const NationwideNavbarBtn = styled.button<{ isActive: boolean }>`
   background-color: transparent;
   font-size: 1em;
   font-weight: lighter;
+  cursor: pointer;
   color: ${(props) => (props.isActive ? "red" : "white")};
   border-bottom: ${(props) => (props.isActive ? "1px solid red" : "none")};
 `;
