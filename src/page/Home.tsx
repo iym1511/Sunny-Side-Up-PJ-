@@ -37,7 +37,7 @@ const Home = () => {
         <p>
           [LOGO DESIGN]<br/>
           sunnyside의 s + up의 u 심볼을 함께 담아<br/>
-          써니사이드업 디자인의 로고가 되었습니다.<br/>
+          디자인의 로고가 되었습니다.<br/>
         </p>
         </HomeAboutDiv>
       </HomeAboutBox>
@@ -55,6 +55,7 @@ const HomeBoxWallpaper = styled.div`
   background-repeat : no-repeat;
   /* background-size : cover; */
   background-attachment: fixed;
+  /* background-position-x: -200px; */
   background-position-x: -400px;
 `
 
@@ -63,7 +64,7 @@ const HomeNavbarBox = styled.div`
   width: 150px;
   height: 250px;
   position: absolute;
-  top: 100px;
+  margin-top: 100px;
   margin-left: 90px;
   transition: 0.5s;
   :hover {
@@ -116,10 +117,11 @@ const HomeAboutBox = styled.div`
   margin-left: 50%;
 `
 const HomeAboutDiv = styled.div`
-  width: 40vw;
-  position: relative;
-  top: 200px;
+  width: 42vw;
+  position: absolute;
   margin: auto;
+  margin-top: 200px;
+  margin-left: 5%;
   transition: 0.5s;
   p {
     color: gray;
@@ -130,6 +132,7 @@ const HomeAboutDiv = styled.div`
       :nth-child(1){
         color: #3f3f3f;
         font-size: 1.1em;
+
         @media screen and (max-width: 1380px) {
         font-size: 1em;
       }
