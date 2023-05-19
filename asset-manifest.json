@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Sunny-SideUp-PJ/static/css/main.3034dbab.css",
-    "main.js": "/Sunny-SideUp-PJ/static/js/main.d119b52b.js",
+    "main.css": "/Sunny-SideUp-PJ/static/css/main.f6f4c288.css",
+    "main.js": "/Sunny-SideUp-PJ/static/js/main.8c6ec54d.js",
     "static/js/787.e473614c.chunk.js": "/Sunny-SideUp-PJ/static/js/787.e473614c.chunk.js",
     "static/media/snow.mp4": "/Sunny-SideUp-PJ/static/media/snow.be46712bbfd3bd433e5c.mp4",
     "static/media/rain.mp4": "/Sunny-SideUp-PJ/static/media/rain.217c27e228803e8aa633.mp4",
@@ -10,19 +10,22 @@
     "static/media/fewClouds.mp4": "/Sunny-SideUp-PJ/static/media/fewClouds.3c7fb4feff137b1a47f9.mp4",
     "static/media/thunderstorm.mp4": "/Sunny-SideUp-PJ/static/media/thunderstorm.904de063f8e4c114e0c7.mp4",
     "static/media/mist.mp4": "/Sunny-SideUp-PJ/static/media/mist.6bbe83e2fa99e11d1a88.mp4",
+    "static/media/sky2.jpg": "/Sunny-SideUp-PJ/static/media/sky2.ff013073fc2395f8424f.jpg",
     "static/media/southkorea01.png": "/Sunny-SideUp-PJ/static/media/southkorea01.7bf752705efd4092e3fa.png",
+    "static/media/SU.png": "/Sunny-SideUp-PJ/static/media/SU.611fa39fd265d8bd7edd.png",
     "static/media/gps.png": "/Sunny-SideUp-PJ/static/media/gps.23af7b8bd2bbb799c81c.png",
+    "static/media/logo.png": "/Sunny-SideUp-PJ/static/media/logo.7e0cc34dbab0dfa87621.png",
     "static/media/slick.svg": "/Sunny-SideUp-PJ/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/Sunny-SideUp-PJ/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/Sunny-SideUp-PJ/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/Sunny-SideUp-PJ/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Sunny-SideUp-PJ/index.html",
-    "main.3034dbab.css.map": "/Sunny-SideUp-PJ/static/css/main.3034dbab.css.map",
-    "main.d119b52b.js.map": "/Sunny-SideUp-PJ/static/js/main.d119b52b.js.map",
+    "main.f6f4c288.css.map": "/Sunny-SideUp-PJ/static/css/main.f6f4c288.css.map",
+    "main.8c6ec54d.js.map": "/Sunny-SideUp-PJ/static/js/main.8c6ec54d.js.map",
     "787.e473614c.chunk.js.map": "/Sunny-SideUp-PJ/static/js/787.e473614c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3034dbab.css",
-    "static/js/main.d119b52b.js"
+    "static/css/main.f6f4c288.css",
+    "static/js/main.8c6ec54d.js"
   ]
 }
