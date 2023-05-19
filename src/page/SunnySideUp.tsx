@@ -37,7 +37,6 @@ const SunnySideUp = () => {
   const [gu, setGu] = useState<string>();
   const [dong, setDong] = useState<string>();
   const [morebox, setMoreBox] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(asyncFetch2());
@@ -79,13 +78,13 @@ const SunnySideUp = () => {
 
   // 오늘 날짜
   const newDate: Date = new Date();
-  const date = newDate.getDate();
-  const month = newDate.getMonth() + 1;
-  const year = newDate.getFullYear();
-  const day = newDate.getDay();
-  const hours = newDate.getHours();
+  const date: number = newDate.getDate();
+  const month: number = newDate.getMonth() + 1;
+  const year: number = newDate.getFullYear();
+  const day: number = newDate.getDay();
+  const hours: number = newDate.getHours();
 
-  const showDay = ():string|undefined => {
+  const showDay = ():string | undefined => {
     if (day == 0) {
       return "일요일";
     } else if (day == 1) {
@@ -103,7 +102,7 @@ const SunnySideUp = () => {
     }
   };
 
-  const today = `${year}년 ${month}월 ${date}일 ${showDay()}`;
+  const today: string = `${year}년 ${month}월 ${date}일 ${showDay()}`;
 
   // 일출
   const sunrise: number | undefined = weatherApiData2?.sys.sunrise;
@@ -409,10 +408,10 @@ const SunnySideUp = () => {
           setMoreBox(!morebox);
         }}
       >
-        more
+        More
       </MoreBoxBtn>
       <MoreBox moreboxwidth={morebox}>
-        <p>체감 온도 :{feelsLikeGps?.toFixed(1)}</p>
+        <p>체감 온도 :{feelsLikeGps?.toFixed(1)}°</p>
         <p>대기질 : {printAirPollStatus()}</p>
         <p>일출 : {SunriseDate?.toLocaleString()}</p>
         <p>일몰 : {SunsetDate?.toLocaleString()}</p>
@@ -429,7 +428,6 @@ const SunnySideUp = () => {
     ):(
     <Loding />
     )
-
 
   );
 };
@@ -500,6 +498,7 @@ const MoreBoxBtn = styled.button`
 `
 
 const MoreBox = styled.div<{ moreboxwidth: boolean }>`
+  font-family: "NEXON Lv1 Gothic OTF";
   width: 20%;
   height: ${(props) => (props.moreboxwidth ? "250px" : "0px")};
   margin: auto;
