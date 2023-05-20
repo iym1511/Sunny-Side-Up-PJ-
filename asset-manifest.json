@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Sunny-SideUp-PJ/static/css/main.f6f4c288.css",
-    "main.js": "/Sunny-SideUp-PJ/static/js/main.e30b0416.js",
+    "main.css": "/Sunny-SideUp-PJ/static/css/main.b0748c55.css",
+    "main.js": "/Sunny-SideUp-PJ/static/js/main.b548dd3d.js",
     "static/js/787.e473614c.chunk.js": "/Sunny-SideUp-PJ/static/js/787.e473614c.chunk.js",
     "static/media/snow.mp4": "/Sunny-SideUp-PJ/static/media/snow.be46712bbfd3bd433e5c.mp4",
     "static/media/rain.mp4": "/Sunny-SideUp-PJ/static/media/rain.217c27e228803e8aa633.mp4",
@@ -20,12 +20,12 @@
     "static/media/slick.ttf": "/Sunny-SideUp-PJ/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/Sunny-SideUp-PJ/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/Sunny-SideUp-PJ/index.html",
-    "main.f6f4c288.css.map": "/Sunny-SideUp-PJ/static/css/main.f6f4c288.css.map",
-    "main.e30b0416.js.map": "/Sunny-SideUp-PJ/static/js/main.e30b0416.js.map",
+    "main.b0748c55.css.map": "/Sunny-SideUp-PJ/static/css/main.b0748c55.css.map",
+    "main.b548dd3d.js.map": "/Sunny-SideUp-PJ/static/js/main.b548dd3d.js.map",
     "787.e473614c.chunk.js.map": "/Sunny-SideUp-PJ/static/js/787.e473614c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6f4c288.css",
-    "static/js/main.e30b0416.js"
+    "static/css/main.b0748c55.css",
+    "static/js/main.b548dd3d.js"
   ]
 }
