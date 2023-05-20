@@ -5,7 +5,6 @@ import Bg2 from '../img/sky2.jpg'
 import { SetStateAction, useState } from "react";
 import Footer from "./Footer";
 import React from "react";
-import "../css/Scrollnone.css"
 
 
 
