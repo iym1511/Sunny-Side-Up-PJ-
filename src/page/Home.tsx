@@ -2,12 +2,35 @@ import { useNavigate } from "react-router";
 import styled from "styled-components";
 import Bg1 from '../img/sky1.jpg'
 import Bg2 from '../img/sky2.jpg'
+import { SetStateAction, useState } from "react";
+import Footer from "./Footer";
+import React from "react";
+
+
+
 
 const Home = () => {
   const navigate = useNavigate();
+  
+  const [footerBtn, setFooterBtn] = useState<boolean>(false);
 
   return (
     <HomeBoxWallpaper>
+      <FooterDiv isActive={footerBtn}>
+        <div>
+            <button onClick={()=>{setFooterBtn(!footerBtn)}}>x</button>
+            <p>Footer</p>
+        </div>
+      </FooterDiv>
+      {/* {
+        footerBtn ? (
+          <FooterDiv isActive={footerBtn}>
+            <button onClick={()=>{setFooterBtn(!footerBtn)}}>x</button>
+            <div>Footer</div>
+          </FooterDiv>
+          ): null
+      } */}
+      {/* {footerBtn ? <Footer setFooterBtn={setFooterBtn} footerBtn={footerBtn}/> : null} */}
       <HomeNavbarBox>
         <img src={require("../img/logo.png")} alt=""/>
         <p>SunnySideUp</p>
@@ -40,6 +63,9 @@ const Home = () => {
           디자인의 로고가 되었습니다.<br/>
         </p>
         </HomeAboutDiv>
+        <FooterBtn isActive={footerBtn} onClick={()=> setFooterBtn(!footerBtn)}>
+          버튼
+        </FooterBtn>
       </HomeAboutBox>
     </HomeBoxWallpaper>
   );
@@ -123,6 +149,17 @@ const HomeAboutDiv = styled.div`
   margin-top: 200px;
   margin-left: 5%;
   transition: 0.5s;
+  animation: fadeInRight1 1.5s;
+  @keyframes fadeInRight1 {
+        0% {
+            opacity: 0;
+            transform: translate3d(10%, 0, 0);
+        }
+        to {
+            opacity: 1;
+            transform: translateZ(0);
+        }
+    }
   p {
     color: gray;
     font-size: 0.9em;
@@ -132,10 +169,20 @@ const HomeAboutDiv = styled.div`
       :nth-child(1){
         color: #3f3f3f;
         font-size: 1.1em;
-
+        animation: fadeInRight2 1s;
+      @keyframes fadeInRight2 {
+            0% {
+                opacity: 0;
+                transform: translate3d(10%, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translateZ(0);
+            }
+        }
         @media screen and (max-width: 1380px) {
-        font-size: 1em;
-      }
+          font-size: 1em;
+        }
       }
       :nth-child(3){
         line-height: 150%;
@@ -155,6 +202,17 @@ const HomeAboutDiv = styled.div`
     letter-spacing: 5px;
     margin-bottom: 20px;
     margin-top: 20px;
+    animation: fadeInRight3 0.5s;
+      @keyframes fadeInRight3 {
+            0% {
+                opacity: 0;
+                transform: translate3d(10%, 0, 0);
+            }
+            to {
+                opacity: 1;
+                transform: translateZ(0);
+            }
+        }
     @media screen and (max-width: 1380px) {
         transition: 0.5s;
         font-size: 3em;
@@ -162,5 +220,47 @@ const HomeAboutDiv = styled.div`
   }
   img {
     width: 150px;
+  }
+`
+const FooterBtn = styled.button<{isActive : boolean}>`
+  margin: auto;
+  margin-left: 42%;
+  position: absolute;
+  margin-top: 100px;
+  background-color: rgba( 255, 255, 255, 0);
+  border: none;
+  cursor: pointer;
+  opacity: ${({ isActive }) => (isActive ? 0 : 1)};
+  transition: opacity 0.5s ease-in-out;
+`
+
+const FooterDiv = styled.div<{isActive : boolean}>`
+  background-color: #5555ff70;
+  position: absolute;
+  z-index: 11;
+  transition: 0.5s;
+  width: 100vw;
+  height: 100vh;
+  opacity:${({ isActive }) => (isActive ? 1 : 0)};
+  button {
+    margin-left: 92.5%;
+    position: absolute;
+    margin-top: 100px;
+    background-color: rgba( 255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+    opacity:${({ isActive }) => (isActive ? 1 : 0)};
+  }
+  p {
+    color: white;
+    transition: 0.5s;
+    text-align: center;
+    font-size: 10em;
+    margin: auto;
+    margin: 0;
+  }
+  div {
+
+    transition: 0.5s;
   }
 `
