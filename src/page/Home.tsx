@@ -8,7 +8,6 @@ import React from "react";
 
 
 
-
 const Home = () => {
   const navigate = useNavigate();
   
@@ -17,10 +16,8 @@ const Home = () => {
   return (
     <HomeBoxWallpaper>
       <FooterDiv isActive={footerBtn}>
-        <div>
             <button onClick={()=>{setFooterBtn(!footerBtn)}}>x</button>
             <p>Footer</p>
-        </div>
       </FooterDiv>
       {/* {
         footerBtn ? (
@@ -31,7 +28,7 @@ const Home = () => {
           ): null
       } */}
       {/* {footerBtn ? <Footer setFooterBtn={setFooterBtn} footerBtn={footerBtn}/> : null} */}
-      <HomeNavbarBox>
+      <HomeNavbarBox isActive={footerBtn}>
         <img src={require("../img/logo.png")} alt=""/>
         <p>SunnySideUp</p>
         <button onClick={()=>{
@@ -83,16 +80,19 @@ const HomeBoxWallpaper = styled.div`
   background-attachment: fixed;
   /* background-position-x: -200px; */
   background-position-x: -400px;
+  ::-webkit-scrollbar {
+	display:none /* Chrome , Safari , Opera */
+}
 `
 
-const HomeNavbarBox = styled.div`
-  /* border: 1px solid white; */
+const HomeNavbarBox = styled.div<{isActive : boolean}>`
   width: 150px;
   height: 250px;
   position: absolute;
   margin-top: 100px;
   margin-left: 90px;
   transition: 0.5s;
+  z-index: ${({ isActive }) => (isActive ? 0 : 11)};
   :hover {
     background-color: #ffffff82;
     transition: 0.5s;
@@ -258,9 +258,5 @@ const FooterDiv = styled.div<{isActive : boolean}>`
     font-size: 10em;
     margin: auto;
     margin: 0;
-  }
-  div {
-
-    transition: 0.5s;
   }
 `
