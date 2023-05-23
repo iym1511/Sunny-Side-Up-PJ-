@@ -59,7 +59,7 @@ const Home = () => {
         </p>
         </HomeAboutDiv>
         <FooterBtn isActive={footerBtn} onClick={()=> setFooterBtn(!footerBtn)}>
-          버튼
+          <img src={require("../img/FooterIcon.png")} alt="" />
         </FooterBtn>
       </HomeAboutBox>
     </HomeBoxWallpaper>
@@ -72,15 +72,18 @@ const HomeBoxWallpaper = styled.div`
   font-family: "NEXON Lv1 Gothic OTF";
   width: 100vw;
   height: 100vh;
+  margin: 0;
+  padding: 0;
   background-image: url(${Bg2});
   background-repeat : no-repeat;
   /* background-size : cover; */
   background-attachment: fixed;
   /* background-position-x: -200px; */
-  background-position-x: -400px;
+  /* background-position-x: -400px; */
   ::-webkit-scrollbar {
 	  display:none /* Chrome , Safari , Opera */
   }
+
 `
 
 const HomeNavbarBox = styled.div<{isActive : boolean}>`
@@ -109,7 +112,7 @@ const HomeNavbarBox = styled.div<{isActive : boolean}>`
     text-align: center;
     font-family: 'Cafe24Oneprettynight';
     font-size: 15px;
-    font-weight: lighter;
+    font-weight: bolder;
     letter-spacing: 5px;
     color: black;
   }
@@ -155,8 +158,8 @@ const HomeAboutBox = styled.div`
   }
 `
 const HomeAboutDiv = styled.div`
-  width: 42vw; 
-  height: 30vw;
+  width: 42vw;
+  height: 70vh;
   position: absolute;
   /* margin: auto; */
   margin-top: 150px;
@@ -164,8 +167,8 @@ const HomeAboutDiv = styled.div`
   transition: 0.5s;
   animation: fadeInRight1 1.5s;
   @media screen and (max-width: 1025px) {
-    margin-top: 9%;
-    width: 70vw;
+    margin-top: 50px;
+    width: 60vw;
     height: 50vh;
   }
   @keyframes fadeInRight1 {
@@ -251,10 +254,15 @@ const FooterBtn = styled.button<{isActive : boolean}>`
   opacity: ${({ isActive }) => (isActive ? 0 : 1)};
   transition: opacity 0.5s ease-in-out;
   z-index: 12;
+  display:${({ isActive }) => (isActive ? "none" : "")};
   @media screen and (max-width: 1025px) {
     position: relative;
-    left: 50%;
-    top: -42.5%;
+    left: 47%;
+    top: -280px;
+    /* display: none; */
+  }
+  img {
+    width: 20px;
   }
 `
 
@@ -267,9 +275,9 @@ const FooterDiv = styled.div<{isActive : boolean}>`
   height: 100vh;
   opacity:${({ isActive }) => (isActive ? 1 : 0)};
   button {
-    margin-left: 92.5%;
+    margin-left: 90%;
     /* position: absolute; */
-    margin-top: 100px;
+    margin-top: 7%;
     background-color: rgba( 255, 255, 255, 0);
     border: none;
     cursor: pointer;
