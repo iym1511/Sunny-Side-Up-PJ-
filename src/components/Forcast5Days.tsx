@@ -331,7 +331,7 @@ const Forcast5DayBoxWallpaper = styled.div`
 const Forcast5DayTimeBox = styled.div`
   display: flex;
   overflow-x: scroll;
-  /* 스크롤바 전체 기본 꾸미기 !*/
+  /* 스크롤바 전체 기본 꾸미기 */
   ::-webkit-scrollbar {
     height: 10px;
   }
