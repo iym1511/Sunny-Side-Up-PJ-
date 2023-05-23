@@ -102,7 +102,7 @@ const Forcast5Days = () => {
   });
 
   return (
-    <Forcast5DayBoxWallpaper>
+    <>
       <Forcast5DayTimeBox>
         <TodaySpan>오늘</TodaySpan>
         {DateCheck &&
@@ -318,7 +318,7 @@ const Forcast5Days = () => {
             }
           })}
       </Forcast5DayBox>
-    </Forcast5DayBoxWallpaper>
+    </>
   );
 };
 
@@ -390,8 +390,6 @@ const Sliderslick = styled(Slider)`
   height: 200px;
   width: 90%;
   margin: auto;
-  position: relative;
-  right: 24px;
   @media screen and (max-width: 900px) {
     display: none;
   }
@@ -400,10 +398,10 @@ const Sliderslick = styled(Slider)`
 const SlickArrowsBox = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-left: 15px;
-  margin-right: 18px;
+  margin-left: 30px;
+  margin-right: 30px;
   position: relative;
-  bottom: 133px;
+  bottom: 130px;
   cursor: pointer;
   @media screen and (max-width: 900px) {
     display: none;
