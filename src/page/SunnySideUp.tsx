@@ -407,8 +407,9 @@ const SunnySideUp = () => {
       <MoreBoxBtn onClick={() => {
           setMoreBox(!morebox);
         }}
-      >
-        More
+      >{
+        morebox? "CLOSE" : "MORE"
+      }
       </MoreBoxBtn>
       <MoreBox moreboxwidth={morebox}>
         <p>체감 온도 :{feelsLikeGps?.toFixed(1)}°</p>
@@ -494,13 +495,19 @@ const CurrentTemp = styled.p`
 `;
 
 const MoreBoxBtn = styled.button`
+  font-family: "NEXON Lv1 Gothic OTF";
   margin:20px;
+  border: 1px solid white;
+  background-color: transparent;
+  width: 65px;
+  height: 25px;
+  color: white;
 `
 
 const MoreBox = styled.div<{ moreboxwidth: boolean }>`
   font-family: "NEXON Lv1 Gothic OTF";
   width: 20%;
-  height: ${(props) => (props.moreboxwidth ? "250px" : "0px")};
+  height: ${(props) => (props.moreboxwidth ? "200px" : "0px")};
   margin: auto;
   /* border: 1px solid black; */
   overflow: hidden;
@@ -509,6 +516,7 @@ const MoreBox = styled.div<{ moreboxwidth: boolean }>`
   justify-content: center;
   align-items: center;
   transition: 0.5s;
+  margin-bottom: 40px ;
   >p{
     margin: 5px;
   }
