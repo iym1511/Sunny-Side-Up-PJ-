@@ -75,11 +75,11 @@ const Nationwide5Days = () => {
 export default Nationwide5Days;
 
 const Nationwide5DaysWallpaper = styled.div`
-  margin: 110px;
-  /* border: 1px solid yellow; */
   font-family: "NEXON Lv1 Gothic OTF";
+  margin: 110px auto;
   h1{
-    margin: 35px; 
+    margin: 35px auto;
+    width : 200px;
   }
 `;
 
@@ -89,6 +89,10 @@ const NationwideBigBox = styled.div`
   padding: 10px 0 30px 0;
   border-radius: 10px;
   /* background-color: #b0daff63; */
+  @media screen and (max-width: 736px) {
+    width: 350px;
+    height: 450px;
+    }
 `;
 
 const NationwideNavbar = styled.div`
@@ -103,6 +107,10 @@ const NationwideNavbar = styled.div`
   border-radius: 10px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  @media screen and (max-width: 736px) {
+    margin: auto;
+    width: 350px;
+    }
 `;
 
 const NationwideNavbarBtn = styled.button<{ isActive: boolean }>`
@@ -121,4 +129,7 @@ const NationwideNavbarBtn = styled.button<{ isActive: boolean }>`
   text-shadow: ${(props) => (props.isActive ? "0px 0px 8px lemonchiffon" : "none")};
   font-size: ${(props) => (props.isActive ? "1.2em" : "1em")};
   transition: 0.1s;
+  @media screen and (max-width: 736px) {
+    margin: 3px;
+    }
 `;

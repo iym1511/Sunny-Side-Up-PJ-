@@ -555,7 +555,7 @@ const MoreBoxBtn = styled.button`
 
 const MoreBox = styled.div<{ moreboxwidth: boolean }>`
   font-family: "NEXON Lv1 Gothic OTF";
-  width: 20%;
+  width: 300px;
   height: ${(props) => (props.moreboxwidth ? "220px" : "0px")};
   margin: auto;
   /* border: 1px solid black; */
