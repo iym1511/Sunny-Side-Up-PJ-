@@ -343,7 +343,7 @@ const NationwideBox = (props: any) => {
   return (
     <NationwideBoxWallpaper>
       <SouthKoreaBox>
-        <SouthKoreaImage src={require("../img/southkorea01.png")} alt="없음" />
+        <SouthKoreaImage src={require("../img/southkorea12.png")} alt="없음" />
         {     /* 시간대별 배열들을 한번풀어주고 안에서 2중맵으로 배열안에서 조건문 수행 */
           // 서울
           SeoulArray &&
@@ -613,15 +613,26 @@ export default NationwideBox;
 const NationwideBoxWallpaper = styled.div`
   /* width: 100vw; */
   margin: auto;
-  border: 1px solid red;
 `;
 
 const SouthKoreaBox = styled.div`
   width: 573px;
   height: 578px;
   background-color: transparent;
-  border: 1px solid blue;
   margin: auto;
+  padding: 15px 0 45px 0;
+
+  /* padding: 10px 0 30px 0; */
+  border-radius: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border: 1px solid #ffffff67;
+  background-color: #8bb6dc62;
+
+  p{
+    color: #4d4d4d;
+    font-weight: bold;
+  }
 `;
 
 const SouthKoreaImage = styled.img`
@@ -635,7 +646,7 @@ const SeoulDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 78%;
+  bottom: 88%;
   left: 30%;
   img {
     width: 45%;
@@ -654,7 +665,7 @@ const IncheonDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 91%;
+  bottom: 101%;
   left: 19%;
   img {
     width: 45%;
@@ -673,7 +684,7 @@ const DeajeonDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 95%;
+  bottom: 102%;
   left: 33%;
   img {
     width: 45%;
@@ -692,8 +703,8 @@ const DeaguDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 108%;
-  left: 50%;
+  bottom: 110%;
+  left: 52%;
   img {
     width: 45%;
     margin: 10px;
@@ -711,8 +722,8 @@ const BusanDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 108%;
-  left: 57%;
+  bottom: 111%;
+  left: 59%;
   img {
     width: 45%;
     margin: 10px;
@@ -730,8 +741,8 @@ const UlsanDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 133%;
-  left: 67%;
+  bottom: 135%;
+  left: 70%;
   img {
     width: 45%;
     margin: 10px;
@@ -749,8 +760,8 @@ const GwangjuDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 147%;
-  left: 30%;
+  bottom: 148%;
+  left: 26%;
   img {
     width: 45%;
     margin: 10px;
@@ -768,8 +779,8 @@ const GangneungDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 200%;
-  left: 55%;
+  bottom: 211%;
+  left: 58%;
   img {
     width: 45%;
     margin: 10px;
@@ -787,8 +798,8 @@ const JejuDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 153%;
-  left: 21%;
+  bottom: 154%;
+  left: 18%;
   img {
     width: 45%;
     margin: 10px;
@@ -806,7 +817,7 @@ const DockdoDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 227%;
+  bottom: 233%;
   left: 78%;
   img {
     width: 45%;

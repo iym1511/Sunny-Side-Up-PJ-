@@ -351,7 +351,7 @@ const Forcast5DayBox = styled.div`
 `;
 const TodaySpan = styled.span`
   white-space: nowrap;
-  border-right: 1px solid rgba(255, 255, 255, 0.322);
+  border-right: 1.3px solid rgba(255, 255, 255, 0.7);
   padding-top: 30px;
   margin-top: 40px;
   margin-left: 10px;

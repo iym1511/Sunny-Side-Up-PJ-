@@ -412,12 +412,12 @@ const SunnySideUp = () => {
       }
       </MoreBoxBtn>
       <MoreBox moreboxwidth={morebox}>
-        <p>체감 온도 :{feelsLikeGps?.toFixed(1)}°</p>
-        <p>대기질 : {printAirPollStatus()}</p>
-        <p>일출 : {SunriseDate?.toLocaleString()}</p>
-        <p>일몰 : {SunsetDate?.toLocaleString()}</p>
-        <p>풍속 : {weatherApiData2?.wind.speed}m/sec</p>
-        <p>습도 : {weatherApiData2?.main.humidity}%</p>
+        <p>체감 온도 <span>|</span> {feelsLikeGps?.toFixed(1)}°</p>
+        <p>대기질 <span>|</span> {printAirPollStatus()}</p>
+        <p>일출 <span>|</span> {SunriseDate?.toLocaleString().slice(-10)}</p>
+        <p>일몰 <span>|</span> {SunsetDate?.toLocaleString().slice(-10)}</p>
+        <p>풍속 <span>|</span> {weatherApiData2?.wind.speed}m/sec</p>
+        <p>습도 <span>|</span> {weatherApiData2?.main.humidity}%</p>
       </MoreBox>
 
       {/* 5일치 일기예보 */}
@@ -440,7 +440,8 @@ const SunnySideUpWallpaper = styled.div`
   color: white;
   text-align: center;
   font-weight: lighter;
-  padding: 50px;
+  /* padding: 50px; */
+  padding: 70px 80px;
 `;
 
 const VideoBackground = styled.video`
@@ -492,22 +493,31 @@ const TodayWeatherIcon = styled.div`
 const CurrentTemp = styled.p`
   font-family: "NEXON Lv1 Gothic OTF";
   font-size: 2em;
+  position: relative;
+  left: 3px;
 `;
 
 const MoreBoxBtn = styled.button`
   font-family: "NEXON Lv1 Gothic OTF";
   margin:20px;
+  padding: 10px;
+  width: 90px;
+  border-radius: 0;
   border: 1px solid white;
   background-color: transparent;
-  width: 65px;
-  height: 25px;
   color: white;
+  letter-spacing: 2px;
+  font-weight: bold;
+  &:hover{
+    box-shadow: 0 0 10px lemonchiffon;
+    transition: 0.3s;
+  }
 `
 
 const MoreBox = styled.div<{ moreboxwidth: boolean }>`
   font-family: "NEXON Lv1 Gothic OTF";
   width: 20%;
-  height: ${(props) => (props.moreboxwidth ? "200px" : "0px")};
+  height: ${(props) => (props.moreboxwidth ? "220px" : "0px")};
   margin: auto;
   /* border: 1px solid black; */
   overflow: hidden;
@@ -518,6 +528,11 @@ const MoreBox = styled.div<{ moreboxwidth: boolean }>`
   transition: 0.5s;
   margin-bottom: 40px ;
   >p{
-    margin: 5px;
+    margin: 8px;
+    letter-spacing: 0.5px;
+  }
+  >p>span{
+    color: #ffffff83;
+    padding: 5px;
   }
 `;

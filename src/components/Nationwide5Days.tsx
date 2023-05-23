@@ -52,20 +52,22 @@ const Nationwide5Days = () => {
 
   return (
     <Nationwide5DaysWallpaper>
-      <h1>전국날씨</h1>
-      <NationwideNavbar>
-        {nationwideBox5.map((data:NationwideBox5 , i: number) => (
-          <NationwideNavbarBtn
-            isActive={day === `${i}` ? true : false}
-            onClick={() => {
-              navigate(`/sunnysideup/${i}`);
-            }}
-          >
-            {data.date}
-          </NationwideNavbarBtn>
-        ))}
-      </NationwideNavbar>
-      {<NationwideBox nationwideBox5={nationwideBox5} />}
+      <h1>전국 날씨</h1>
+      <NationwideBigBox>
+        <NationwideNavbar>
+          {nationwideBox5.map((data: NationwideBox5, i: number) => (
+            <NationwideNavbarBtn
+              isActive={day === `${i}` ? true : false}
+              onClick={() => {
+                navigate(`/sunnysideup/${i}`);
+              }}
+            >
+              {data.date}
+            </NationwideNavbarBtn>
+          ))}
+        </NationwideNavbar>
+        {<NationwideBox nationwideBox5={nationwideBox5} />}
+      </NationwideBigBox>
     </Nationwide5DaysWallpaper>
   );
 };
@@ -73,17 +75,34 @@ const Nationwide5Days = () => {
 export default Nationwide5Days;
 
 const Nationwide5DaysWallpaper = styled.div`
-  margin: 0;
-  border: 1px solid yellow;
+  margin: 110px;
+  /* border: 1px solid yellow; */
   font-family: "NEXON Lv1 Gothic OTF";
+  h1{
+    margin: 35px; 
+  }
+`;
+
+const NationwideBigBox = styled.div`
+  width: 573px;
+  margin: auto;
+  padding: 10px 0 30px 0;
+  border-radius: 10px;
+  /* background-color: #b0daff63; */
 `;
 
 const NationwideNavbar = styled.div`
   display: flex;
   flex-direction: row;
   width: 573px;
+  height: 70px;
   margin: auto;
   justify-content: center;
+  border: 1px solid #ffffff67;
+  border-bottom: none;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 `;
 
 const NationwideNavbarBtn = styled.button<{ isActive: boolean }>`
@@ -93,7 +112,13 @@ const NationwideNavbarBtn = styled.button<{ isActive: boolean }>`
   background-color: transparent;
   font-size: 1em;
   font-weight: lighter;
+  font-family: "NEXON Lv1 Gothic OTF";
+  letter-spacing: 2px;
   cursor: pointer;
-  color: ${(props) => (props.isActive ? "red" : "white")};
-  border-bottom: ${(props) => (props.isActive ? "1px solid red" : "none")};
+  color: ${(props) => (props.isActive ? "white" : "#ffffff91")};
+  /* color: white; */
+  /* border-bottom: ${(props) => (props.isActive ? "1px solid white" : "none")}; */
+  text-shadow: ${(props) => (props.isActive ? "0px 0px 8px lemonchiffon" : "none")};
+  font-size: ${(props) => (props.isActive ? "1.2em" : "1em")};
+  transition: 0.1s;
 `;
