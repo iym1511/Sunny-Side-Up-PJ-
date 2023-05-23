@@ -273,6 +273,7 @@ const FooterDiv = styled.div<{isActive : boolean}>`
   transition: 0.5s;
   width: 100vw;
   height: 100vh;
+  /* display: ${({ isActive }) => (isActive ? "" : "none")}; */
   opacity:${({ isActive }) => (isActive ? 1 : 0)};
   button {
     margin-left: 90%;
