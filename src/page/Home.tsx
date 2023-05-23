@@ -29,7 +29,7 @@ const Home = () => {
       } */}
       {/* {footerBtn ? <Footer setFooterBtn={setFooterBtn} footerBtn={footerBtn}/> : null} */}
       <HomeNavbarBox isActive={footerBtn}>
-        <img src={require("../img/logo.png")} alt=""/>
+        <img src={require("../img/Logo3.png")} alt=""/>
         <p>SunnySideUp</p>
         <button onClick={()=>{
           navigate("/sunnysideup/0")
