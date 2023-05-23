@@ -28,17 +28,17 @@ const Home = () => {
 
       <HomeNavbarBox isActive={footerBtn}>
         <img src={require("../img/Logo3.png")} alt=""/>
-        <p>SunnySideUp</p>
+        <p>Sunny Side Up</p>
         <button onClick={()=>{
           navigate("/sunnysideup/0")
           setTimeout(()=>{
             window.location.reload()
           },4000)
-          }}>Weather</button>
+          }}>Weather cast</button>
       </HomeNavbarBox>
       <HomeAboutBox>
         <HomeAboutDiv>
-        <p>SUNNYSIDE / UP</p>
+        <p>SUNNY SIDE / UP</p>
         <h1>S/U</h1>
 
         <p>
@@ -87,33 +87,34 @@ const HomeBoxWallpaper = styled.div`
 `
 
 const HomeNavbarBox = styled.div<{isActive : boolean}>`
-  width: 150px;
-  height: 250px;
+  width: 160px;
+  height: 220px;
   position: absolute;
   margin-top: 100px;
   margin-left: 90px;
+  padding-top: 20px;
   transition: 0.5s;
   z-index: ${({ isActive }) => (isActive ? 0 : 11)};
   :hover {
-    background-color: #ffffff82;
+    background-color: #ffffff5d;
     transition: 0.5s;
   }
   img {
     /* 이미지는 기본 inline이기때문에 block후 auto */
     display: block;
     margin: auto;
-    width: 130px;
+    width: 115px;
     margin-top: 8px;
   }
   p {
     margin: 0;
     /* margin: auto; */
-    margin-top: 10px;
+    margin-top: 13px;
     text-align: center;
     font-family: 'Cafe24Oneprettynight';
-    font-size: 15px;
+    font-size: 1.2em;
     font-weight: bolder;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     color: black;
   }
   button {
@@ -121,18 +122,21 @@ const HomeNavbarBox = styled.div<{isActive : boolean}>`
     /* background-color: #ffffff; */
     background-color: rgba( 255, 255, 255, 0);
     border: none;
-    width: 100px;
+    width: 120px;
     display: block;
     margin: auto;
-    color: black;
+    color: #5c5c5c;
     margin-top: 20px;
-    font-size: 18px ;
+    font-size: 1.1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
     cursor: pointer;
     transition: 0.5s;
-    font-weight: bold;
       :hover{
         transform: translateX(5px);
         transition: 0.5s;
+        color: black;
+        font-weight: bold;
       }
   }
   @media screen and (max-width: 1025px) {
@@ -162,7 +166,7 @@ const HomeAboutDiv = styled.div`
   height: 70vh;
   position: absolute;
   /* margin: auto; */
-  margin-top: 150px;
+  margin-top: 135px;
   margin-left: 5%;
   transition: 0.5s;
   animation: fadeInRight1 1.5s;
@@ -170,7 +174,11 @@ const HomeAboutDiv = styled.div`
     margin-top: 50px;
     width: 60vw;
     height: 50vh;
+    overflow: auto;
   }
+  /* @media screen and (max-height: 799px){
+    margin-top: 50px;
+  } */
   @keyframes fadeInRight1 {
         0% {
             opacity: 0;
@@ -185,7 +193,7 @@ const HomeAboutDiv = styled.div`
     color: gray;
     font-size: 0.9em;
     transition: 0.5s;
-    margin: 0;
+    margin: 20px 0;
     margin-left: 10px;
       :nth-child(1){
         color: #3f3f3f;
@@ -210,6 +218,10 @@ const HomeAboutDiv = styled.div`
       }
       :nth-child(5){
         margin-top: 10px;
+        line-height: 150%;
+      }
+      :nth-child(7){
+        line-height: 150%;
       }
     @media screen and (max-width: 1380px) {
         transition: 0.5s;
@@ -241,6 +253,9 @@ const HomeAboutDiv = styled.div`
   }
   img {
     width: 150px;
+    position: relative;
+    right: 12px;
+    margin: 10px 0;
   }
 `
 const FooterBtn = styled.button<{isActive : boolean}>`
@@ -275,6 +290,13 @@ const FooterDiv = styled.div<{isActive : boolean}>`
   height: 100vh;
   /* display: ${({ isActive }) => (isActive ? "" : "none")}; */
   opacity:${({ isActive }) => (isActive ? 1 : 0)};
+  @media screen and (max-width: 1025px) {
+    height: 120vh;
+    position: fixed;
+  }
+  @media screen and ( max-height: 799px){
+    position: fixed;
+  }
   button {
     margin-left: 90%;
     /* position: absolute; */
@@ -292,6 +314,12 @@ const FooterDiv = styled.div<{isActive : boolean}>`
     margin-bottom: 80px;
     font-weight: bolder;
     font-size: 4em;
+    @media screen and (max-width: 1025px) {
+    margin-top: 100px;
+  }
+  @media screen and ( max-height: 799px){
+    margin-top: 50px;
+  }
   }
   p {
     :nth-child(2) {
