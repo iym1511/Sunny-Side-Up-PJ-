@@ -611,7 +611,6 @@ const NationwideBox = (props: any) => {
 export default NationwideBox;
 
 const NationwideBoxWallpaper = styled.div`
-  /* width: 100vw; */
   margin: auto;
 `;
 
@@ -621,24 +620,30 @@ const SouthKoreaBox = styled.div`
   background-color: transparent;
   margin: auto;
   padding: 15px 0 45px 0;
-
-  /* padding: 10px 0 30px 0; */
   border-radius: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border: 1px solid #ffffff67;
   background-color: #8bb6dc62;
-
   p{
     color: #4d4d4d;
     font-weight: bold;
   }
+  @media screen and (max-width: 736px) {
+    margin: auto;
+    width: 350px;
+    height: 450px;
+    }
 `;
 
 const SouthKoreaImage = styled.img`
-  /* width: 460px; */
   width: 80%;
   margin: 0 auto;
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    }
 `;
 
 const SeoulDiv = styled.div`
@@ -657,7 +662,17 @@ const SeoulDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 89%;
+    left: 20%;
+    }
 `;
 
 const IncheonDiv = styled.div`
@@ -676,7 +691,18 @@ const IncheonDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    text-shadow: 0 0 10px white;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 85%;
+    left: -15%;
+    }
 `;
 
 const DeajeonDiv = styled.div`
@@ -695,7 +721,17 @@ const DeajeonDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 68%;
+    left: -20%;
+    }
 `;
 
 const DeaguDiv = styled.div`
@@ -714,7 +750,17 @@ const DeaguDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 58%;
+    left: -22%;
+    }
 `;
 
 const BusanDiv = styled.div`
@@ -732,8 +778,19 @@ const BusanDiv = styled.div`
   p {
     position: relative;
     bottom: 12px;
-    margin: 0;
+    margin: 0;    
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    text-shadow: 0 0 10px white;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 61%;
+    left: 55%;
+    }
 `;
 
 const UlsanDiv = styled.div`
@@ -752,7 +809,18 @@ const UlsanDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    text-shadow: 0 0 10px white;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 66%;
+    left: 48%;
+    }
 `;
 
 const GwangjuDiv = styled.div`
@@ -771,7 +839,17 @@ const GwangjuDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 63%;
+    left: -30%;
+    }
 `;
 
 const GangneungDiv = styled.div`
@@ -790,6 +868,17 @@ const GangneungDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    text-shadow: 0 0 10px white;
+    }
+  }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 108%;
+    left: -15%;
   }
 `;
 
@@ -809,7 +898,18 @@ const JejuDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    text-shadow: 0 0 10px white;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 56%;
+    left: -18%;
+    }
 `;
 
 const DockdoDiv = styled.div`
@@ -828,5 +928,16 @@ const DockdoDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    @media screen and (max-width: 736px) {
+    font-size: 0.8em;
+    text-shadow: 0 0 10px white;
+    }
   }
+  @media screen and (max-width: 736px) {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    bottom: 110%;
+    left: 25%;
+    }
 `;
