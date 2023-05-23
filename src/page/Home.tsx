@@ -17,17 +17,15 @@ const Home = () => {
     <HomeBoxWallpaper>
       <FooterDiv isActive={footerBtn}>
             <button onClick={()=>{setFooterBtn(!footerBtn)}}>x</button>
-            <p>Footer</p>
+              <h1>Business Information</h1>
+              <p>SunnySideUp Inc. 사랑시 고백구 행복동</p>
+              <div>
+                <p>대표 : 써니사이드업</p>
+                <p>사업자등록번호: 001-01-0000001</p>
+              </div>
+            <p>Copyright ⓒ 2023 by SunnySideUp All Pictures cannot be copied without permission</p>
       </FooterDiv>
-      {/* {
-        footerBtn ? (
-          <FooterDiv isActive={footerBtn}>
-            <button onClick={()=>{setFooterBtn(!footerBtn)}}>x</button>
-            <div>Footer</div>
-          </FooterDiv>
-          ): null
-      } */}
-      {/* {footerBtn ? <Footer setFooterBtn={setFooterBtn} footerBtn={footerBtn}/> : null} */}
+
       <HomeNavbarBox isActive={footerBtn}>
         <img src={require("../img/Logo3.png")} alt=""/>
         <p>SunnySideUp</p>
@@ -81,8 +79,8 @@ const HomeBoxWallpaper = styled.div`
   /* background-position-x: -200px; */
   background-position-x: -400px;
   ::-webkit-scrollbar {
-	display:none /* Chrome , Safari , Opera */
-}
+	  display:none /* Chrome , Safari , Opera */
+  }
 `
 
 const HomeNavbarBox = styled.div<{isActive : boolean}>`
@@ -129,10 +127,17 @@ const HomeNavbarBox = styled.div<{isActive : boolean}>`
     cursor: pointer;
     transition: 0.5s;
     font-weight: bold;
+      :hover{
+        transform: translateX(5px);
+        transition: 0.5s;
+      }
   }
-  button:hover {
-    transform: translateX(2px);
-    transition: 0.5s;
+  @media screen and (max-width: 1025px) {
+    margin-top: 30px;
+    margin-left: 10%;
+    /* margin: auto; */
+    width: 150px;
+    height: 200px;
   }
 `
 
@@ -141,15 +146,28 @@ const HomeAboutBox = styled.div`
   height: 100vh;
   background-color: white;
   margin-left: 50%;
+  @media screen and (max-width: 1025px) {
+    position: relative;
+    top: 283px;
+    width: 100vw;
+    height: 70vh;
+    margin-left: 0;
+  }
 `
 const HomeAboutDiv = styled.div`
-  width: 42vw;
+  width: 42vw; 
+  height: 30vw;
   position: absolute;
-  margin: auto;
-  margin-top: 200px;
+  /* margin: auto; */
+  margin-top: 150px;
   margin-left: 5%;
   transition: 0.5s;
   animation: fadeInRight1 1.5s;
+  @media screen and (max-width: 1025px) {
+    margin-top: 9%;
+    width: 70vw;
+    height: 50vh;
+  }
   @keyframes fadeInRight1 {
         0% {
             opacity: 0;
@@ -232,6 +250,12 @@ const FooterBtn = styled.button<{isActive : boolean}>`
   cursor: pointer;
   opacity: ${({ isActive }) => (isActive ? 0 : 1)};
   transition: opacity 0.5s ease-in-out;
+  z-index: 12;
+  @media screen and (max-width: 1025px) {
+    position: relative;
+    left: 50%;
+    top: -42.5%;
+  }
 `
 
 const FooterDiv = styled.div<{isActive : boolean}>`
@@ -244,19 +268,40 @@ const FooterDiv = styled.div<{isActive : boolean}>`
   opacity:${({ isActive }) => (isActive ? 1 : 0)};
   button {
     margin-left: 92.5%;
-    position: absolute;
+    /* position: absolute; */
     margin-top: 100px;
     background-color: rgba( 255, 255, 255, 0);
     border: none;
     cursor: pointer;
     opacity:${({ isActive }) => (isActive ? 1 : 0)};
   }
-  p {
+  h1 {
+    font-family: 'SBAggroB';
     color: white;
-    transition: 0.5s;
     text-align: center;
-    font-size: 10em;
-    margin: auto;
-    margin: 0;
+    margin-top: 200px;
+    margin-bottom: 80px;
+    font-weight: bolder;
+    font-size: 4em;
   }
+  p {
+    :nth-child(2) {
+      margin-left: 20px;
+    }
+    :last-child {
+      font-weight: bolder;
+    }
+      color: white;
+      transition: 0.5s;
+      text-align: center;
+      font-size: 1em;
+      margin: auto;
+      margin: 0;
+      margin-top: 40px;
+  }
+  div {
+        display: flex;
+        justify-content: center;
+      }
+
 `
