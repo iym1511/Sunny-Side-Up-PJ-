@@ -46,6 +46,7 @@ const SunnySideUp = () => {
     dispatch(getPredict5Data());
     dispatch(getNationwidePredict5Data());
   }, []);
+  
   useEffect(() => {
     console.log(weatherApiData2);
   });

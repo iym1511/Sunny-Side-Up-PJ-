@@ -348,6 +348,7 @@ const Forcast5DayTimeBox = styled.div`
 
 const Forcast5DayBox = styled.div`
   display: flex;
+  margin-top: 30px;
 `;
 const TodaySpan = styled.span`
   white-space: nowrap;
@@ -384,12 +385,12 @@ const SlickDiv = styled.div`
   display: flex;
   width: 100%;
   margin: auto;
+  padding-bottom: 100px;
 `;
 
 const Sliderslick = styled(Slider)`
   height: 200px;
   width: 90%;
-  margin: auto;
   position: relative;
   right: 24px;
   @media screen and (max-width: 900px) {
