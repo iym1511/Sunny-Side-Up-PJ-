@@ -626,7 +626,7 @@ const SouthKoreaBox = styled.div`
   border: 1px solid #ffffff67;
   background-color: #8bb6dc62;
   p{
-    color: #4d4d4d;
+    color: #1c1c1c;
     font-weight: bold;
   }
   @media screen and (max-width: 736px) {
@@ -691,9 +691,9 @@ const IncheonDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    text-shadow: 0 0 10px #DBF6FF;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
-    text-shadow: 0 0 10px white;
     }
   }
   @media screen and (max-width: 736px) {
@@ -701,7 +701,7 @@ const IncheonDiv = styled.div`
     width: 80px;
     height: 80px;
     bottom: 85%;
-    left: -15%;
+    left: -18%;
     }
 `;
 
@@ -779,9 +779,9 @@ const BusanDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;    
+    text-shadow: 0 0 10px #DBF6FF;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
-    text-shadow: 0 0 10px white;
     }
   }
   @media screen and (max-width: 736px) {
@@ -809,9 +809,9 @@ const UlsanDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    text-shadow: 0 0 10px #DBF6FF;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
-    text-shadow: 0 0 10px white;
     }
   }
   @media screen and (max-width: 736px) {
@@ -898,9 +898,9 @@ const JejuDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    text-shadow: 0 0 10px #DBF6FF;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
-    text-shadow: 0 0 10px white;
     }
   }
   @media screen and (max-width: 736px) {
@@ -928,9 +928,9 @@ const DockdoDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
+    text-shadow: 0 0 10px #DBF6FF;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
-    text-shadow: 0 0 10px white;
     }
   }
   @media screen and (max-width: 736px) {
