@@ -20,27 +20,104 @@ const Nationwide5Days = () => {
     return state.nationwideApi.status;
   });
   const date = new Date();
+  const currentDay = date.getDate();
+  const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const month = String(date.getMonth() + 1);
   const day1 = String(date.getDate()).padStart(2, "0");
-  const day2 = String(date.getDate() + 1).padStart(2, "0");
-  const day3 = String(date.getDate() + 2).padStart(2, "0");
-  const day4 = String(date.getDate() + 3).padStart(2, "0");
-  const day5 = String(date.getDate() + 4).padStart(2, "0");
+  const day2 = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() + 1);
+        date.setDate(1);
+        } else {
+        date.setDate(date.getDate() + 1);
+        }
+    return date.getDate();
+  }
+  const month2 = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() + 1);
+        date.setDate(1);
+        } else {
+        date.setDate(date.getDate() + 1);
+        }
+    return date.getMonth();
+  }
+
+  const day3 = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() + 1);
+        date.setDate(2);
+        } else {
+        date.setDate(date.getDate() + 2);
+        }
+    return date.getDate();
+  }
+  const month3 = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() - 1);
+        date.setDate(1);
+        } else {
+        date.setDate(date.getDate() + 1);
+        }
+    return date.getMonth();
+  }
+
+  const day4 = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() + 1);
+        date.setDate(3);
+        } else {
+        date.setDate(date.getDate() + 3);
+        }
+    return date.getDate();
+  }
+  const month4 = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() - 1);
+        date.setDate(1);
+        } else {
+        date.setDate(date.getDate() + 1);
+        }
+    return date.getMonth();
+  }
+
+  const day5 = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() + 1);
+        date.setDate(4);
+        } else {
+        date.setDate(date.getDate() + 4);
+        }
+    return date.getDate();
+  }
+  const month5 = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() - 1);
+        date.setDate(1);
+        } else {
+        date.setDate(date.getDate() + 5);
+        }
+    return date.getMonth();
+  }
+  // const day2 = String(date.getDate() + 1).padStart(2, "0");
+  // const day3 = String(date.getDate() + 2).padStart(2, "0");
+  // const day4 = String(date.getDate() + 3).padStart(2, "0");
+  // const day5 = String(date.getDate() + 4).padStart(2, "0");
   const nationwideBox5: NationwideBox5[] = [
     {
       date: `${month}.${day1}`,
     },
     {
-      date: `${month}.${day2}`,
+      date: `${month2()}.${day2()}`,
     },
     {
-      date: `${month}.${day3}`,
+      date: `${month3()}.${day3()}`,
     },
     {
-      date: `${month}.${day4}`,
+      date: `${month4()}.${day4()}`,
     },
     {
-      date: `${month}.${day5}`,
+      date: `${month5()}.${day5()}`,
     },
   ];
 

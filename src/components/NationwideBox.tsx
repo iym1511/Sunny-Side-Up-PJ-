@@ -12,13 +12,54 @@ const NationwideBox = (props: any) => {
 
   const { day } = useParams<string>();
 
+  const date = new Date();
+  const currentDay = date.getDate();
+  const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  
+  const twoDate = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() + 1);
+        date.setDate(1);
+        } else {
+        date.setDate(date.getDate() + 1);
+        }
+    return date.getDate();
+  }
+  const threeDate = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth());
+        date.setDate(2);
+        } else {
+        date.setDate(date.getDate() + 2);
+        }
+    return date.getDate();
+  }
+  const fourDate = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth());
+        date.setDate(3);
+        } else {
+        date.setDate(date.getDate() + 3);
+        }
+    return date.getDate();
+  }
+  const fiveDate = () => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth());
+        date.setDate(4);
+        } else {
+        date.setDate(date.getDate() + 4);
+        }
+    return date.getDate();
+  }
+
   // 시간
   const today: Date = new Date(); // 오늘 날짜 객체 생성
   const oneDate: number = today.getDate(); // 현재 날짜 출력
-  const twoDate: number = today.getDate() + 1;
-  const threeDate: number = today.getDate() + 2;
-  const fourDate: number = today.getDate() + 3;
-  const fiveDate: number = today.getDate() + 4;
+  // const twoDate: number = today.getDate() + 1;
+  // const threeDate: number = today.getDate() + 2;
+  // const fourDate: number = today.getDate() + 3;
+  // const fiveDate: number = today.getDate() + 4;
 
   // 서울
   const SeoulWeathers1: List[] | undefined =
@@ -26,21 +67,21 @@ const NationwideBox = (props: any) => {
     NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const SeoulWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()));
   const SeoulWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate())
     );
   const SeoulWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate())
     );
   const SeoulWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate())
     );
 
   // type 설명 : List배열 이거나 undefined가 배열로있다
@@ -58,21 +99,21 @@ const NationwideBox = (props: any) => {
     NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const IncheonWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()));
   const IncheonWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate())
     );
   const IncheonWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate())
     );
   const IncheonWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate())
     );
   const IncheonArray = [
     IncheonWeathers1,
@@ -377,6 +418,7 @@ const NationwideBox = (props: any) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
                 const days: string = String(date.getDate());
+                console.log(days)
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
