@@ -99,21 +99,21 @@ const NationwideBox = (props: any) => {
     NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const IncheonWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()));
+    NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const IncheonWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate())
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const IncheonWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate())
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const IncheonWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate())
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const IncheonArray = [
     IncheonWeathers1,
@@ -129,21 +129,21 @@ const NationwideBox = (props: any) => {
     NationwideData[2].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const DaejeonWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[2].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[2].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const DaejeonWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[2].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const DaejeonWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[2].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const DaejeonWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[2].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const DaejeonArray: (List[] | undefined)[] = [
     DaejeonWeathers1,
@@ -159,21 +159,21 @@ const NationwideBox = (props: any) => {
     NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
   const DeaguWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == twoDate);
+    NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const DeaguWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[3].list.filter(
-      (a: any) => a.dt_txt.substr(8, 2) == threeDate
+      (a: any) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const DeaguWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[3].list.filter(
-      (a: any) => a.dt_txt.substr(8, 2) == fourDate
+      (a: any) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const DeaguWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[3].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const DeaguArray: (List[] | undefined)[] = [
     DeaguWeathers1,
@@ -189,21 +189,21 @@ const NationwideBox = (props: any) => {
     NationwideData[4].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const BusanWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[4].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[4].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const BusanWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[4].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const BusanWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[4].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const BusanWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[4].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const BusanArray: (List[] | undefined)[] = [
     BusanWeathers1,
@@ -219,21 +219,21 @@ const NationwideBox = (props: any) => {
     NationwideData[5].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const UlsanWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[5].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[5].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const UlsanWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[5].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const UlsanWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[5].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const UlsanWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[5].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const UlsanArray: (List[] | undefined)[] = [
     UlsanWeathers1,
@@ -249,21 +249,21 @@ const NationwideBox = (props: any) => {
     NationwideData[6].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const GwangjuWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[6].list.filter((a: any) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[6].list.filter((a: any) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const GwangjuWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[6].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const GwangjuWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[6].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const GwangjuWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[6].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const GwangjuArray: (List[] | undefined)[] = [
     GwangjuWeathers1,
@@ -279,21 +279,21 @@ const NationwideBox = (props: any) => {
     NationwideData[7].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const GangneungWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[7].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[7].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const GangneungWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[7].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const GangneungWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[7].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const GangneungWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[7].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const GangneungArray: (List[] | undefined)[] = [
     GangneungWeathers1,
@@ -309,21 +309,21 @@ const NationwideBox = (props: any) => {
     NationwideData[8].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const JejudoWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[8].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[8].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const JejudoWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[8].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const JejudoWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[8].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const JejudoWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[8].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const JejuArray: (List[] | undefined)[] = [
     JejudoWeathers1,
@@ -339,21 +339,21 @@ const NationwideBox = (props: any) => {
     NationwideData[9].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const GyeongsangbukWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[9].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate));
+    NationwideData[9].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const GyeongsangbukWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[9].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const GyeongsangbukWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[9].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const GyeongsangbukWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[9].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
   const GyengsangbukArray: (List[] | undefined)[] = [
     GyeongsangbukWeathers1,
@@ -391,7 +391,7 @@ const NationwideBox = (props: any) => {
             SeoulArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -417,7 +417,7 @@ const NationwideBox = (props: any) => {
             IncheonArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -443,7 +443,7 @@ const NationwideBox = (props: any) => {
             DaejeonArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather = location.weather[0].id;
                 if (
                   day == i &&
@@ -469,7 +469,7 @@ const NationwideBox = (props: any) => {
             DeaguArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather = location.weather[0].id;
                 if (
                   day == i &&
@@ -495,7 +495,7 @@ const NationwideBox = (props: any) => {
             BusanArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -521,7 +521,7 @@ const NationwideBox = (props: any) => {
             UlsanArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -547,7 +547,7 @@ const NationwideBox = (props: any) => {
             GwangjuArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -573,7 +573,7 @@ const NationwideBox = (props: any) => {
             GangneungArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -599,7 +599,7 @@ const NationwideBox = (props: any) => {
             JejuArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -625,7 +625,7 @@ const NationwideBox = (props: any) => {
             GyengsangbukArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate());
+                const days: string = String(date.getDate()).padStart(2,"0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
