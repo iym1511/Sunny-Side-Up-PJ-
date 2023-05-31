@@ -12,11 +12,11 @@ const NationwideBox = (props: any) => {
 
   const { day } = useParams<string>();
 
-  const date = new Date();
-  const currentDay = date.getDate();
-  const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  const date: Date = new Date();
+  const currentDay: number = date.getDate();
+  const lastDayOfMonth: number = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   
-  const twoDate = () => {
+  const twoDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth() + 1);
         date.setDate(1);
@@ -25,7 +25,7 @@ const NationwideBox = (props: any) => {
         }
     return date.getDate();
   }
-  const threeDate = () => {
+  const threeDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
         date.setDate(2);
@@ -34,7 +34,7 @@ const NationwideBox = (props: any) => {
         }
     return date.getDate();
   }
-  const fourDate = () => {
+  const fourDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
         date.setDate(3);
@@ -43,7 +43,7 @@ const NationwideBox = (props: any) => {
         }
     return date.getDate();
   }
-  const fiveDate = () => {
+  const fiveDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
         date.setDate(4);

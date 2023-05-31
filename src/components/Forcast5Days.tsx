@@ -24,29 +24,62 @@ const Forcast5Days = () => {
   });
 
   // 시간
-  const today: Date = new Date(); // 오늘 날짜 객체 생성
-  const tomorrow: Date = new Date(today); // 오늘 날짜를 복사하여 다음 날짜 객체 생성
-  const oneDate: number = today.getDate(); // 현재 날짜 출력
-  const twoDate: number = tomorrow.getDate() + 1; // 다음 날짜 출력
-  const threeDate: number = tomorrow.getDate() + 2;
-  const fourDate: number = tomorrow.getDate() + 3;
-  const fiveDate: number = tomorrow.getDate() + 4;
+  const date: Date = new Date(); // 오늘 날짜 객체 생성
+  const currentDay: number = date.getDate();
+  const lastDayOfMonth: number = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  const oneDate: number = date.getDate(); // 현재 날짜 출력
+  const twoDate = ():number => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth() + 1);
+        date.setDate(1);
+        } else {
+        date.setDate(date.getDate() + 1);
+        }
+    return date.getDate();
+  }
+  const threeDate = ():number => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth());
+        date.setDate(2);
+        } else {
+        date.setDate(date.getDate() + 2);
+        }
+    return date.getDate();
+  }
+  const fourDate = ():number => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth());
+        date.setDate(3);
+        } else {
+        date.setDate(date.getDate() + 3);
+        }
+    return date.getDate();
+  }
+  const fiveDate = ():number => {
+    if (currentDay === lastDayOfMonth) {
+        date.setMonth(date.getMonth());
+        date.setDate(4);
+        } else {
+        date.setDate(date.getDate() + 4);
+        }
+    return date.getDate();
+  }
 
   // 5일 일기예보 타입 가져와서 사용
   const DateCheck: List[] | undefined = predict5Data?.list.filter(
     (a: List) => a.dt_txt.substr(8, 2) == String(oneDate)
   );
   const DateCheck2: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(twoDate)
+    (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0")
   );
   const DateCheck3: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(threeDate)
+    (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
   );
   const DateCheck4: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(fourDate)
+    (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
   );
   const DateCheck5: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate)
+    (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
   );
 
   // 슬릭에 연결해주는 useRef
