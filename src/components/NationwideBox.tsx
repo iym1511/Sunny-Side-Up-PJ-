@@ -52,7 +52,7 @@ const NationwideBox = (props: any) => {
         }
     return date.getDate();
   }
-
+  
   // 시간
   const today: Date = new Date(); // 오늘 날짜 객체 생성
   const oneDate: number = today.getDate(); // 현재 날짜 출력
@@ -67,21 +67,21 @@ const NationwideBox = (props: any) => {
     NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
   const SeoulWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()));
+    NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const SeoulWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate())
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const SeoulWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate())
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const SeoulWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate())
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
     );
 
   // type 설명 : List배열 이거나 undefined가 배열로있다
@@ -92,7 +92,7 @@ const NationwideBox = (props: any) => {
     SeoulWeathers4,
     SeoulWeathers5,
   ];
-
+  console.log(SeoulArray)
   // 인천
   const IncheonWeathers1: List[] | undefined =
     NationwideData &&
@@ -418,7 +418,6 @@ const NationwideBox = (props: any) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
                 const days: string = String(date.getDate());
-                console.log(days)
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
