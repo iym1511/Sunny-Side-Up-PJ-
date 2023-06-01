@@ -23,81 +23,89 @@ const Nationwide5Days = () => {
   const currentDay = date.getDate();
   const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const month = String(date.getMonth() + 1);
-  const day1 = String(date.getDate()).padStart(2, "0");
+  const day1 = date.getDate()
   const day2 = () => {
-    if (currentDay === lastDayOfMonth) {
+      if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth() + 1);
         date.setDate(1);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 1);
+        // return date.setDate(date.getDate() + 1);
+        return date.getDate() + 1
         }
-    return date.getDate();
   }
   const month2 = () => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() + 1);
-        date.setDate(1);
-        } else {
-        date.setDate(date.getDate() + 1);
-        }
-    return date.getMonth();
+      date.setMonth(date.getMonth() + 2);
+      date.setDate(1);
+      return date.getMonth();
+      } else {
+      // return date.setDate(date.getDate() + 1);
+      return date.getMonth() + 1
+      }
   }
 
   const day3 = () => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() + 1);
-        date.setDate(2);
-        } else {
-        date.setDate(date.getDate() + 2);
-        }
-    return date.getDate();
+      date.setMonth(date.getMonth());
+      date.setDate(2);
+      return date.getDate();
+      } else {
+      // date.setDate(date.getDate() + 2);
+      return date.getDate() + 2;
+      }
   }
   const month3 = () => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() - 1);
-        date.setDate(1);
-        } else {
-        date.setDate(date.getDate() + 1);
-        }
-    return date.getMonth();
+      date.setMonth(date.getMonth());
+      date.setDate(1);
+      return date.getMonth();
+      } else {
+      // date.setDate(date.getDate() + 2);
+      return date.getMonth() + 1;
+      }
   }
 
   const day4 = () => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() + 1);
-        date.setDate(3);
-        } else {
-        date.setDate(date.getDate() + 3);
-        }
-    return date.getDate();
+      date.setMonth(date.getMonth());
+      date.setDate(3);
+      return date.getDate();
+      } else {
+      // date.setDate(date.getDate() + 3);
+      return date.getDate() + 3;
+      }
   }
   const month4 = () => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() - 1);
-        date.setDate(1);
-        } else {
-        date.setDate(date.getDate() + 1);
-        }
-    return date.getMonth();
+      date.setMonth(date.getMonth());
+      date.setDate(1);
+      return date.getMonth();
+      } else {
+      // date.setDate(date.getDate() + 3);
+      return date.getMonth() + 1;
+      }
   }
 
   const day5 = () => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() + 1);
-        date.setDate(4);
-        } else {
-        date.setDate(date.getDate() + 4);
-        }
-    return date.getDate();
+      date.setMonth(date.getMonth());
+      date.setDate(4);
+      return date.getDate();
+      } else {
+      // date.setDate(date.getDate() + 4);
+      return date.getDate() + 4;
+      }
   }
   const month5 = () => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() - 1);
-        date.setDate(1);
-        } else {
-        date.setDate(date.getDate() + 5);
-        }
-    return date.getMonth();
+      date.setMonth(date.getMonth());
+      date.setDate(1);
+      return date.getMonth();
+      } else {
+      // date.setDate(date.getDate() + 4);
+      return date.getMonth() + 1;
+      }
   }
   // const day2 = String(date.getDate() + 1).padStart(2, "0");
   // const day3 = String(date.getDate() + 2).padStart(2, "0");

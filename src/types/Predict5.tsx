@@ -38,7 +38,7 @@ export interface List {
   sys: {
     pod: string;
   };
-  dt_txt: string;
+  dt_txt: string | number | any;
   rain?: {
     "3h": number;
   };
