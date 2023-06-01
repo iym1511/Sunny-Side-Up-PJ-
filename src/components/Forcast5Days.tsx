@@ -28,50 +28,57 @@ const Forcast5Days = () => {
   const currentDay: number = date.getDate();
   const lastDayOfMonth: number = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const oneDate: number = date.getDate(); // 현재 날짜 출력
+  // const twoDate: number = date.getDate() + 1;
+  // const threeDate: number = date.getDate() + 2;
   const twoDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth() + 1);
         date.setDate(1);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 1);
+        // return date.setDate(date.getDate() + 1);
+        return date.getDate() + 1
         }
-    return date.getDate();
   }
   const threeDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
-        date.setDate(2);
+        date.setDate(1);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 2);
+        // date.setDate(date.getDate() + 2);
+        return date.getDate() + 2;
         }
-    return date.getDate();
   }
   const fourDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
-        date.setDate(3);
+        date.setDate(1);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 3);
+        // date.setDate(date.getDate() + 3);
+        return date.getDate() + 3;
         }
-    return date.getDate();
   }
   const fiveDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
-        date.setDate(4);
+        date.setDate(1);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 4);
+        // date.setDate(date.getDate() + 4);
+        return date.getDate() + 4;
         }
-    return date.getDate();
   }
 
   // 5일 일기예보 타입 가져와서 사용
   const DateCheck: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(oneDate)
+    (a: List) => a.dt_txt.substr(8, 2) == oneDate
   );
   const DateCheck2: List[] | undefined = predict5Data?.list.filter(
     (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0")
   );
+  console.log(DateCheck2)
   const DateCheck3: List[] | undefined = predict5Data?.list.filter(
     (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
   );

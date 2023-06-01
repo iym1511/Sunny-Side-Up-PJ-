@@ -20,37 +20,41 @@ const NationwideBox = (props: any) => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth() + 1);
         date.setDate(1);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 1);
+        // return date.setDate(date.getDate() + 1);
+        return date.getDate() + 1
         }
-    return date.getDate();
   }
   const threeDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
         date.setDate(2);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 2);
+        // date.setDate(date.getDate() + 2);
+        return date.getDate() + 2;
         }
-    return date.getDate();
   }
   const fourDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
         date.setDate(3);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 3);
+        // date.setDate(date.getDate() + 3);
+        return date.getDate() + 3;
         }
-    return date.getDate();
   }
   const fiveDate = ():number => {
     if (currentDay === lastDayOfMonth) {
         date.setMonth(date.getMonth());
         date.setDate(4);
+        return date.getDate();
         } else {
-        date.setDate(date.getDate() + 4);
+        // date.setDate(date.getDate() + 4);
+        return date.getDate() + 4;
         }
-    return date.getDate();
   }
   
   // 시간
@@ -64,7 +68,7 @@ const NationwideBox = (props: any) => {
   // 서울
   const SeoulWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const SeoulWeathers2: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
@@ -96,7 +100,7 @@ const NationwideBox = (props: any) => {
   // 인천
   const IncheonWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const IncheonWeathers2: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
@@ -126,7 +130,7 @@ const NationwideBox = (props: any) => {
   // 대전
   const DaejeonWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[2].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[2].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const DaejeonWeathers2: List[] | undefined =
     NationwideData &&
     NationwideData[2].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
@@ -156,19 +160,19 @@ const NationwideBox = (props: any) => {
   // 대구
   const DeaguWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[3].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const DeaguWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[3].list.filter((a: any) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[3].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
   const DeaguWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[3].list.filter(
-      (a: any) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
     );
   const DeaguWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[3].list.filter(
-      (a: any) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
     );
   const DeaguWeathers5: List[] | undefined =
     NationwideData &&
@@ -186,7 +190,7 @@ const NationwideBox = (props: any) => {
   // 부산
   const BusanWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[4].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[4].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const BusanWeathers2: List[] | undefined =
     NationwideData &&
     NationwideData[4].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
@@ -216,7 +220,7 @@ const NationwideBox = (props: any) => {
   // 울산
   const UlsanWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[5].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[5].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const UlsanWeathers2: List[] | undefined =
     NationwideData &&
     NationwideData[5].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
@@ -246,10 +250,10 @@ const NationwideBox = (props: any) => {
   // 광주
   const GwangjuWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[6].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[6].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const GwangjuWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[6].list.filter((a: any) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[6].list.filter((a: List) => a.dt_txt.substr(8, 2) == twoDate());
   const GwangjuWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[6].list.filter(
@@ -276,7 +280,7 @@ const NationwideBox = (props: any) => {
   // 강릉
   const GangneungWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[7].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[7].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const GangneungWeathers2: List[] | undefined =
     NationwideData &&
     NationwideData[7].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
@@ -306,7 +310,7 @@ const NationwideBox = (props: any) => {
   // 제주도
   const JejudoWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[8].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[8].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const JejudoWeathers2: List[] | undefined =
     NationwideData &&
     NationwideData[8].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
@@ -336,7 +340,7 @@ const NationwideBox = (props: any) => {
   // 경상북도
   const GyeongsangbukWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[9].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(oneDate));
+    NationwideData[9].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
   const GyeongsangbukWeathers2: List[] | undefined =
     NationwideData &&
     NationwideData[9].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
@@ -362,7 +366,7 @@ const NationwideBox = (props: any) => {
     GyeongsangbukWeathers4,
     GyeongsangbukWeathers5,
   ];
-
+console.log(DeaguArray)
   const showWeatherIcon = (weather: number) => {
     if (weather <= 200) {
       return <img src={require("../img/bolt.png")} />;
