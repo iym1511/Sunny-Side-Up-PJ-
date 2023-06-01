@@ -78,7 +78,6 @@ const Forcast5Days = () => {
   const DateCheck2: List[] | undefined = predict5Data?.list.filter(
     (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0")
   );
-  console.log(DateCheck2)
   const DateCheck3: List[] | undefined = predict5Data?.list.filter(
     (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
   );
@@ -237,7 +236,6 @@ const Forcast5Days = () => {
                     <p>{data.dt_txt.substr(5, 14)}</p>
                     <p>{data.main.temp.toFixed(1)}°C</p>
                     {showWeatherIcon(weatherId, numberHours)}
-
                   </Forcast5DayTimeDiv>
                 );
               })}
@@ -253,7 +251,6 @@ const Forcast5Days = () => {
                 const hours: string = data.dt_txt.substr(11, 2);
                 const numberHours: number = Number(hours);
                 return(
-
                 <Forcast5DayTimeDiv key={index}>
                   <p>{data.dt_txt.substr(5, 14)}</p>
                   <p>{data.main.temp.toFixed(1)}°C</p>
