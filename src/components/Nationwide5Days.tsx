@@ -151,7 +151,7 @@ const Nationwide5Days = () => {
             </NationwideNavbarBtn>
           ))}
         </NationwideNavbar>
-        {<NationwideBox nationwideBox5={nationwideBox5} />}
+        {<NationwideBox />}
       </NationwideBigBox>
     </Nationwide5DaysWallpaper>
   );
