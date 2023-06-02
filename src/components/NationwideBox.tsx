@@ -4,8 +4,8 @@ import { Nationwide } from "../types/NationwidePredict5";
 import { List } from "../types/Predict5";
 import styled, { keyframes } from "styled-components";
 
-const NationwideBox = (props: any) => {
-  const { nationwideBox5 } = props;
+const NationwideBox = () => {
+  
   const NationwideData = useAppSelector((state) => {
     return state.nationwideApi.apiData;
   });
