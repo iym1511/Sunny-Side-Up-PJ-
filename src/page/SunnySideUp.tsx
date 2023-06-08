@@ -14,8 +14,6 @@ import { getNationwidePredict5Data } from "../module/nationwidePredict5";
 import styled from "styled-components";
 import { asyncFetch } from "../module/weatherApiKr";
 import Slider from "react-slick";
-import ChannelService from "../components/ChannelTalk";
-import ChannelTalk from "../components/ChannelTalk";
 import Loding from "./Loding";
 import { useNavigate } from "react-router";
 
@@ -436,7 +434,6 @@ const SunnySideUp = () => {
       {/* 5일치 일기예보 */}
       <Forcast5Days />
       <Nationwide5Days />
-      <ChannelTalk />
     </SunnySideUpWallpaper>
   ) : (
     <Loding />
@@ -469,6 +466,7 @@ const GoHomeBtn = styled.button`
   cursor: pointer;
   &:hover{
     color: white;
+    text-shadow: 0 0 13px lemonchiffon;
     transition: 0.3s;
   }
   &::after{
@@ -477,6 +475,7 @@ const GoHomeBtn = styled.button`
     position: relative;
     top: 1px;
     left: 3px;
+    transition: 0.3s;
   }
   &:hover::after{
     opacity: 1;

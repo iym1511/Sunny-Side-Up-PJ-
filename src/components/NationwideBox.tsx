@@ -699,7 +699,7 @@ const SeoulDiv = styled.div`
   bottom: 88%;
   left: 30%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -726,9 +726,9 @@ const IncheonDiv = styled.div`
   margin: 0;
   position: relative;
   bottom: 101%;
-  left: 19%;
+  left: 17%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -758,7 +758,7 @@ const DeajeonDiv = styled.div`
   bottom: 102%;
   left: 33%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -787,7 +787,7 @@ const DeaguDiv = styled.div`
   bottom: 110%;
   left: 52%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -816,7 +816,7 @@ const BusanDiv = styled.div`
   bottom: 111%;
   left: 59%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -844,9 +844,9 @@ const UlsanDiv = styled.div`
   margin: 0;
   position: relative;
   bottom: 135%;
-  left: 70%;
+  left: 71%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -876,7 +876,7 @@ const GwangjuDiv = styled.div`
   bottom: 148%;
   left: 26%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -905,7 +905,7 @@ const GangneungDiv = styled.div`
   bottom: 211%;
   left: 58%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -932,10 +932,10 @@ const JejuDiv = styled.div`
   height: 100px;
   margin: 0;
   position: relative;
-  bottom: 154%;
+  bottom: 155%;
   left: 18%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }
@@ -965,7 +965,7 @@ const DockdoDiv = styled.div`
   bottom: 233%;
   left: 78%;
   img {
-    width: 45%;
+    width: 55%;
     margin: 10px;
     padding: 0;
   }

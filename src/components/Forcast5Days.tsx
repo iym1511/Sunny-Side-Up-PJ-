@@ -346,7 +346,6 @@ const Forcast5Days = () => {
                 <Forcast5DayDiv key={index}>
                   <p>{`${year}년 ${month}월 ${day}일`}</p>
                   {showWeatherIcon(weatherId, numberHours)}
-
                   <p>{`기온: ${data.main.temp.toFixed(1)}°C`}</p>
                 </Forcast5DayDiv>
               );
