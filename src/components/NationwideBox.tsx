@@ -736,7 +736,7 @@ const IncheonDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
-    text-shadow: 0 0 10px #DBF6FF;
+    text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
     }
@@ -824,7 +824,7 @@ const BusanDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;    
-    text-shadow: 0 0 10px #DBF6FF;
+    text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
     }
@@ -854,7 +854,7 @@ const UlsanDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
-    text-shadow: 0 0 10px #DBF6FF;
+    text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
     }
@@ -915,7 +915,7 @@ const GangneungDiv = styled.div`
     margin: 0;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
-    text-shadow: 0 0 10px white;
+    text-shadow: 0 0 10px #c2d5db;
     }
   }
   @media screen and (max-width: 736px) {
@@ -943,7 +943,7 @@ const JejuDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
-    text-shadow: 0 0 10px #DBF6FF;
+    text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
     }
@@ -973,7 +973,7 @@ const DockdoDiv = styled.div`
     position: relative;
     bottom: 12px;
     margin: 0;
-    text-shadow: 0 0 10px #DBF6FF;
+    text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
     font-size: 0.8em;
     }

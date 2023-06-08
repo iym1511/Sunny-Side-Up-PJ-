@@ -429,7 +429,7 @@ const Sliderslick = styled(Slider)`
   height: 200px;
   width: 90%;
   position: relative;
-  right: 24px;
+  left: 40px;
   @media screen and (max-width: 900px) {
     display: none;
   }
