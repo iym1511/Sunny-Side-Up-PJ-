@@ -5,6 +5,8 @@ import Bg2 from '../img/sky2.jpg'
 import { SetStateAction, useState } from "react";
 import Footer from "./Footer";
 import React from "react";
+import ChannelService from "../components/ChannelTalk";
+import ChannelTalk from "../components/ChannelTalk";
 
 
 
@@ -40,7 +42,6 @@ const Home = () => {
         <HomeAboutDiv>
         <p>SUNNY SIDE / UP</p>
         <h1>S/U</h1>
-
         <p>
           SU(SunnySideUp)은 2023년에 태어났어요<br />
           삶을 가치있는 것들로 골고루 채우고 살자는 다짐같은 의미를 담았습니다<br />
@@ -48,7 +49,6 @@ const Home = () => {
           그리고 그 날씨들로 계획을 만듭니다<br />
           사람들이 SunnySideUp의 날씨 보고 삶의 소중한 순간들을 함께 기억했으면 좋겠습니다.<br />
         </p>
-
         <br/>
         <p>with more precious things / a better LIFE</p>
         <img src={require("../img/SU.png")} alt="" />
@@ -62,6 +62,7 @@ const Home = () => {
           <img src={require("../img/FooterIcon.png")} alt="" />
         </FooterBtn>
       </HomeAboutBox>
+      <ChannelTalk />
     </HomeBoxWallpaper>
   );
 };
@@ -83,18 +84,17 @@ const HomeBoxWallpaper = styled.div`
   ::-webkit-scrollbar {
 	  display:none /* Chrome , Safari , Opera */
   }
-
 `
 
 const HomeNavbarBox = styled.div<{isActive : boolean}>`
   width: 160px;
   height: 220px;
   position: absolute;
-  margin-top: 100px;
+  margin-top: 6%;
   margin-left: 90px;
   padding-top: 20px;
   transition: 0.5s;
-  z-index: ${({ isActive }) => (isActive ? 0 : 11)};
+  z-index: ${({ isActive }) => (isActive ? 0 : 1000)};
   :hover {
     background-color: #ffffff5d;
     transition: 0.5s;
@@ -140,41 +140,51 @@ const HomeNavbarBox = styled.div<{isActive : boolean}>`
       }
   }
   @media screen and (max-width: 1025px) {
-    margin-top: 30px;
-    margin-left: 10%;
-    /* margin: auto; */
+    margin-top: 4%;
+    margin-left: 6%;
     width: 150px;
     height: 200px;
+    overflow: auto;
   }
 `
 
 const HomeAboutBox = styled.div`
-  width: 50vw;
-  height: 100vh;
+  width: 50%;
+  height: 100%;
   background-color: white;
   margin-left: 50%;
+  position: relative;
+  top: 0;
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+	  display: none /* Chrome , Safari , Opera */
+  }
   @media screen and (max-width: 1025px) {
     position: relative;
     top: 283px;
-    width: 100vw;
-    height: 70vh;
     margin-left: 0;
+    width: 100vw;
   }
 `
 const HomeAboutDiv = styled.div`
   width: 42vw;
-  height: 70vh;
+  height: 85%;
   position: absolute;
-  /* margin: auto; */
-  margin-top: 135px;
+  margin: auto;
+  margin-top: 10%;
   margin-left: 5%;
   transition: 0.5s;
   animation: fadeInRight1 1.5s;
+  overflow-y: auto ;
+  ::-webkit-scrollbar {
+	  display:none /* Chrome , Safari , Opera */
+  }
+  z-index: 999;
   @media screen and (max-width: 1025px) {
     margin-top: 50px;
     width: 60vw;
-    height: 50vh;
-    overflow: auto;
+    height: 80%;
+    overflow: scroll;
   }
   /* @media screen and (max-height: 799px){
     margin-top: 50px;
@@ -260,9 +270,9 @@ const HomeAboutDiv = styled.div`
 `
 const FooterBtn = styled.button<{isActive : boolean}>`
   margin: auto;
-  margin-left: 42%;
+  margin-left: 85%;
   position: absolute;
-  margin-top: 100px;
+  margin-top: 8%;
   background-color: rgba( 255, 255, 255, 0);
   border: none;
   cursor: pointer;
@@ -270,11 +280,9 @@ const FooterBtn = styled.button<{isActive : boolean}>`
   transition: opacity 0.5s ease-in-out;
   z-index: 12;
   display:${({ isActive }) => (isActive ? "none" : "")};
+  z-index: 1000;
   @media screen and (max-width: 1025px) {
-    position: relative;
-    left: 47%;
-    top: -280px;
-    /* display: none; */
+
   }
   img {
     width: 20px;
@@ -282,9 +290,9 @@ const FooterBtn = styled.button<{isActive : boolean}>`
 `
 
 const FooterDiv = styled.div<{isActive : boolean}>`
-  background-color: #5555ff70;
+  background-color: #5151d6ae;
   position: absolute;
-  z-index: 11;
+  z-index: 1000;
   transition: 0.5s;
   width: 100vw;
   height: 100vh;
@@ -305,6 +313,7 @@ const FooterDiv = styled.div<{isActive : boolean}>`
     border: none;
     cursor: pointer;
     opacity:${({ isActive }) => (isActive ? 1 : 0)};
+    color: white;
   }
   h1 {
     font-family: 'SBAggroB';
@@ -316,9 +325,10 @@ const FooterDiv = styled.div<{isActive : boolean}>`
     font-size: 4em;
     @media screen and (max-width: 1025px) {
     margin-top: 100px;
+    font-size: 3em;
   }
   @media screen and ( max-height: 799px){
-    margin-top: 50px;
+    margin-top: 9%;
   }
   }
   p {
