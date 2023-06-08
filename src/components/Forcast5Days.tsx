@@ -23,6 +23,7 @@ const Forcast5Days = () => {
     return state.predict5Api.apiData;
   });
 
+  
   // 시간
   const date: Date = new Date(); // 오늘 날짜 객체 생성
   const currentDay: number = date.getDate();
