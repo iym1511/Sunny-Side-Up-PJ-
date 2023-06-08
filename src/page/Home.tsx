@@ -179,7 +179,7 @@ const HomeAboutDiv = styled.div`
   ::-webkit-scrollbar {
 	  display:none /* Chrome , Safari , Opera */
   }
-  z-index: 999;
+  z-index: 1004;
   @media screen and (max-width: 1025px) {
     margin-top: 50px;
     width: 60vw;
@@ -266,6 +266,7 @@ const HomeAboutDiv = styled.div`
     position: relative;
     right: 12px;
     margin: 10px 0;
+    z-index: 999;
   }
 `
 const FooterBtn = styled.button<{isActive : boolean}>`
@@ -278,9 +279,8 @@ const FooterBtn = styled.button<{isActive : boolean}>`
   cursor: pointer;
   opacity: ${({ isActive }) => (isActive ? 0 : 1)};
   transition: opacity 0.5s ease-in-out;
-  z-index: 12;
   display:${({ isActive }) => (isActive ? "none" : "")};
-  z-index: 1000;
+  z-index: 1005;
   @media screen and (max-width: 1025px) {
 
   }
@@ -292,7 +292,7 @@ const FooterBtn = styled.button<{isActive : boolean}>`
 const FooterDiv = styled.div<{isActive : boolean}>`
   background-color: #5151d6ae;
   position: absolute;
-  z-index: 1000;
+  z-index: ${({ isActive }) => (isActive ? 1006 : 1000)};
   transition: 0.5s;
   width: 100vw;
   height: 100vh;

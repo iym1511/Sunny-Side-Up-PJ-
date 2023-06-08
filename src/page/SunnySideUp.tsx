@@ -12,8 +12,8 @@ import Forcast5Days from "../components/Forcast5Days";
 import Nationwide5Days from "../components/Nationwide5Days";
 import { getNationwidePredict5Data } from "../module/nationwidePredict5";
 import styled from "styled-components";
-import { asyncFetch } from "../module/weatherApiKr";
-import Slider from "react-slick";
+// import { asyncFetch } from "../module/weatherApiKr";
+// import Slider from "react-slick";
 import Loding from "./Loding";
 import { useNavigate } from "react-router";
 
