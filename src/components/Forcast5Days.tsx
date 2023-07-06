@@ -1,7 +1,6 @@
 import { useAppSelector } from "../hooks/reduxHooks";
 import { List } from "../types/Predict5";
 import "../css/Forcast5Days.css";
-import { relative } from "path";
 import styled from "styled-components";
 
 import Slider from "react-slick";
@@ -23,70 +22,67 @@ const Forcast5Days = () => {
     return state.predict5Api.apiData;
   });
 
-  
   // 시간
   const date: Date = new Date(); // 오늘 날짜 객체 생성
   const currentDay: number = date.getDate();
-  const lastDayOfMonth: number = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  const lastDayOfMonth: number = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDate();
   const oneDate: number = date.getDate(); // 현재 날짜 출력
-  // const twoDate: number = date.getDate() + 1;
-  // const threeDate: number = date.getDate() + 2;
-  const twoDate = ():number => {
+  const twoDate = (): number => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() + 1);
-        date.setDate(1);
-        return date.getDate();
-        } else {
-        // return date.setDate(date.getDate() + 1);
-        return date.getDate() + 1
-        }
-  }
-  const threeDate = ():number => {
+      date.setMonth(date.getMonth() + 1);
+      date.setDate(1);
+      return date.getDate();
+    } else {
+      return date.getDate() + 1;
+    }
+  };
+  const threeDate = (): number => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth());
-        date.setDate(1);
-        return date.getDate();
-        } else {
-        // date.setDate(date.getDate() + 2);
-        return date.getDate() + 2;
-        }
-  }
-  const fourDate = ():number => {
+      date.setMonth(date.getMonth());
+      date.setDate(1);
+      return date.getDate();
+    } else {
+      return date.getDate() + 2;
+    }
+  };
+  const fourDate = (): number => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth());
-        date.setDate(1);
-        return date.getDate();
-        } else {
-        // date.setDate(date.getDate() + 3);
-        return date.getDate() + 3;
-        }
-  }
-  const fiveDate = ():number => {
+      date.setMonth(date.getMonth());
+      date.setDate(1);
+      return date.getDate();
+    } else {
+      return date.getDate() + 3;
+    }
+  };
+  const fiveDate = (): number => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth());
-        date.setDate(1);
-        return date.getDate();
-        } else {
-        // date.setDate(date.getDate() + 4);
-        return date.getDate() + 4;
-        }
-  }
+      date.setMonth(date.getMonth());
+      date.setDate(1);
+      return date.getDate();
+    } else {
+      return date.getDate() + 4;
+    }
+  };
 
   // 5일 일기예보 타입 가져와서 사용
   const DateCheck: List[] | undefined = predict5Data?.list.filter(
     (a: List) => a.dt_txt.substr(8, 2) == oneDate
   );
   const DateCheck2: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0")
+    (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
   );
   const DateCheck3: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+    (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
   );
   const DateCheck4: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+    (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
   );
   const DateCheck5: List[] | undefined = predict5Data?.list.filter(
-    (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+    (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
   );
 
   // 슬릭에 연결해주는 useRef
@@ -94,11 +90,11 @@ const Forcast5Days = () => {
 
   // 슬릭 이전, 다음 클릭 감지
   const previous = useCallback(() => {
-    slickRef.current?.slickPrev()
+    slickRef.current?.slickPrev();
   }, []);
 
   const next = useCallback(() => {
-    slickRef.current?.slickNext()
+    slickRef.current?.slickNext();
   }, []);
 
   const settings: slickSettings = {
@@ -251,14 +247,14 @@ const Forcast5Days = () => {
                 const weatherId: number = data.weather[0].id;
                 const hours: string = data.dt_txt.substr(11, 2);
                 const numberHours: number = Number(hours);
-                return(
-                <Forcast5DayTimeDiv key={index}>
-                  <p>{data.dt_txt.substr(5, 14)}</p>
-                  <p>{data.main.temp.toFixed(1)}°C</p>
-                {showWeatherIcon(weatherId, numberHours)}
-                </Forcast5DayTimeDiv>
-                )
-})}
+                return (
+                  <Forcast5DayTimeDiv key={index}>
+                    <p>{data.dt_txt.substr(5, 14)}</p>
+                    <p>{data.main.temp.toFixed(1)}°C</p>
+                    {showWeatherIcon(weatherId, numberHours)}
+                  </Forcast5DayTimeDiv>
+                );
+              })}
           </SlickDiv>
         </SlickDiv>
 
@@ -270,14 +266,14 @@ const Forcast5Days = () => {
                 const weatherId: number = data.weather[0].id;
                 const hours: string = data.dt_txt.substr(11, 2);
                 const numberHours: number = Number(hours);
-                return(
-                <Forcast5DayTimeDiv key={index}>
-                  <p>{data.dt_txt.substr(5, 14)}</p>
-                  <p>{data.main.temp.toFixed(1)}°C</p>
-                  {showWeatherIcon(weatherId, numberHours)}
-                </Forcast5DayTimeDiv>
-                )
-})}
+                return (
+                  <Forcast5DayTimeDiv key={index}>
+                    <p>{data.dt_txt.substr(5, 14)}</p>
+                    <p>{data.main.temp.toFixed(1)}°C</p>
+                    {showWeatherIcon(weatherId, numberHours)}
+                  </Forcast5DayTimeDiv>
+                );
+              })}
           </SlickDiv>
         </SlickDiv>
 
@@ -289,14 +285,14 @@ const Forcast5Days = () => {
                 const weatherId: number = data.weather[0].id;
                 const hours: string = data.dt_txt.substr(11, 2);
                 const numberHours: number = Number(hours);
-                return(
-                <Forcast5DayTimeDiv key={index}>
-                  <p>{data.dt_txt.substr(5, 14)}</p>
-                  <p>{data.main.temp.toFixed(1)}°C</p>
-                  {showWeatherIcon(weatherId, numberHours)}
-                </Forcast5DayTimeDiv>
-                )
-})}
+                return (
+                  <Forcast5DayTimeDiv key={index}>
+                    <p>{data.dt_txt.substr(5, 14)}</p>
+                    <p>{data.main.temp.toFixed(1)}°C</p>
+                    {showWeatherIcon(weatherId, numberHours)}
+                  </Forcast5DayTimeDiv>
+                );
+              })}
           </SlickDiv>
         </SlickDiv>
 
@@ -308,14 +304,14 @@ const Forcast5Days = () => {
                 const weatherId: number = data.weather[0].id;
                 const hours: string = data.dt_txt.substr(11, 2);
                 const numberHours: number = Number(hours);
-                return(
-                <Forcast5DayTimeDiv key={index}>
-                  <p>{data.dt_txt.substr(5, 14)}</p>
-                  <p>{data.main.temp.toFixed(1)}°C</p>
-                  {showWeatherIcon(weatherId, numberHours)}
-                </Forcast5DayTimeDiv>
-                )
-})}
+                return (
+                  <Forcast5DayTimeDiv key={index}>
+                    <p>{data.dt_txt.substr(5, 14)}</p>
+                    <p>{data.main.temp.toFixed(1)}°C</p>
+                    {showWeatherIcon(weatherId, numberHours)}
+                  </Forcast5DayTimeDiv>
+                );
+              })}
           </SlickDiv>
         </SlickDiv>
       </Sliderslick>
@@ -363,7 +359,7 @@ export default Forcast5Days;
 
 const Forcast5DayBoxWallpaper = styled.div`
   font-family: "NEXON Lv1 Gothic OTF";
-`
+`;
 
 const Forcast5DayTimeBox = styled.div`
   display: flex;

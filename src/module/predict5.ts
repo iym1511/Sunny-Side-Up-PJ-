@@ -2,7 +2,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // axios
 import axios from "axios";
-import { List, Predict5Api, initialStateType } from "../types/Predict5";
+import { Predict5Api, initialStateType } from "../types/Predict5";
 
 export const getPredict5Data = createAsyncThunk(
   "Predict5Slice/getPredict30Data",

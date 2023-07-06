@@ -2,7 +2,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 // axios
 import axios from "axios";
-import { AirPollutionApi, List, initialStateType } from "../types/airpollution";
+import { AirPollutionApi, initialStateType } from "../types/airpollution";
 
 export const getAirPollData = createAsyncThunk(
   "AirPollSlice/getAirPollData",
@@ -19,7 +19,7 @@ export const getAirPollData = createAsyncThunk(
 const initialState: initialStateType = {
   status: "defauylt",
   apiData: null,
-  error: null
+  error: null,
 };
 
 const AirPollSlice = createSlice({

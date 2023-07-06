@@ -1,116 +1,102 @@
-import { useEffect, useState } from "react";
-import { getNationwidePredict5Data } from "../module/nationwidePredict5";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import NationwideBox from "./NationwideBox";
 import { useNavigate, useParams } from "react-router";
-import {
-  Nationwide,
-  NationwideBox5,
-  NationwideData,
-} from "../types/NationwidePredict5";
+import { NationwideBox5 } from "../types/NationwidePredict5";
 import styled from "styled-components";
 
 const Nationwide5Days = () => {
   const { day } = useParams();
   const navigate = useNavigate();
-  const NationwideData = useAppSelector((state) => {
-    return state.nationwideApi.apiData;
-  });
-  const NationwideStatus = useAppSelector((state) => {
-    return state.nationwideApi.status;
-  });
   const date = new Date();
   const currentDay = date.getDate();
-  const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  // 이번달의 마지막 날
+  const lastDayOfMonth = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDate();
+  // 현재 달
   const month = String(date.getMonth() + 1);
-  const day1 = date.getDate()
-  const day2 = () => {
-      if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() + 1);
-        date.setDate(1);
-        return date.getDate();
-        } else {
-        // return date.setDate(date.getDate() + 1);
-        return date.getDate() + 1
-        }
-  }
-  const month2 = () => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth() + 2);
-      date.setDate(1);
-      return date.getMonth();
-      } else {
-      // return date.setDate(date.getDate() + 1);
-      return date.getMonth() + 1
-      }
-  }
+  // 현재 일
+  const day1 = date.getDate();
 
-  const day3 = () => {
+  const month2 = () => {
+    // 오늘 날짜가 해당 월의 마지막 날이라면
     if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(2);
+      // 다음달일 return
+      date.setMonth(date.getMonth() + 2);
+      return date.getMonth();
+    } else {
+      // 아니면, 현재 달을 return
+      return date.getMonth() + 1;
+    }
+  };
+
+  const day2 = () => {
+    // 오늘 날짜가 해당 월의 마지막 날이라면
+    if (currentDay === lastDayOfMonth) {
+      // 날짜를 1일로 설정
+      date.setDate(1);
       return date.getDate();
-      } else {
-      // date.setDate(date.getDate() + 2);
-      return date.getDate() + 2;
-      }
-  }
+    } else {
+      // 아니면, 현재 날짜에 +1
+      return date.getDate() + 1;
+    }
+  };
+
   const month3 = () => {
     if (currentDay === lastDayOfMonth) {
       date.setMonth(date.getMonth());
-      date.setDate(1);
       return date.getMonth();
-      } else {
-      // date.setDate(date.getDate() + 2);
+    } else {
       return date.getMonth() + 1;
-      }
-  }
+    }
+  };
 
-  const day4 = () => {
+  const day3 = () => {
     if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(3);
+      date.setDate(2);
       return date.getDate();
-      } else {
-      // date.setDate(date.getDate() + 3);
-      return date.getDate() + 3;
-      }
-  }
+    } else {
+      return date.getDate() + 2;
+    }
+  };
+
   const month4 = () => {
     if (currentDay === lastDayOfMonth) {
       date.setMonth(date.getMonth());
-      date.setDate(1);
       return date.getMonth();
-      } else {
-      // date.setDate(date.getDate() + 3);
+    } else {
       return date.getMonth() + 1;
-      }
-  }
+    }
+  };
 
-  const day5 = () => {
+  const day4 = () => {
     if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(4);
+      date.setDate(3);
       return date.getDate();
-      } else {
-      // date.setDate(date.getDate() + 4);
-      return date.getDate() + 4;
-      }
-  }
+    } else {
+      return date.getDate() + 3;
+    }
+  };
+
   const month5 = () => {
     if (currentDay === lastDayOfMonth) {
       date.setMonth(date.getMonth());
-      date.setDate(1);
       return date.getMonth();
-      } else {
-      // date.setDate(date.getDate() + 4);
+    } else {
       return date.getMonth() + 1;
-      }
-  }
-  // const day2 = String(date.getDate() + 1).padStart(2, "0");
-  // const day3 = String(date.getDate() + 2).padStart(2, "0");
-  // const day4 = String(date.getDate() + 3).padStart(2, "0");
-  // const day5 = String(date.getDate() + 4).padStart(2, "0");
+    }
+  };
+
+  const day5 = () => {
+    if (currentDay === lastDayOfMonth) {
+      date.setDate(4);
+      return date.getDate();
+    } else {
+      return date.getDate() + 4;
+    }
+  };
+
   const nationwideBox5: NationwideBox5[] = [
     {
       date: `${month}.${day1}`,
@@ -128,12 +114,6 @@ const Nationwide5Days = () => {
       date: `${month5()}.${day5()}`,
     },
   ];
-
-  // useEffect(() => {
-  //   console.log("진혜콘솔");
-  //   console.log(NationwideData);
-  //   console.log(NationwideStatus);
-  // }, [NationwideData]);
 
   return (
     <Nationwide5DaysWallpaper>
@@ -162,9 +142,9 @@ export default Nationwide5Days;
 const Nationwide5DaysWallpaper = styled.div`
   font-family: "NEXON Lv1 Gothic OTF";
   margin: 110px auto;
-  h1{
+  h1 {
     margin: 35px auto;
-    width : 200px;
+    width: 200px;
   }
 `;
 
@@ -177,7 +157,7 @@ const NationwideBigBox = styled.div`
   @media screen and (max-width: 736px) {
     width: 350px;
     height: 450px;
-    }
+  }
 `;
 
 const NationwideNavbar = styled.div`
@@ -195,7 +175,7 @@ const NationwideNavbar = styled.div`
   @media screen and (max-width: 736px) {
     margin: auto;
     width: 350px;
-    }
+  }
 `;
 
 const NationwideNavbarBtn = styled.button<{ isActive: boolean }>`
@@ -210,11 +190,13 @@ const NationwideNavbarBtn = styled.button<{ isActive: boolean }>`
   cursor: pointer;
   color: ${(props) => (props.isActive ? "white" : "#ffffff91")};
   /* color: white; */
-  /* border-bottom: ${(props) => (props.isActive ? "1px solid white" : "none")}; */
-  text-shadow: ${(props) => (props.isActive ? "0px 0px 8px lemonchiffon" : "none")};
+  /* border-bottom: ${(props) =>
+    props.isActive ? "1px solid white" : "none"}; */
+  text-shadow: ${(props) =>
+    props.isActive ? "0px 0px 8px lemonchiffon" : "none"};
   font-size: ${(props) => (props.isActive ? "1.2em" : "1em")};
   transition: 0.1s;
   @media screen and (max-width: 736px) {
     margin: 3px;
-    }
+  }
 `;
