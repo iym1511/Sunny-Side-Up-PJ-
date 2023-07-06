@@ -8,14 +8,19 @@ interface FooterProps {
   footerBtn: boolean;
 }
 
-
-const Footer: FC<FooterProps> = ({setFooterBtn, footerBtn}) => {
-  return (  
+const Footer: FC<FooterProps> = ({ setFooterBtn, footerBtn }) => {
+  return (
     <FooterWallpaperBox>
-      <button onClick={()=>{setFooterBtn(!footerBtn)}}>x</button>
+      <button
+        onClick={() => {
+          setFooterBtn(!footerBtn);
+        }}
+      >
+        x
+      </button>
     </FooterWallpaperBox>
   );
-}
+};
 
 export default Footer;
 
@@ -30,8 +35,8 @@ const FooterWallpaperBox = styled.div`
     margin-left: 92.5%;
     position: absolute;
     margin-top: 100px;
-    background-color: rgba( 255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     cursor: pointer;
   }
-`
+`;

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { asyncFetch2 } from "../module/weatherApi";
 
@@ -12,13 +12,10 @@ import Forcast5Days from "../components/Forcast5Days";
 import Nationwide5Days from "../components/Nationwide5Days";
 import { getNationwidePredict5Data } from "../module/nationwidePredict5";
 import styled from "styled-components";
-// import { asyncFetch } from "../module/weatherApiKr";
-// import Slider from "react-slick";
 import Loding from "./Loding";
 import { useNavigate } from "react-router";
 
 const SunnySideUp = () => {
-  // 한글로 출력해줘야하는대 망할놈이 안해줌
   const weatherApiDataKr = useAppSelector((state) => {
     return state.weatherApiKr.apiData1;
   });
@@ -44,25 +41,10 @@ const SunnySideUp = () => {
     dispatch(getPredict5Data());
     dispatch(getNationwidePredict5Data());
   }, []);
-  
-  useEffect(() => {
-    console.log(weatherApiData2);
-  });
 
   useEffect(() => {
     mapApi();
   }, [latitude]);
-
-  // useEffect(()=>{
-  //   setTimeout(() => {
-  //     window.location.reload();
-  //   }, 3000)
-  // },[])
-  // useEffect(()=>{
-  //   window.addEventListener('load', function() {
-  //     this.window.location.reload();
-  //   })
-  // },[])
 
   const onGeoOkay = (position: PositionType): void => {
     setLatitude(position.coords.latitude);
@@ -199,79 +181,6 @@ const SunnySideUp = () => {
   const snow: boolean | null =
     weatherApiData2 && weatherApiData2.weather[0].description.includes("snow");
 
-  // 오늘 날씨 kr(개빡치게 한글로가져와도안됨)
-  // const todayWeather: string | null =
-  //   weatherApiDataKr && weatherApiDataKr.weather[0].description;
-
-  // if 문을 활용한 날씨별 배경
-  // const showWeatherBackground = useCallback(() => {
-  //   if (TodayWeather && TodayWeather <= 200) {
-  //     return (
-  //       <>
-  //         <VideoBackground autoPlay muted loop>
-  //           <source
-  //             src={require("../videos/thunderstorm.mp4")}
-  //             type="video/mp4"
-  //           />
-  //         </VideoBackground>
-  //         {/* <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p> */}
-  //       </>
-  //     );
-  //   } else if (TodayWeather && TodayWeather >= 300 && TodayWeather < 600) {
-  //     return (
-  //       <>
-  //         <VideoBackground autoPlay muted loop>
-  //           <source src={require("../videos/rain.mp4")} type="video/mp4" />
-  //         </VideoBackground>
-  //         {/* <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p> */}
-  //       </>
-  //     );
-  //   } else if (TodayWeather && TodayWeather >= 600 && TodayWeather < 700) {
-  //     <>
-  //       <VideoBackground autoPlay muted loop>
-  //         <source src={require("../videos/snow.mp4")} type="video/mp4" />
-  //       </VideoBackground>
-  //       {/* <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p> */}
-  //     </>;
-  //   } else if (TodayWeather && TodayWeather >= 700 && TodayWeather < 800) {
-  //     return (
-  //       <>
-  //         <VideoBackground autoPlay muted loop>
-  //           <source src={require("../videos/mist.mp4")} type="video/mp4" />
-  //         </VideoBackground>
-  //         {/* <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p> */}
-  //       </>
-  //     );
-  //   } else if (TodayWeather && TodayWeather === 800) {
-  //     return (
-  //       <>
-  //         <VideoBackground autoPlay muted loop>
-  //           <source src={require("../videos/sunny.mp4")} type="video/mp4" />
-  //         </VideoBackground>
-  //         {/* <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p> */}
-  //       </>
-  //     );
-  //   } else if (TodayWeather && TodayWeather === 801) {
-  //     return (
-  //       <>
-  //         <VideoBackground autoPlay muted loop>
-  //           <source src={require("../videos/fewClouds.mp4")} type="video/mp4" />
-  //         </VideoBackground>
-  //         {/* <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p> */}
-  //       </>
-  //     );
-  //   } else if (TodayWeather && TodayWeather > 801 && TodayWeather < 900) {
-  //     return (
-  //       <>
-  //         <VideoBackground autoPlay muted loop>
-  //           <source src={require("../videos/Clouds.mp4")} type="video/mp4" />
-  //         </VideoBackground>
-  //         {/* <p>{weatherApiData2 && weatherApiData2.weather[0].description}</p> */}
-  //       </>
-  //     );
-  //   }
-  // }, [TodayWeather]);
-
   const todayWeatherIcon: number | null =
     weatherApiDataKr && weatherApiDataKr.weather[0].id;
   // const todayHours =
@@ -303,10 +212,13 @@ const SunnySideUp = () => {
 
   return weatherApiData2 ? (
     <SunnySideUpWallpaper>
-      <GoHomeBtn onClick={()=>{
-        navigate('/home')
-      }}
-      >Home</GoHomeBtn>
+      <GoHomeBtn
+        onClick={() => {
+          navigate("/home");
+        }}
+      >
+        Home
+      </GoHomeBtn>
       {/* GPS 현재 위치 */}
       {latitude ? (
         <GpsBox>
@@ -451,9 +363,9 @@ const SunnySideUpWallpaper = styled.div`
   padding: 70px 80px;
 `;
 
-const GoHomeBtn = styled.button`  
+const GoHomeBtn = styled.button`
   font-family: "NEXON Lv1 Gothic OTF";
-  background-color:transparent;
+  background-color: transparent;
   border: none;
   color: #ffffffab;
   font-size: 0.9em;
@@ -464,23 +376,23 @@ const GoHomeBtn = styled.button`
   border-radius: 10px;
   bottom: 30px;
   cursor: pointer;
-  &:hover{
+  &:hover {
     color: white;
     text-shadow: 0 0 13px lemonchiffon;
     transition: 0.3s;
   }
-  &::after{
-    content:" →";
+  &::after {
+    content: " →";
     opacity: 0;
     position: relative;
     top: 1px;
     left: 3px;
     transition: 0.3s;
   }
-  &:hover::after{
+  &:hover::after {
     opacity: 1;
   }
-  `;
+`;
 
 const VideoBackground = styled.video`
   position: fixed;

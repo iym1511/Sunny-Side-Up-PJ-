@@ -1,11 +1,9 @@
 import { useParams } from "react-router";
 import { useAppSelector } from "../hooks/reduxHooks";
-import { Nationwide } from "../types/NationwidePredict5";
 import { List } from "../types/Predict5";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const NationwideBox = () => {
-  
   const NationwideData = useAppSelector((state) => {
     return state.nationwideApi.apiData;
   });
@@ -14,78 +12,82 @@ const NationwideBox = () => {
 
   const date: Date = new Date();
   const currentDay: number = date.getDate();
-  const lastDayOfMonth: number = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-  
-  const twoDate = ():number => {
+  const lastDayOfMonth: number = new Date(
+    date.getFullYear(),
+    date.getMonth() + 1,
+    0
+  ).getDate();
+
+  const twoDate = (): number => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth() + 1);
-        date.setDate(1);
-        return date.getDate();
-        } else {
-        // return date.setDate(date.getDate() + 1);
-        return date.getDate() + 1
-        }
-  }
-  const threeDate = ():number => {
+      date.setMonth(date.getMonth() + 1);
+      date.setDate(1);
+      return date.getDate();
+    } else {
+      // return date.setDate(date.getDate() + 1);
+      return date.getDate() + 1;
+    }
+  };
+  const threeDate = (): number => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth());
-        date.setDate(2);
-        return date.getDate();
-        } else {
-        // date.setDate(date.getDate() + 2);
-        return date.getDate() + 2;
-        }
-  }
-  const fourDate = ():number => {
+      date.setMonth(date.getMonth());
+      date.setDate(2);
+      return date.getDate();
+    } else {
+      // date.setDate(date.getDate() + 2);
+      return date.getDate() + 2;
+    }
+  };
+  const fourDate = (): number => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth());
-        date.setDate(3);
-        return date.getDate();
-        } else {
-        // date.setDate(date.getDate() + 3);
-        return date.getDate() + 3;
-        }
-  }
-  const fiveDate = ():number => {
+      date.setMonth(date.getMonth());
+      date.setDate(3);
+      return date.getDate();
+    } else {
+      // date.setDate(date.getDate() + 3);
+      return date.getDate() + 3;
+    }
+  };
+  const fiveDate = (): number => {
     if (currentDay === lastDayOfMonth) {
-        date.setMonth(date.getMonth());
-        date.setDate(4);
-        return date.getDate();
-        } else {
-        // date.setDate(date.getDate() + 4);
-        return date.getDate() + 4;
-        }
-  }
-  
+      date.setMonth(date.getMonth());
+      date.setDate(4);
+      return date.getDate();
+    } else {
+      // date.setDate(date.getDate() + 4);
+      return date.getDate() + 4;
+    }
+  };
+
   // 시간
   const today: Date = new Date(); // 오늘 날짜 객체 생성
   const oneDate: number = today.getDate(); // 현재 날짜 출력
-  // const twoDate: number = today.getDate() + 1;
-  // const threeDate: number = today.getDate() + 2;
-  // const fourDate: number = today.getDate() + 3;
-  // const fiveDate: number = today.getDate() + 4;
 
   // 서울
   const SeoulWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[0].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const SeoulWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[0].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[0].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const SeoulWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const SeoulWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const SeoulWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[0].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
 
   // type 설명 : List배열 이거나 undefined가 배열로있다
@@ -96,28 +98,32 @@ const NationwideBox = () => {
     SeoulWeathers4,
     SeoulWeathers5,
   ];
-  console.log(SeoulArray)
+  console.log(SeoulArray);
   // 인천
   const IncheonWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[1].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const IncheonWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[1].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[1].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const IncheonWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const IncheonWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const IncheonWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[1].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const IncheonArray = [
     IncheonWeathers1,
@@ -130,24 +136,28 @@ const NationwideBox = () => {
   // 대전
   const DaejeonWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[2].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[2].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const DaejeonWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[2].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[2].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const DaejeonWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[2].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const DaejeonWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[2].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const DaejeonWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[2].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const DaejeonArray: (List[] | undefined)[] = [
     DaejeonWeathers1,
@@ -160,24 +170,28 @@ const NationwideBox = () => {
   // 대구
   const DeaguWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[3].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[3].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const DeaguWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[3].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[3].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const DeaguWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[3].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const DeaguWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[3].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const DeaguWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[3].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const DeaguArray: (List[] | undefined)[] = [
     DeaguWeathers1,
@@ -190,24 +204,28 @@ const NationwideBox = () => {
   // 부산
   const BusanWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[4].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[4].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const BusanWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[4].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[4].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const BusanWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[4].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const BusanWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[4].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const BusanWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[4].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const BusanArray: (List[] | undefined)[] = [
     BusanWeathers1,
@@ -220,24 +238,28 @@ const NationwideBox = () => {
   // 울산
   const UlsanWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[5].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[5].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const UlsanWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[5].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[5].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const UlsanWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[5].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const UlsanWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[5].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const UlsanWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[5].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const UlsanArray: (List[] | undefined)[] = [
     UlsanWeathers1,
@@ -250,24 +272,28 @@ const NationwideBox = () => {
   // 광주
   const GwangjuWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[6].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[6].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const GwangjuWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[6].list.filter((a: List) => a.dt_txt.substr(8, 2) == twoDate());
+    NationwideData[6].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == twoDate()
+    );
   const GwangjuWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[6].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const GwangjuWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[6].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const GwangjuWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[6].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const GwangjuArray: (List[] | undefined)[] = [
     GwangjuWeathers1,
@@ -280,24 +306,28 @@ const NationwideBox = () => {
   // 강릉
   const GangneungWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[7].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[7].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const GangneungWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[7].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[7].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const GangneungWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[7].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const GangneungWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[7].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const GangneungWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[7].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const GangneungArray: (List[] | undefined)[] = [
     GangneungWeathers1,
@@ -310,24 +340,28 @@ const NationwideBox = () => {
   // 제주도
   const JejudoWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[8].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[8].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const JejudoWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[8].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[8].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const JejudoWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[8].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const JejudoWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[8].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const JejudoWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[8].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const JejuArray: (List[] | undefined)[] = [
     JejudoWeathers1,
@@ -340,24 +374,28 @@ const NationwideBox = () => {
   // 경상북도
   const GyeongsangbukWeathers1: List[] | undefined =
     NationwideData &&
-    NationwideData[9].list.filter((a: List) => a.dt_txt.substr(8, 2) == oneDate);
+    NationwideData[9].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == oneDate
+    );
   const GyeongsangbukWeathers2: List[] | undefined =
     NationwideData &&
-    NationwideData[9].list.filter((a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2,"0"));
+    NationwideData[9].list.filter(
+      (a: List) => a.dt_txt.substr(8, 2) == String(twoDate()).padStart(2, "0")
+    );
   const GyeongsangbukWeathers3: List[] | undefined =
     NationwideData &&
     NationwideData[9].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(threeDate()).padStart(2, "0")
     );
   const GyeongsangbukWeathers4: List[] | undefined =
     NationwideData &&
     NationwideData[9].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fourDate()).padStart(2, "0")
     );
   const GyeongsangbukWeathers5: List[] | undefined =
     NationwideData &&
     NationwideData[9].list.filter(
-      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2,"0")
+      (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
   const GyengsangbukArray: (List[] | undefined)[] = [
     GyeongsangbukWeathers1,
@@ -366,7 +404,7 @@ const NationwideBox = () => {
     GyeongsangbukWeathers4,
     GyeongsangbukWeathers5,
   ];
-console.log(DeaguArray)
+  console.log(DeaguArray);
   const showWeatherIcon = (weather: number) => {
     if (weather <= 200) {
       return <img src={require("../img/bolt.png")} />;
@@ -389,13 +427,14 @@ console.log(DeaguArray)
     <NationwideBoxWallpaper>
       <SouthKoreaBox>
         <SouthKoreaImage src={require("../img/southkorea12.png")} alt="없음" />
-        {     /* 시간대별 배열들을 한번풀어주고 안에서 2중맵으로 배열안에서 조건문 수행 */
+        {
+          /* 시간대별 배열들을 한번풀어주고 안에서 2중맵으로 배열안에서 조건문 수행 */
           // 서울
           SeoulArray &&
             SeoulArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -421,7 +460,7 @@ console.log(DeaguArray)
             IncheonArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -447,7 +486,7 @@ console.log(DeaguArray)
             DaejeonArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather = location.weather[0].id;
                 if (
                   day == i &&
@@ -473,7 +512,7 @@ console.log(DeaguArray)
             DeaguArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather = location.weather[0].id;
                 if (
                   day == i &&
@@ -499,7 +538,7 @@ console.log(DeaguArray)
             BusanArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -525,7 +564,7 @@ console.log(DeaguArray)
             UlsanArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -551,7 +590,7 @@ console.log(DeaguArray)
             GwangjuArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -577,7 +616,7 @@ console.log(DeaguArray)
             GangneungArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -603,7 +642,7 @@ console.log(DeaguArray)
             JejuArray.map((l: List[] | undefined, i: number | string) => {
               return l?.map((location: List) => {
                 const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
+                const days: string = String(date.getDate()).padStart(2, "0");
                 const weather: number = location.weather[0].id;
                 if (
                   day == i &&
@@ -626,27 +665,29 @@ console.log(DeaguArray)
         {
           // 울릉도/독도
           GyengsangbukArray &&
-            GyengsangbukArray.map((l: List[] | undefined, i: number | string) => {
-              return l?.map((location: List) => {
-                const date: Date = new Date(location.dt_txt);
-                const days: string = String(date.getDate()).padStart(2,"0");
-                const weather: number = location.weather[0].id;
-                if (
-                  day == i &&
-                  location.dt_txt.substr(11, 2) === "15" &&
-                  location.dt_txt.substr(8, 2) == days
-                ) {
-                  return (
-                    <DockdoDiv>
-                      {showWeatherIcon(weather)}
-                      <p>울릉도/독도 {location.main.temp.toFixed(1)}°</p>
-                    </DockdoDiv>
-                  );
-                } else {
-                  return null;
-                }
-              });
-            })
+            GyengsangbukArray.map(
+              (l: List[] | undefined, i: number | string) => {
+                return l?.map((location: List) => {
+                  const date: Date = new Date(location.dt_txt);
+                  const days: string = String(date.getDate()).padStart(2, "0");
+                  const weather: number = location.weather[0].id;
+                  if (
+                    day == i &&
+                    location.dt_txt.substr(11, 2) === "15" &&
+                    location.dt_txt.substr(8, 2) == days
+                  ) {
+                    return (
+                      <DockdoDiv>
+                        {showWeatherIcon(weather)}
+                        <p>울릉도/독도 {location.main.temp.toFixed(1)}°</p>
+                      </DockdoDiv>
+                    );
+                  } else {
+                    return null;
+                  }
+                });
+              }
+            )
         }
       </SouthKoreaBox>
     </NationwideBoxWallpaper>
@@ -670,7 +711,7 @@ const SouthKoreaBox = styled.div`
   border-top-right-radius: 0;
   border: 1px solid #ffffff67;
   background-color: #8bb6dc62;
-  p{
+  p {
     color: #1c1c1c;
     font-weight: bold;
   }
@@ -678,7 +719,7 @@ const SouthKoreaBox = styled.div`
     margin: auto;
     width: 350px;
     height: 450px;
-    }
+  }
 `;
 
 const SouthKoreaImage = styled.img`
@@ -688,7 +729,7 @@ const SouthKoreaImage = styled.img`
     display: inline-block;
     width: 100%;
     margin: auto;
-    }
+  }
 `;
 
 const SeoulDiv = styled.div`
@@ -708,7 +749,7 @@ const SeoulDiv = styled.div`
     bottom: 12px;
     margin: 0;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -717,7 +758,7 @@ const SeoulDiv = styled.div`
     height: 80px;
     bottom: 89%;
     left: 20%;
-    }
+  }
 `;
 
 const IncheonDiv = styled.div`
@@ -738,7 +779,7 @@ const IncheonDiv = styled.div`
     margin: 0;
     text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -747,7 +788,7 @@ const IncheonDiv = styled.div`
     height: 80px;
     bottom: 85%;
     left: -18%;
-    }
+  }
 `;
 
 const DeajeonDiv = styled.div`
@@ -767,7 +808,7 @@ const DeajeonDiv = styled.div`
     bottom: 12px;
     margin: 0;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -776,7 +817,7 @@ const DeajeonDiv = styled.div`
     height: 80px;
     bottom: 68%;
     left: -20%;
-    }
+  }
 `;
 
 const DeaguDiv = styled.div`
@@ -796,7 +837,7 @@ const DeaguDiv = styled.div`
     bottom: 12px;
     margin: 0;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -805,7 +846,7 @@ const DeaguDiv = styled.div`
     height: 80px;
     bottom: 58%;
     left: -22%;
-    }
+  }
 `;
 
 const BusanDiv = styled.div`
@@ -823,10 +864,10 @@ const BusanDiv = styled.div`
   p {
     position: relative;
     bottom: 12px;
-    margin: 0;    
+    margin: 0;
     text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -835,7 +876,7 @@ const BusanDiv = styled.div`
     height: 80px;
     bottom: 61%;
     left: 55%;
-    }
+  }
 `;
 
 const UlsanDiv = styled.div`
@@ -856,7 +897,7 @@ const UlsanDiv = styled.div`
     margin: 0;
     text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -865,7 +906,7 @@ const UlsanDiv = styled.div`
     height: 80px;
     bottom: 66%;
     left: 48%;
-    }
+  }
 `;
 
 const GwangjuDiv = styled.div`
@@ -885,7 +926,7 @@ const GwangjuDiv = styled.div`
     bottom: 12px;
     margin: 0;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -894,7 +935,7 @@ const GwangjuDiv = styled.div`
     height: 80px;
     bottom: 63%;
     left: -30%;
-    }
+  }
 `;
 
 const GangneungDiv = styled.div`
@@ -914,8 +955,8 @@ const GangneungDiv = styled.div`
     bottom: 12px;
     margin: 0;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
-    text-shadow: 0 0 10px #c2d5db;
+      font-size: 0.8em;
+      text-shadow: 0 0 10px #c2d5db;
     }
   }
   @media screen and (max-width: 736px) {
@@ -945,7 +986,7 @@ const JejuDiv = styled.div`
     margin: 0;
     text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -954,7 +995,7 @@ const JejuDiv = styled.div`
     height: 80px;
     bottom: 56%;
     left: -18%;
-    }
+  }
 `;
 
 const DockdoDiv = styled.div`
@@ -975,7 +1016,7 @@ const DockdoDiv = styled.div`
     margin: 0;
     text-shadow: 0 0 10px #c2d5db;
     @media screen and (max-width: 736px) {
-    font-size: 0.8em;
+      font-size: 0.8em;
     }
   }
   @media screen and (max-width: 736px) {
@@ -984,5 +1025,5 @@ const DockdoDiv = styled.div`
     height: 80px;
     bottom: 110%;
     left: 25%;
-    }
+  }
 `;
