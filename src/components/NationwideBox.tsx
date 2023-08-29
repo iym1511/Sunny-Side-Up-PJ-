@@ -18,44 +18,37 @@ const NationwideBox = () => {
     0
   ).getDate();
 
+
+  
   const twoDate = (): number => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth() + 1);
-      date.setDate(1);
-      return date.getDate();
+    if (currentDay + 1 > lastDayOfMonth) {
+      return 1;
     } else {
-      // return date.setDate(date.getDate() + 1);
-      return date.getDate() + 1;
+      return currentDay + 1;
     }
   };
+  
   const threeDate = (): number => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(2);
-      return date.getDate();
+    if (currentDay + 2 > lastDayOfMonth) {
+      return currentDay + 2 - lastDayOfMonth;
     } else {
-      // date.setDate(date.getDate() + 2);
-      return date.getDate() + 2;
+      return currentDay + 2;
     }
   };
+  
   const fourDate = (): number => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(3);
-      return date.getDate();
+    if (currentDay + 3 > lastDayOfMonth) {
+      return currentDay + 3 - lastDayOfMonth;
     } else {
-      // date.setDate(date.getDate() + 3);
-      return date.getDate() + 3;
+      return currentDay + 3;
     }
   };
+  
   const fiveDate = (): number => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(4);
-      return date.getDate();
+    if (currentDay + 4 > lastDayOfMonth) {
+      return currentDay + 4 - lastDayOfMonth;
     } else {
-      // date.setDate(date.getDate() + 4);
-      return date.getDate() + 4;
+      return currentDay + 4;
     }
   };
 
@@ -89,7 +82,8 @@ const NationwideBox = () => {
     NationwideData[0].list.filter(
       (a: List) => a.dt_txt.substr(8, 2) == String(fiveDate()).padStart(2, "0")
     );
-
+    console.log(twoDate(),threeDate(),fourDate() ,fiveDate())
+    
   // type 설명 : List배열 이거나 undefined가 배열로있다
   const SeoulArray: (List[] | undefined)[] = [
     SeoulWeathers1,
@@ -98,7 +92,7 @@ const NationwideBox = () => {
     SeoulWeathers4,
     SeoulWeathers5,
   ];
-  console.log(SeoulArray);
+
   // 인천
   const IncheonWeathers1: List[] | undefined =
     NationwideData &&

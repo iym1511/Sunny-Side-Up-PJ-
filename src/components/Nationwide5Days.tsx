@@ -14,6 +14,7 @@ const Nationwide5Days = () => {
     date.getMonth() + 1,
     0
   ).getDate();
+  
   // 현재 달
   const month = String(date.getMonth() + 1);
   // 현재 일
@@ -22,24 +23,25 @@ const Nationwide5Days = () => {
   const month2 = () => {
     // 오늘 날짜가 해당 월의 마지막 날이라면
     if (currentDay === lastDayOfMonth) {
-      // 다음달일 return
-      date.setMonth(date.getMonth() + 2);
+      // 다음달 return
+      date.setMonth(date.getMonth());
       return date.getMonth();
     } else {
-      // 아니면, 현재 달을 return
+      // 아니면, 아래를 실행
+      // 오늘 일 + 1이 이번달의 마지막 날보다 크다면 다음달을 return
+      if (currentDay + 1 > lastDayOfMonth) {
+        return date.getMonth() + 2;
+      }
+      // 아니면 이번달을 return
       return date.getMonth() + 1;
     }
   };
 
   const day2 = () => {
-    // 오늘 날짜가 해당 월의 마지막 날이라면
-    if (currentDay === lastDayOfMonth) {
-      // 날짜를 1일로 설정
-      date.setDate(1);
-      return date.getDate();
+    if (currentDay + 1 > lastDayOfMonth) {
+      return 1;
     } else {
-      // 아니면, 현재 날짜에 +1
-      return date.getDate() + 1;
+      return currentDay + 1;
     }
   };
 
@@ -48,16 +50,18 @@ const Nationwide5Days = () => {
       date.setMonth(date.getMonth());
       return date.getMonth();
     } else {
+      if (currentDay + 2 > lastDayOfMonth) {
+        return date.getMonth() + 2;
+      }
       return date.getMonth() + 1;
     }
   };
 
   const day3 = () => {
-    if (currentDay === lastDayOfMonth) {
-      date.setDate(2);
-      return date.getDate();
+    if (currentDay + 2 > lastDayOfMonth) {
+      return currentDay + 2 - lastDayOfMonth;
     } else {
-      return date.getDate() + 2;
+      return currentDay + 2;
     }
   };
 
@@ -66,16 +70,18 @@ const Nationwide5Days = () => {
       date.setMonth(date.getMonth());
       return date.getMonth();
     } else {
+      if (currentDay + 3 > lastDayOfMonth) {
+        return date.getMonth() + 2;
+      }
       return date.getMonth() + 1;
     }
   };
 
   const day4 = () => {
-    if (currentDay === lastDayOfMonth) {
-      date.setDate(3);
-      return date.getDate();
+    if (currentDay + 3 > lastDayOfMonth) {
+      return currentDay + 3 - lastDayOfMonth;
     } else {
-      return date.getDate() + 3;
+      return currentDay + 3;
     }
   };
 
@@ -84,16 +90,18 @@ const Nationwide5Days = () => {
       date.setMonth(date.getMonth());
       return date.getMonth();
     } else {
+      if (currentDay + 4 > lastDayOfMonth) {
+        return date.getMonth() + 2;
+      }
       return date.getMonth() + 1;
     }
   };
 
   const day5 = () => {
-    if (currentDay === lastDayOfMonth) {
-      date.setDate(4);
-      return date.getDate();
+    if (currentDay + 4 > lastDayOfMonth) {
+      return currentDay + 4 - lastDayOfMonth;
     } else {
-      return date.getDate() + 4;
+      return currentDay + 4;
     }
   };
 

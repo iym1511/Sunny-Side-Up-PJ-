@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useRef } from "react";
 
 interface slickSettings {
   dots: boolean;
@@ -30,41 +30,35 @@ const Forcast5Days = () => {
     date.getMonth() + 1,
     0
   ).getDate();
+
   const oneDate: number = date.getDate(); // 현재 날짜 출력
+
   const twoDate = (): number => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth() + 1);
-      date.setDate(1);
-      return date.getDate();
+    if (currentDay + 1 > lastDayOfMonth) {
+      return 1;
     } else {
-      return date.getDate() + 1;
+      return currentDay + 1;
     }
   };
   const threeDate = (): number => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(1);
-      return date.getDate();
+    if (currentDay + 2 > lastDayOfMonth) {
+      return currentDay + 2 - lastDayOfMonth;
     } else {
-      return date.getDate() + 2;
+      return currentDay + 2;
     }
   };
   const fourDate = (): number => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(1);
-      return date.getDate();
+    if (currentDay + 3 > lastDayOfMonth) {
+      return currentDay + 3 - lastDayOfMonth;
     } else {
-      return date.getDate() + 3;
+      return currentDay + 3;
     }
   };
   const fiveDate = (): number => {
-    if (currentDay === lastDayOfMonth) {
-      date.setMonth(date.getMonth());
-      date.setDate(1);
-      return date.getDate();
+    if (currentDay + 4 > lastDayOfMonth) {
+      return currentDay + 4 - lastDayOfMonth;
     } else {
-      return date.getDate() + 4;
+      return currentDay + 4;
     }
   };
 
@@ -133,9 +127,7 @@ const Forcast5Days = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(DateCheck);
-  });
+
 
   return (
     <Forcast5DayBoxWallpaper>
@@ -325,7 +317,7 @@ const Forcast5Days = () => {
         </div>
       </SlickArrowsBox>
 
-      {/* 5일치 오후3시 날씨 */}
+      {/* 5일치 오후3시 날씨 + 여기꺼 활용? */}
       <Forcast5DayBox>
         {predict5Data &&
           predict5Data?.list.map((data: List, index: number) => {
