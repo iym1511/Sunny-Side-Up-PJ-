@@ -127,8 +127,6 @@ const Forcast5Days = () => {
     }
   };
 
-
-
   return (
     <Forcast5DayBoxWallpaper>
       <Forcast5DayTimeBox>
