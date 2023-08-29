@@ -25,7 +25,7 @@ const Nationwide5Days = () => {
     if (currentDay === lastDayOfMonth) {
       // 다음달 return
       date.setMonth(date.getMonth());
-      return date.getMonth();
+      return date.getMonth() + 1;
     } else {
       // 아니면, 아래를 실행
       // 오늘 일 + 1이 이번달의 마지막 날보다 크다면 다음달을 return
@@ -38,9 +38,12 @@ const Nationwide5Days = () => {
   };
 
   const day2 = () => {
+    // 일 + 1이 이번달의 마지막 날보다 크다면 1일 
     if (currentDay + 1 > lastDayOfMonth) {
-      return 1;
+      // ex) 이날이 31일이면 32 - 31 = 1일 이런식으로 계산된다
+      return currentDay + 1 - lastDayOfMonth;
     } else {
+      // 해당되지 않으면 다음날 출력
       return currentDay + 1;
     }
   };
@@ -48,7 +51,7 @@ const Nationwide5Days = () => {
   const month3 = () => {
     if (currentDay === lastDayOfMonth) {
       date.setMonth(date.getMonth());
-      return date.getMonth();
+      return date.getMonth() + 1;
     } else {
       if (currentDay + 2 > lastDayOfMonth) {
         return date.getMonth() + 2;
@@ -68,7 +71,7 @@ const Nationwide5Days = () => {
   const month4 = () => {
     if (currentDay === lastDayOfMonth) {
       date.setMonth(date.getMonth());
-      return date.getMonth();
+      return date.getMonth() + 1;
     } else {
       if (currentDay + 3 > lastDayOfMonth) {
         return date.getMonth() + 2;
@@ -88,7 +91,7 @@ const Nationwide5Days = () => {
   const month5 = () => {
     if (currentDay === lastDayOfMonth) {
       date.setMonth(date.getMonth());
-      return date.getMonth();
+      return date.getMonth() + 1;
     } else {
       if (currentDay + 4 > lastDayOfMonth) {
         return date.getMonth() + 2;
