@@ -4,6 +4,7 @@ import { List } from "../types/Predict5";
 import styled from "styled-components";
 
 const NationwideBox = () => {
+  
   const NationwideData = useAppSelector((state) => {
     return state.nationwideApi.apiData;
   });

@@ -109,7 +109,6 @@ const SunnySideUp = () => {
         lon: longitude,
       })
     );
-    // console.log(gps);
   });
 
   // 대기질 측정
@@ -149,15 +148,12 @@ const SunnySideUp = () => {
           setSi(location.address.region_1depth_name);
           setGu(location.address.region_2depth_name);
           setDong(location.address.region_3depth_name);
-          // console.log(response);
-          // locationX: location.address.x,
-          // locationY: location.address.y,
         });
+        console.log(response);
     } catch (error) {
       console.error(error);
     }
   };
-
   // if 문을 활용한 날씨별 배경
   // const TodayWeather: number | null =
   //   weatherApiData2 && weatherApiData2.weather[0].id;
@@ -345,7 +341,7 @@ const SunnySideUp = () => {
 
       {/* 5일치 일기예보 */}
       <Forcast5Days />
-      <Nationwide5Days />
+      <Nationwide5Days /> 
     </SunnySideUpWallpaper>
   ) : (
     <Loding />

@@ -17,6 +17,7 @@ export const asyncFetch2 = createAsyncThunk(
     const onGeoError = (): void => {
       alert("I can't find you. No weather for you.");
     };
+    // 위치저장
     navigator.geolocation.getCurrentPosition(
       (position: PositionType) => onGeoOkay(position),
       onGeoError
